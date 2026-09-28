@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import logo from "../assets/images/logo.png";
 import Option from "../enums/Option";
 import { useOptionStore } from "../stores/useOptionStore";
@@ -8,14 +9,17 @@ import styles from "./WelcomeScreen.module.css";
 
 export default function WelcomeScreen() {
 	const { setOption } = useOptionStore();
+	const router = useRouter();
 	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const { option } = event.currentTarget.dataset;
 		switch (option) {
 			case "forHere":
 				setOption(Option.forHere);
+				router.push("/main");
 				break;
 			case "toGo":
 				setOption(Option.toGo);
+				router.push("/main");
 				break;
 		}
 	};
