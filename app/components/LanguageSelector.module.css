@@ -1,0 +1,26 @@
+.languageSelector {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+}
+
+.languageList {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+}
+
+.languageButton {
+	border: none;
+	background-color: var(--color-main);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	font-size: 24px;
+}
+
+.languageButton:hover {
+	background-color: var(--color-accent);
+}
