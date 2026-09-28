@@ -6,6 +6,7 @@ export default function Main() {
 	return (
 		<div className={styles.main}>
 			<Image src={logo} alt="" className={styles.logo} />
+			<hr className={styles.horizontalLine} />
 		</div>
 	);
 }
