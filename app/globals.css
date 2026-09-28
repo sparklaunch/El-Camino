@@ -16,3 +16,7 @@ body {
 	background-color: var(--color-background);
 	height: 100vh;
 }
+
+button {
+	border: none;
+}

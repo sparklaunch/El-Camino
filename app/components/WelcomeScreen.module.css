@@ -17,3 +17,24 @@
 .header {
 	color: var(--color-text);
 }
+
+.options {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+.option {
+	background-color: var(--color-main);
+	width: 300px;
+	height: 100px;
+	color: white;
+	font-size: 32px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.option:hover {
+	background-color: var(--color-accent);
+}
