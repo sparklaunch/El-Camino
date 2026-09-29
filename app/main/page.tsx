@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
@@ -45,7 +46,9 @@ export default function Main() {
 	}
 	return (
 		<div className={styles.main}>
-			<Image src={logo} alt="" className={styles.logo} />
+			<Link href="/" className={styles.link}>
+				<Image src={logo} alt="Go home" className={styles.logo} />
+			</Link>
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
 				<aside className={styles.category}>
