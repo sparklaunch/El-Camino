@@ -49,6 +49,9 @@ export default function Main() {
 			<Link href="/" className={styles.link}>
 				<Image src={logo} alt="Go home" className={styles.logo} />
 			</Link>
+			<button type="button" className={styles.cart}>
+				🛒
+			</button>
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
 				<aside className={styles.category}>
