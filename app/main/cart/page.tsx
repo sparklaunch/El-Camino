@@ -18,6 +18,10 @@ export default function CartPage() {
 		queryKey: ["cart"],
 		queryFn: cartAPI.fetchCart
 	});
+	const filteredData =
+		category ?
+			data.filter((dish: Dish) => dish.category === category)
+		:	data;
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const { classification } = event.currentTarget.dataset;
 		switch (classification) {
@@ -128,7 +132,7 @@ export default function CartPage() {
 						</li>
 					</ul>
 					<div>
-						{data.map((dish: Dish) => (
+						{filteredData.map((dish: Dish) => (
 							<CartItem key={dish.id} dish={dish} />
 						))}
 					</div>
