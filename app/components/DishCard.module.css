@@ -26,3 +26,9 @@
 	color: var(--color-text);
 	font-size: 20px;
 }
+
+.price {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+}

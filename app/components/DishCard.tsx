@@ -4,7 +4,7 @@ import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 
 export default function DishCard({ dish }: { dish: Dish }) {
-	const { name, subname } = dish;
+	const { name, subname, price } = dish;
 	const imageURL = removeDiacritics(subname)
 		.toLowerCase()
 		.replaceAll(" ", "-");
@@ -20,6 +20,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			<div>
 				<h2 className={styles.name}>{name}</h2>
 				<p className={styles.subname}>{subname}</p>
+				<p className={styles.price}>{price.toLocaleString()}</p>
 			</div>
 		</section>
 	);
