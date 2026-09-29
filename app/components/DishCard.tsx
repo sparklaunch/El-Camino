@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import cartAPI from "../api/cartAPI";
 import removeDiacritics from "../helpers/removeDiacritics";
+import CartDish from "../types/CartDish";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 
@@ -15,7 +16,17 @@ export default function DishCard({ dish }: { dish: Dish }) {
 	const clickHandler = () => mutate(dish);
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({
-		mutationFn: cartAPI.addToCart,
+		// 이미 담긴 요리면 새로 추가하지 않고 수량만 늘림
+		mutationFn: (dish: Dish) => {
+			const cart = queryClient.getQueryData<CartDish[]>(["cart"]) ?? [];
+			const cartDish = cart.find((item) => item.id === dish.id);
+			return cartDish ?
+					cartAPI.updateQuantity({
+						id: dish.id,
+						quantity: cartDish.quantity + 1
+					})
+				:	cartAPI.addToCart(dish);
+		},
 		onSuccess: () =>
 			queryClient.invalidateQueries({
 				queryKey: ["cart"]

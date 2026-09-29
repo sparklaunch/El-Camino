@@ -9,3 +9,37 @@
 	object-fit: cover;
 	border-radius: 10px;
 }
+
+.name {
+	color: var(--color-text);
+	font-size: 32px;
+}
+
+.subname {
+	color: var(--color-text);
+	font-size: 18px;
+}
+
+.quantity {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	font-size: 32px;
+	gap: 10px;
+}
+
+.quantityButton {
+	background-color: transparent;
+	font-size: 48px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.quantityButton:hover:not(:disabled) {
+	transform: scale(1.2);
+}
+
+.quantityButton:disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+}

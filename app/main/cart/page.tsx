@@ -3,7 +3,6 @@
 import cartAPI from "@/app/api/cartAPI";
 import CartItem from "@/app/components/CartItem";
 import Category from "@/app/enums/Category";
-import Dish from "@/app/types/Dish";
 import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
@@ -29,10 +28,10 @@ export default function CartPage() {
 	});
 	const filteredData =
 		category ?
-			data.filter((dish: Dish) => dish.category === category)
+			data.filter((dish) => dish.category === category)
 		:	data;
 	const counts = data.reduce(
-		(acc: Partial<Record<Category, number>>, dish: Dish) => {
+		(acc: Partial<Record<Category, number>>, dish) => {
 			acc[dish.category] = (acc[dish.category] ?? 0) + 1;
 			return acc;
 		},
@@ -66,7 +65,7 @@ export default function CartPage() {
 						})}
 					</ul>
 					<div>
-						{filteredData.map((dish: Dish) => (
+						{filteredData.map((dish) => (
 							<CartItem key={dish.id} dish={dish} />
 						))}
 					</div>

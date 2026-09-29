@@ -21,10 +21,11 @@ export default function Main() {
 		queryKey: ["dishes", { category }],
 		queryFn: () => dishAPI.fetchDishes(category)
 	});
-	const { data: cart = [] } = useQuery<Dish[]>({
+	const { data: cart = [] } = useQuery({
 		queryKey: ["cart"],
 		queryFn: cartAPI.fetchCart
 	});
+	const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 	const cartClickHandler = () => {
 		router.push("/main/cart");
 	};
@@ -68,7 +69,7 @@ export default function Main() {
 					🛒
 				</button>
 				<div className={styles.cartBadgeWrapper}>
-					<p className={styles.cartBadge}>{cart.length}</p>
+					<p className={styles.cartBadge}>{cartCount}</p>
 				</div>
 			</div>
 			<hr className={styles.horizontalLine} />
