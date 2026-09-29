@@ -22,7 +22,7 @@ const cartAPI = {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({...dish, quantity: 1})
+                body: JSON.stringify({...dish, dishId: dish.id, quantity: 1})
             });
             if(!response.ok) {
                 throw new Error("카트에 아이템을 추가하는 데에 실패했어.");

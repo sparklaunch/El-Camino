@@ -68,9 +68,11 @@ export default function Main() {
 				>
 					🛒
 				</button>
-				<div className={styles.cartBadgeWrapper}>
-					<p className={styles.cartBadge}>{cartCount}</p>
-				</div>
+				{cartCount > 0 ?
+					<div className={styles.cartBadgeWrapper}>
+						<p className={styles.cartBadge}>{cartCount}</p>
+					</div>
+				:	<></>}
 			</div>
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
