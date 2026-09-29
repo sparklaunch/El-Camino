@@ -57,10 +57,39 @@ const english: Translation = {
 	home: "Back to Start"
 };
 
+const spanish: Translation = {
+	welcome: "Toca la pantalla para pedir",
+	forHere: "Para comer aquí",
+	toGo: "Para llevar",
+	categories: {
+		[Category.tapas]: "Tapas",
+		[Category.paella]: "Paella",
+		[Category.principales]: "Platos principales",
+		[Category.postre]: "Postres",
+		[Category.bebidas]: "Bebidas"
+	},
+	loading: "Cargando...",
+	error: "Se ha producido un error:",
+	add: "Añadir",
+	close: "Cerrar",
+	favorite: "Recomendados",
+	invoiceTitle: "Tu pedido",
+	emptyCart: "Tu carrito está vacío.",
+	total: "Total",
+	reset: "Vaciar",
+	pay: "Pagar",
+	price: (price: number) =>
+		`${price.toLocaleString("es-ES", { useGrouping: "always" })} ₩`,
+	paymentComplete: "Pago completado",
+	thanks: "Gracias por tu pedido. Te avisaremos cuando tu comida esté lista.",
+	home: "Volver al inicio"
+};
+
 // 아직 번역이 없는 언어는 한국어로 표시
 const translations: Partial<Record<Language, Translation>> = {
 	[Language.korean]: korean,
-	[Language.english]: english
+	[Language.english]: english,
+	[Language.español]: spanish
 };
 
 export default translations;
