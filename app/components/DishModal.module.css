@@ -1,0 +1,92 @@
+.dialog {
+	margin: auto;
+	padding: 0;
+	border: none;
+	border-radius: 10px;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+	width: 440px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.image {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.tags {
+	display: flex;
+	gap: 8px;
+}
+
+.tag {
+	background-color: var(--color-main);
+	padding: 4px 10px;
+	border-radius: 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.name {
+	font-size: 28px;
+}
+
+.subname {
+	font-size: 20px;
+}
+
+.description {
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+.price {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	margin-top: 10px;
+}
+
+.closeButton,
+.addButton {
+	padding: 10px 0;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.closeButton {
+	background-color: var(--color-main);
+	color: var(--color-text);
+}
+
+.addButton {
+	background-color: var(--color-accent);
+	color: white;
+}
+
+.closeButton:hover,
+.addButton:hover {
+	transform: scale(1.1);
+}

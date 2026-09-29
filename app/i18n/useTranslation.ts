@@ -10,5 +10,9 @@ export default function useTranslation() {
 		language === Language.english ?
 			(dish.englishName ?? dish.name)
 		:	dish.name;
-	return { t, dishName };
+	const dishDescription = (dish: Dish) =>
+		language === Language.english ?
+			(dish.englishDescription ?? dish.description)
+		:	dish.description;
+	return { t, dishName, dishDescription };
 }

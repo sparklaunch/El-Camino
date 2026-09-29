@@ -2,12 +2,14 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
+import { useState } from "react";
 import cartAPI from "../api/cartAPI";
 import useTranslation from "../i18n/useTranslation";
 import removeDiacritics from "../helpers/removeDiacritics";
 import CartDish from "../types/CartDish";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
+import DishModal from "./DishModal";
 
 export default function DishCard({ dish }: { dish: Dish }) {
 	const { subname, price, favorite } = dish;
@@ -16,7 +18,13 @@ export default function DishCard({ dish }: { dish: Dish }) {
 	const imageURL = removeDiacritics(subname)
 		.toLowerCase()
 		.replaceAll(" ", "-");
-	const clickHandler = () => mutate(dish);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const addToCart = () => mutate(dish);
+	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+		// 담기 버튼을 눌렀을 때는 모달을 열지 않음
+		event.stopPropagation();
+		addToCart();
+	};
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({
 		scope: { id: "cart" },
@@ -36,7 +44,10 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			})
 	});
 	return (
-		<section className={styles.section}>
+		<section
+			className={styles.section}
+			onClick={() => setIsModalOpen(true)}
+		>
 			<Image
 				src={`/assets/images/${imageURL}.jpg`}
 				alt={name}
@@ -57,6 +68,14 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			>
 				{t.add}
 			</button>
+			{isModalOpen && (
+				<DishModal
+					dish={dish}
+					imageURL={imageURL}
+					onAdd={addToCart}
+					onClose={() => setIsModalOpen(false)}
+				/>
+			)}
 		</section>
 	);
 }
