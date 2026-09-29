@@ -33,7 +33,8 @@ const cartAPI = {
     },
     // 실패 시 낙관적 업데이트를 되돌릴 수 있도록 에러를 그대로 던짐
     updateQuantity: async ({id, quantity}: {id: string; quantity: number}) => {
-        const response = await fetch(`http://localhost:4000/cart/${id}`, {
+        try {
+            const response = await fetch(`http://localhost:4000/cart/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -42,6 +43,21 @@ const cartAPI = {
         });
         if(!response.ok) {
             throw new Error("수량을 변경하는 데에 실패했어.");
+        }
+        } catch(error) {
+            console.error(error);
+        }
+    },
+    deleteFromCart: async (id: string) => {
+        try {
+            const response = await fetch(`http://localhost:4000/cart/${id}`, {
+                        method: "DELETE"
+                    })
+                    if(!response.ok) {
+                        throw new Error("삭제하는 데에 실패했어.");
+                    }
+        } catch(error) {
+            console.error(error);
         }
     }
 };

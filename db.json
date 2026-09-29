@@ -1,36 +1,5 @@
 {
-  "cart": [
-    {
-      "category": "tapas",
-      "favorite": true,
-      "id": "8xFCB-Xvstk",
-      "name": "감바스 알 아히요",
-      "price": 17000,
-      "subname": "Gambas al Ajillo",
-      "dishId": "RTeW25I5h6o",
-      "quantity": 1
-    },
-    {
-      "category": "tapas",
-      "favorite": true,
-      "id": "4dn0zBuQJk4",
-      "name": "파타타스 브라바스",
-      "price": 11000,
-      "subname": "Patatas Bravas",
-      "dishId": "AujAKdX4sKw",
-      "quantity": 1
-    },
-    {
-      "category": "tapas",
-      "favorite": true,
-      "id": "qIm84OouCU0",
-      "name": "크로케타스",
-      "price": 12000,
-      "subname": "Croquetas",
-      "dishId": "iARDR2H9on8",
-      "quantity": 2
-    }
-  ],
+  "cart": [],
   "dishes": [
     {
       "category": "tapas",

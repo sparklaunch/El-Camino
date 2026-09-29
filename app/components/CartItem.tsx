@@ -18,7 +18,9 @@ export default function CartItem({ dish }: { dish: CartDish }) {
 			await queryClient.cancelQueries({ queryKey: ["cart"] });
 			const previousCart = queryClient.getQueryData<CartDish[]>(["cart"]);
 			queryClient.setQueryData<CartDish[]>(["cart"], (cart) =>
-				cart?.map((item) => (item.id === id ? { ...item, quantity } : item))
+				cart?.map((item) =>
+					item.id === id ? { ...item, quantity } : item
+				)
 			);
 			return { previousCart };
 		},
@@ -28,6 +30,26 @@ export default function CartItem({ dish }: { dish: CartDish }) {
 		},
 		onSettled: () => queryClient.invalidateQueries({ queryKey: ["cart"] })
 	});
+	const { mutate: deleteMutate } = useMutation({
+		mutationFn: cartAPI.deleteFromCart,
+		// 담기·수량 변경 요청과 섞이지 않도록 순서대로 처리
+		scope: { id: "cart" },
+		// 서버 응답을 기다리지 않고 화면에서 항목을 먼저 지움
+		onMutate: async () => {
+			await queryClient.cancelQueries({ queryKey: ["cart"] });
+			const previousCart = queryClient.getQueryData<CartDish[]>(["cart"]);
+			queryClient.setQueryData<CartDish[]>(["cart"], (cart) =>
+				cart?.filter((item) => item.id !== id)
+			);
+			return { previousCart };
+		},
+		onError: (error, _variables, context) => {
+			console.error(error);
+			queryClient.setQueryData(["cart"], context?.previousCart);
+		},
+		onSettled: () => queryClient.invalidateQueries({ queryKey: ["cart"] })
+	});
+	const deleteHandler = () => deleteMutate(id);
 	const decreaseHandler = () => mutate({ id, quantity: quantity - 1 });
 	const increaseHandler = () => mutate({ id, quantity: quantity + 1 });
 	return (
@@ -62,6 +84,13 @@ export default function CartItem({ dish }: { dish: CartDish }) {
 					+
 				</button>
 			</div>
+			<button
+				type="button"
+				className={styles.trashBin}
+				onClick={deleteHandler}
+			>
+				🗑️
+			</button>
 		</section>
 	);
 }

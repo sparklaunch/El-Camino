@@ -36,10 +36,21 @@
 }
 
 .quantityButton:hover:not(:disabled) {
-	transform: scale(1.2);
+	transform: scale(1.3);
 }
 
 .quantityButton:disabled {
 	opacity: 0.3;
 	cursor: not-allowed;
+}
+
+.trashBin {
+	background-color: transparent;
+	font-size: 48px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.trashBin:hover {
+	transform: scale(1.3);
 }
