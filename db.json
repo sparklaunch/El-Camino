@@ -1,5 +1,66 @@
 {
-  "cart": [],
+  "cart": [
+    {
+      "category": "tapas",
+      "favorite": true,
+      "id": "1bYNdUR98hQ",
+      "name": "감바스 알 아히요",
+      "price": 17000,
+      "subname": "Gambas al Ajillo",
+      "dishId": "RTeW25I5h6o",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
+      "favorite": true,
+      "id": "7SdzA1mVO3s",
+      "name": "파타타스 브라바스",
+      "price": 11000,
+      "subname": "Patatas Bravas",
+      "dishId": "AujAKdX4sKw",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
+      "favorite": true,
+      "id": "BGlH9a8X1vY",
+      "name": "크로케타스",
+      "price": 12000,
+      "subname": "Croquetas",
+      "dishId": "iARDR2H9on8",
+      "quantity": 4
+    },
+    {
+      "category": "tapas",
+      "favorite": false,
+      "id": "YxKEVMISvP8",
+      "name": "알본디가스",
+      "price": 14000,
+      "subname": "Albondigas",
+      "dishId": "PSYYAqdlX3Y",
+      "quantity": 4
+    },
+    {
+      "category": "bebidas",
+      "favorite": true,
+      "id": "0hG0XqvwkmE",
+      "name": "알바리뇨",
+      "price": 8500,
+      "subname": "Albariño",
+      "dishId": "aExKgckfarU",
+      "quantity": 2
+    },
+    {
+      "category": "bebidas",
+      "favorite": false,
+      "id": "MktlFisbLYs",
+      "name": "리베라 델 두에로",
+      "price": 9000,
+      "subname": "Ribera del Duero",
+      "dishId": "rDa8TSOSApw",
+      "quantity": 2
+    }
+  ],
   "dishes": [
     {
       "category": "tapas",

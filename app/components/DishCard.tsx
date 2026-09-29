@@ -16,9 +16,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
 	const clickHandler = () => mutate(dish);
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({
-		// 연속 클릭 시 이전 요청의 카트 갱신이 끝난 뒤에 다음 요청이 실행되도록 순서대로 처리
 		scope: { id: "cart" },
-		// 이미 담긴 요리면 새로 추가하지 않고 수량만 늘림
 		mutationFn: (dish: Dish) => {
 			const cart = queryClient.getQueryData<CartDish[]>(["cart"]) ?? [];
 			const cartDish = cart.find((item) => item.dishId === dish.id);
@@ -35,12 +33,12 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			})
 	});
 	return (
-		<section className={styles.section} onClick={clickHandler}>
+		<section className={styles.section}>
 			<Image
 				src={`/assets/images/${imageURL}.jpg`}
 				alt={name}
-				width={160}
-				height={160}
+				width={120}
+				height={120}
 				className={styles.image}
 			/>
 			{favorite && <div className={styles.favorite}>👍</div>}
@@ -49,6 +47,13 @@ export default function DishCard({ dish }: { dish: Dish }) {
 				<p className={styles.subname}>{subname}</p>
 				<p className={styles.price}>{price.toLocaleString()}</p>
 			</div>
+			<button
+				type="button"
+				className={styles.addButton}
+				onClick={clickHandler}
+			>
+				담기
+			</button>
 		</section>
 	);
 }

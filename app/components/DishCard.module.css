@@ -1,12 +1,8 @@
 .section {
 	display: flex;
 	align-items: center;
-	padding: 20px;
-	gap: 10px;
-	border: 3px solid transparent;
-	transition: border-color 0.3s;
-	cursor: pointer;
-	border-radius: 10px;
+	padding: 10px;
+	gap: 15px;
 	position: relative;
 }
 
@@ -15,10 +11,6 @@
 	top: 0;
 	left: 0;
 	font-size: 50px;
-}
-
-.section:hover {
-	border: 3px solid var(--color-accent);
 }
 
 .image {
@@ -39,4 +31,21 @@
 	font-size: 20px;
 	font-weight: bold;
 	margin-top: 10px;
+}
+
+.addButton {
+	margin-left: auto;
+	background-color: var(--color-main);
+	padding: 10px 30px;
+	border-radius: 10px;
+	cursor: pointer;
+	color: var(--color-text);
+	font-size: 24px;
+	font-weight: bold;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	transition: transform 0.3s;
+}
+
+.addButton:hover {
+	transform: scale(1.2);
 }

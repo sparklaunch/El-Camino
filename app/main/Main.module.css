@@ -4,6 +4,8 @@
 	align-items: stretch;
 	padding: 30px;
 	gap: 20px;
+	height: 100vh;
+	overflow: hidden;
 }
 
 .logo {
@@ -23,8 +25,12 @@
 
 .body {
 	display: grid;
-	grid-template-columns: 300px 1fr;
+	grid-template-columns: 300px 1fr 300px;
+	grid-template-rows: minmax(0, 1fr);
 	gap: 20px;
+	flex: 1;
+	min-height: 0;
+	align-items: start;
 }
 
 .category {
@@ -61,44 +67,13 @@
 }
 
 .menu {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-}
-
-.cart {
-	font-size: 100px;
-	position: absolute;
-	top: 30px;
-	right: 50px;
-	background-color: transparent;
-	cursor: pointer;
-	transition: filter 0.3s;
-}
-
-.cart:hover {
-	filter: drop-shadow(0 0 6px var(--color-accent));
-}
-
-.cartWrapper {
-	display: relative;
-}
-
-.cartBadge {
-	color: white;
-	font-weight: bolder;
-	font-size: 20px;
-}
-
-.cartBadgeWrapper {
-	position: absolute;
-	top: 36px;
-	right: 36px;
-	width: 30px;
-	height: 30px;
-	background-color: red;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	flex-direction: column;
+	align-self: stretch;
+	overflow-y: auto;
+}
+
+.menuSection {
+	display: flex;
+	flex-direction: column;
 }
