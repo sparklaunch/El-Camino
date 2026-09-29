@@ -360,13 +360,6 @@
 		{
 			"category": "bebidas",
 			"favorite": false,
-			"name": "리오하",
-			"price": 0,
-			"subname": "Rioja"
-		},
-		{
-			"category": "bebidas",
-			"favorite": false,
 			"name": "셰리",
 			"price": 0,
 			"subname": "Sherry"

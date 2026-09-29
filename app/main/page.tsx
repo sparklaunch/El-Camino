@@ -7,13 +7,14 @@ import React, { useState } from "react";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import Category from "../enums/Category";
+import Dish from "../types/Dish";
 import styles from "./Main.module.css";
 
 export default function Main() {
 	const [category, setCategory] = useState(Category.tapas);
 	const { data, isPending, isError, error } = useQuery({
-		queryKey: ["dishes"],
-		queryFn: dishAPI.fetchDishes
+		queryKey: ["dishes", { category }],
+		queryFn: () => dishAPI.fetchDishes(category)
 	});
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const { classification } = event.currentTarget.dataset;
@@ -103,7 +104,11 @@ export default function Main() {
 						<p className={styles.categorySubtitle}>Bebidas</p>
 					</button>
 				</aside>
-				<article className={styles.menu}></article>
+				<article className={styles.menu}>
+					{data.map((dish: Dish) => (
+						<div key={dish.name}>{dish.name}</div>
+					))}
+				</article>
 			</div>
 		</div>
 	);

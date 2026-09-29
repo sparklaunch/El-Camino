@@ -1,9 +1,9 @@
 enum Category {
-    tapas,
-    paella,
-    principales,
-    postre,
-    bebidas
+    tapas = "tapas",
+    paella = "paella",
+    principales = "principales",
+    postre = "postre",
+    bebidas = "bebidas"
 }
 
 export default Category;
