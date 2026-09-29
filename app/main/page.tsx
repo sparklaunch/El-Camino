@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
+import DishCard from "../components/DishCard";
 import Category from "../enums/Category";
 import Dish from "../types/Dish";
 import styles from "./Main.module.css";
@@ -106,7 +107,7 @@ export default function Main() {
 				</aside>
 				<article className={styles.menu}>
 					{data.map((dish: Dish) => (
-						<div key={dish.name}>{dish.name}</div>
+						<DishCard key={dish.name} dish={dish} />
 					))}
 				</article>
 			</div>
