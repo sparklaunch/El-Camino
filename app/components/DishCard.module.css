@@ -1,4 +1,20 @@
 .section {
 	display: flex;
 	align-items: center;
+	padding: 20px;
+	gap: 10px;
+}
+
+.image {
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.name {
+	color: var(--color-text);
+}
+
+.subname {
+	color: var(--color-text);
+	font-size: 20px;
 }

@@ -13,9 +13,14 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			<Image
 				src={`/assets/images/${imageURL}.jpg`}
 				alt={name}
-				width={100}
-				height={100}
+				width={160}
+				height={160}
+				className={styles.image}
 			/>
+			<div>
+				<h2 className={styles.name}>{name}</h2>
+				<p className={styles.subname}>{subname}</p>
+			</div>
 		</section>
 	);
 }
