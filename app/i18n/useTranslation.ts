@@ -9,9 +9,15 @@ export default function useTranslation() {
 	// 영어·스페인어에서는 스페인어 원어명(subname)을 요리 이름으로 사용
 	const dishName = (dish: Dish) =>
 		language === Language.korean ? dish.name : dish.subname;
-	const dishDescription = (dish: Dish) =>
-		language === Language.english ?
-			(dish.englishDescription ?? dish.description)
-		:	dish.description;
+	const dishDescription = (dish: Dish) => {
+		switch (language) {
+			case Language.english:
+				return dish.englishDescription ?? dish.description;
+			case Language.español:
+				return dish.spanishDescription ?? dish.description;
+			default:
+				return dish.description;
+		}
+	};
 	return { t, dishName, dishDescription };
 }

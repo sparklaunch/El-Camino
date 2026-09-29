@@ -7,6 +7,7 @@ type Dish = {
     name: string;
     description?: string;
     englishDescription?: string;
+    spanishDescription?: string;
     subname: string;
     price: number;
 }
