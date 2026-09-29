@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
@@ -14,12 +15,16 @@ import Dish from "../types/Dish";
 import styles from "./Main.module.css";
 
 export default function Main() {
+	const router = useRouter();
 	const { cart } = useCartStore();
 	const [category, setCategory] = useState(Category.tapas);
 	const { data, isPending, isError, error } = useQuery({
 		queryKey: ["dishes", { category }],
 		queryFn: () => dishAPI.fetchDishes(category)
 	});
+	const cartClickHandler = () => {
+		router.push("/main/cart");
+	};
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const { classification } = event.currentTarget.dataset;
 		switch (classification) {
@@ -52,7 +57,11 @@ export default function Main() {
 				<Image src={logo} alt="Go home" className={styles.logo} />
 			</Link>
 			<div className={styles.cartWrapper}>
-				<button type="button" className={styles.cart}>
+				<button
+					type="button"
+					className={styles.cart}
+					onClick={cartClickHandler}
+				>
 					🛒
 				</button>
 				<div className={styles.cartBadgeWrapper}>
