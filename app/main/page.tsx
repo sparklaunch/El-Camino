@@ -1,31 +1,92 @@
+"use client";
+
+import { clsx } from "clsx";
 import Image from "next/image";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
+import Category from "../enums/Category";
 import styles from "./Main.module.css";
 
 export default function Main() {
+	const [category, setCategory] = useState(Category.tapas);
+	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+		const { classification } = event.currentTarget.dataset;
+		switch (classification) {
+			case "tapas":
+				setCategory(Category.tapas);
+				break;
+			case "paella":
+				setCategory(Category.paella);
+				break;
+			case "principales":
+				setCategory(Category.principales);
+				break;
+			case "postre":
+				setCategory(Category.postre);
+				break;
+			case "bebidas":
+				setCategory(Category.bebidas);
+				break;
+		}
+	};
 	return (
 		<div className={styles.main}>
 			<Image src={logo} alt="" className={styles.logo} />
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
 				<aside className={styles.category}>
-					<button type="button" className={styles.categoryButton}>
+					<button
+						type="button"
+						className={clsx(styles.categoryButton, {
+							[styles.active]: category === Category.tapas
+						})}
+						onClick={clickHandler}
+						data-classification="tapas"
+					>
 						<h2 className={styles.categoryTitle}>타파스</h2>
 						<p className={styles.categorySubtitle}>Tapas</p>
 					</button>
-					<button type="button" className={styles.categoryButton}>
+					<button
+						type="button"
+						className={clsx(styles.categoryButton, {
+							[styles.active]: category === Category.paella
+						})}
+						onClick={clickHandler}
+						data-classification="paella"
+					>
 						<h2 className={styles.categoryTitle}>빠에야</h2>
 						<p className={styles.categorySubtitle}>Paella</p>
 					</button>
-					<button type="button" className={styles.categoryButton}>
+					<button
+						type="button"
+						className={clsx(styles.categoryButton, {
+							[styles.active]: category === Category.principales
+						})}
+						onClick={clickHandler}
+						data-classification="principales"
+					>
 						<h2 className={styles.categoryTitle}>메인 요리</h2>
 						<p className={styles.categorySubtitle}>Principales</p>
 					</button>
-					<button type="button" className={styles.categoryButton}>
+					<button
+						type="button"
+						className={clsx(styles.categoryButton, {
+							[styles.active]: category === Category.postre
+						})}
+						onClick={clickHandler}
+						data-classification="postre"
+					>
 						<h2 className={styles.categoryTitle}>디저트</h2>
 						<p className={styles.categorySubtitle}>Postre</p>
 					</button>
-					<button type="button" className={styles.categoryButton}>
+					<button
+						type="button"
+						className={clsx(styles.categoryButton, {
+							[styles.active]: category === Category.bebidas
+						})}
+						onClick={clickHandler}
+						data-classification="bebidas"
+					>
 						<h2 className={styles.categoryTitle}>음료</h2>
 						<p className={styles.categorySubtitle}>Bebidas</p>
 					</button>
