@@ -1,7 +1,7 @@
 const dishAPI = {
     fetchDishes: async () => {
         try {
-            const response = await fetch("localhost:4000/dishes");
+            const response = await fetch("http://localhost:4000/dishes");
             if(!response.ok) {
                 throw new Error("요리를 불러오는 데에 실패했어.")
             }

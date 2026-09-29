@@ -1,14 +1,20 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
 import React, { useState } from "react";
+import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import Category from "../enums/Category";
 import styles from "./Main.module.css";
 
 export default function Main() {
 	const [category, setCategory] = useState(Category.tapas);
+	const { data, isPending, isError, error } = useQuery({
+		queryKey: ["dishes"],
+		queryFn: dishAPI.fetchDishes
+	});
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const { classification } = event.currentTarget.dataset;
 		switch (classification) {
@@ -29,6 +35,12 @@ export default function Main() {
 				break;
 		}
 	};
+	if (isPending) {
+		return <p>로딩중...</p>;
+	}
+	if (isError) {
+		return <p>에러가 발생했어: {error.message}</p>;
+	}
 	return (
 		<div className={styles.main}>
 			<Image src={logo} alt="" className={styles.logo} />
