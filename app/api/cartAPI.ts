@@ -59,6 +59,10 @@ const cartAPI = {
         } catch(error) {
             console.error(error);
         }
+    },
+    // json-server는 일괄 삭제를 지원하지 않아서 항목마다 DELETE 요청을 보냄
+    clearCart: async (ids: string[]) => {
+        await Promise.all(ids.map(id => cartAPI.deleteFromCart(id)));
     }
 };
 

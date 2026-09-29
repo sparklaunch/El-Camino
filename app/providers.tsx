@@ -1,7 +1,15 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import Language from "./enums/Language";
+import { useLanguageStore } from "./stores/useLanguageStore";
+
+const htmlLang = {
+	[Language.korean]: "ko",
+	[Language.english]: "en",
+	[Language.español]: "es"
+};
 
 export default function Providers({ children }: { children: ReactNode }) {
 	const [queryClient] = useState(
@@ -15,6 +23,13 @@ export default function Providers({ children }: { children: ReactNode }) {
 				}
 			})
 	);
+	const language = useLanguageStore((state) => state.currentLanguage);
+	useEffect(() => {
+		useLanguageStore.persist.rehydrate();
+	}, []);
+	useEffect(() => {
+		document.documentElement.lang = htmlLang[language];
+	}, [language]);
 	return (
 		<QueryClientProvider client={queryClient}>
 			{children}

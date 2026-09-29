@@ -3,13 +3,16 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import cartAPI from "../api/cartAPI";
+import useTranslation from "../i18n/useTranslation";
 import removeDiacritics from "../helpers/removeDiacritics";
 import CartDish from "../types/CartDish";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 
 export default function DishCard({ dish }: { dish: Dish }) {
-	const { name, subname, price, favorite } = dish;
+	const { subname, price, favorite } = dish;
+	const { t, dishName } = useTranslation();
+	const name = dishName(dish);
 	const imageURL = removeDiacritics(subname)
 		.toLowerCase()
 		.replaceAll(" ", "-");
@@ -45,14 +48,14 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			<div>
 				<h2 className={styles.name}>{name}</h2>
 				<p className={styles.subname}>{subname}</p>
-				<p className={styles.price}>{price.toLocaleString()}</p>
+				<p className={styles.price}>{t.price(price)}</p>
 			</div>
 			<button
 				type="button"
 				className={styles.addButton}
 				onClick={clickHandler}
 			>
-				담기
+				{t.add}
 			</button>
 		</section>
 	);

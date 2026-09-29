@@ -3,12 +3,15 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import cartAPI from "../api/cartAPI";
+import useTranslation from "../i18n/useTranslation";
 import removeDiacritics from "../helpers/removeDiacritics";
 import CartDish from "../types/CartDish";
 import styles from "./CartItem.module.css";
 
 export default function CartItem({ dish }: { dish: CartDish }) {
-	const { id, subname, name, quantity } = dish;
+	const { id, subname, quantity } = dish;
+	const { dishName } = useTranslation();
+	const name = dishName(dish);
 	const image = removeDiacritics(subname).toLowerCase().replaceAll(" ", "-");
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({

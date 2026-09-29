@@ -98,3 +98,45 @@
 	font-size: 22px;
 	font-weight: bold;
 }
+
+.buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+.resetButton {
+	background-color: var(--color-accent);
+	padding: 10px 0;
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.resetButton:hover {
+	transform: scale(1.1);
+}
+
+.payButton {
+	background-color: var(--color-accent);
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.payButton:hover:not(:disabled) {
+	transform: scale(1.1);
+}
+
+.payButton:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

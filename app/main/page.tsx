@@ -10,19 +10,21 @@ import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
 import Invoice from "../components/Invoice";
 import Category from "../enums/Category";
+import useTranslation from "../i18n/useTranslation";
 import Dish from "../types/Dish";
 import styles from "./Main.module.css";
 
 const categories = [
-	{ value: Category.tapas, title: "타파스", subtitle: "Tapas" },
-	{ value: Category.paella, title: "빠에야", subtitle: "Paella" },
-	{ value: Category.principales, title: "메인 요리", subtitle: "Principales" },
-	{ value: Category.postre, title: "디저트", subtitle: "Postre" },
-	{ value: Category.bebidas, title: "음료", subtitle: "Bebidas" }
+	{ value: Category.tapas, subtitle: "Tapas" },
+	{ value: Category.paella, subtitle: "Paella" },
+	{ value: Category.principales, subtitle: "Principales" },
+	{ value: Category.postre, subtitle: "Postre" },
+	{ value: Category.bebidas, subtitle: "Bebidas" }
 ];
 
 export default function Main() {
 	const [category, setCategory] = useState(Category.tapas);
+	const { t } = useTranslation();
 	const sectionRefs = useRef<Partial<Record<Category, HTMLElement | null>>>({});
 	const { data, isPending, isError, error } = useQuery({
 		queryKey: ["dishes"],
@@ -33,10 +35,14 @@ export default function Main() {
 		sectionRefs.current[value]?.scrollIntoView({ behavior: "smooth", block: "start" });
 	};
 	if (isPending) {
-		return <p>로딩중...</p>;
+		return <p>{t.loading}</p>;
 	}
 	if (isError) {
-		return <p>에러가 발생했어: {error.message}</p>;
+		return (
+			<p>
+				{t.error} {error.message}
+			</p>
+		);
 	}
 	const dishes: Dish[] = data ?? [];
 	return (
@@ -47,7 +53,7 @@ export default function Main() {
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
 				<aside className={styles.category}>
-					{categories.map(({ value, title, subtitle }) => (
+					{categories.map(({ value, subtitle }) => (
 						<button
 							key={value}
 							type="button"
@@ -56,8 +62,12 @@ export default function Main() {
 							})}
 							onClick={() => clickHandler(value)}
 						>
-							<h2 className={styles.categoryTitle}>{title}</h2>
-							<p className={styles.categorySubtitle}>{subtitle}</p>
+							<h2 className={styles.categoryTitle}>
+								{t.categories[value]}
+							</h2>
+							<p className={styles.categorySubtitle}>
+								{subtitle}
+							</p>
 						</button>
 					))}
 				</aside>
