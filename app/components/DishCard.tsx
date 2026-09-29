@@ -4,7 +4,7 @@ import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 
 export default function DishCard({ dish }: { dish: Dish }) {
-	const { name, subname, price } = dish;
+	const { name, subname, price, favorite } = dish;
 	const imageURL = removeDiacritics(subname)
 		.toLowerCase()
 		.replaceAll(" ", "-");
@@ -17,6 +17,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
 				height={160}
 				className={styles.image}
 			/>
+			{favorite && <div className={styles.favorite}>👍</div>}
 			<div>
 				<h2 className={styles.name}>{name}</h2>
 				<p className={styles.subname}>{subname}</p>
