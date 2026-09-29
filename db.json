@@ -8,7 +8,7 @@
       "price": 17000,
       "subname": "Gambas al Ajillo",
       "dishId": "RTeW25I5h6o",
-      "quantity": 1
+      "quantity": 2
     },
     {
       "category": "tapas",
@@ -18,7 +18,7 @@
       "price": 11000,
       "subname": "Patatas Bravas",
       "dishId": "AujAKdX4sKw",
-      "quantity": 1
+      "quantity": 2
     },
     {
       "category": "tapas",
@@ -28,7 +28,7 @@
       "price": 12000,
       "subname": "Croquetas",
       "dishId": "iARDR2H9on8",
-      "quantity": 4
+      "quantity": 5
     },
     {
       "category": "tapas",
@@ -59,6 +59,86 @@
       "subname": "Ribera del Duero",
       "dishId": "rDa8TSOSApw",
       "quantity": 2
+    },
+    {
+      "category": "tapas",
+      "favorite": true,
+      "id": "Y2dTjLWh-uw",
+      "name": "하몽 이베리코",
+      "price": 30000,
+      "subname": "Jamón Ibérico",
+      "dishId": "S0Ka-ofedBc",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
+      "favorite": false,
+      "id": "11Oq2ewhkvA",
+      "name": "아세이투나스",
+      "price": 7000,
+      "subname": "Aceitunas",
+      "dishId": "yGEtWNpT0Yc",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
+      "favorite": false,
+      "id": "GMlIuDOz64I",
+      "name": "풀포 아 라 가예가",
+      "price": 13000,
+      "subname": "Pulpo a la Gallega",
+      "dishId": "R-1jXBSxs8M",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
+      "favorite": false,
+      "id": "pVv73Syhkpk",
+      "name": "힐다",
+      "price": 9000,
+      "subname": "Gilda",
+      "dishId": "Qkt0MVlUX90",
+      "quantity": 1
+    },
+    {
+      "category": "paella",
+      "favorite": true,
+      "id": "ecUYSg5Mnzc",
+      "name": "빠에야 데 마리스코스",
+      "price": 15000,
+      "subname": "Paella de Mariscos",
+      "dishId": "W-DoZ4Vzcwg",
+      "quantity": 1
+    },
+    {
+      "category": "paella",
+      "favorite": false,
+      "id": "KMCwRkrGv-U",
+      "name": "빠에야 데 베르두라스",
+      "price": 10000,
+      "subname": "Paella de Verduras",
+      "dishId": "ZV1I7eP75O4",
+      "quantity": 1
+    },
+    {
+      "category": "paella",
+      "favorite": true,
+      "id": "rNWoyOndYHY",
+      "name": "아로스 네그로",
+      "price": 13000,
+      "subname": "Arroz Negro",
+      "dishId": "yN6y6r2bNPk",
+      "quantity": 1
+    },
+    {
+      "category": "paella",
+      "favorite": false,
+      "id": "jN_tRmooKgM",
+      "name": "피데우아",
+      "price": 12000,
+      "subname": "Fideua",
+      "dishId": "8lGDigQZdlk",
+      "quantity": 1
     }
   ],
   "dishes": [
