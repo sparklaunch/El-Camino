@@ -9,10 +9,12 @@ import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
 import Category from "../enums/Category";
+import { useCartStore } from "../stores/useCartStore";
 import Dish from "../types/Dish";
 import styles from "./Main.module.css";
 
 export default function Main() {
+	const { cart } = useCartStore();
 	const [category, setCategory] = useState(Category.tapas);
 	const { data, isPending, isError, error } = useQuery({
 		queryKey: ["dishes", { category }],
@@ -49,9 +51,14 @@ export default function Main() {
 			<Link href="/" className={styles.link}>
 				<Image src={logo} alt="Go home" className={styles.logo} />
 			</Link>
-			<button type="button" className={styles.cart}>
-				🛒
-			</button>
+			<div className={styles.cartWrapper}>
+				<button type="button" className={styles.cart}>
+					🛒
+				</button>
+				<div className={styles.cartBadgeWrapper}>
+					<p className={styles.cartBadge}>{cart.length}</p>
+				</div>
+			</div>
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
 				<aside className={styles.category}>
