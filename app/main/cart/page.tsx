@@ -1,6 +1,10 @@
 "use client";
 
+import cartAPI from "@/app/api/cartAPI";
+import CartItem from "@/app/components/CartItem";
 import Category from "@/app/enums/Category";
+import Dish from "@/app/types/Dish";
+import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +14,10 @@ import styles from "./CartPage.module.css";
 
 export default function CartPage() {
 	const [category, setCategory] = useState<Category | null>(null);
+	const { data = [] } = useQuery({
+		queryKey: ["cart"],
+		queryFn: cartAPI.fetchCart
+	});
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		const { classification } = event.currentTarget.dataset;
 		switch (classification) {
@@ -119,6 +127,11 @@ export default function CartPage() {
 							</button>
 						</li>
 					</ul>
+					<div>
+						{data.map((dish: Dish) => (
+							<CartItem key={dish.id} dish={dish} />
+						))}
+					</div>
 				</section>
 				<aside className={styles.aside}></aside>
 			</div>
