@@ -1,6 +1,7 @@
 import Category from "../enums/Category";
 
 type Dish = {
+    id: string;
     category: Category;
     favorite: boolean;
     name: string;

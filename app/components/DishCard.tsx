@@ -1,20 +1,26 @@
 "use client";
 
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
+import cartAPI from "../api/cartAPI";
 import removeDiacritics from "../helpers/removeDiacritics";
-import { useCartStore } from "../stores/useCartStore";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 
 export default function DishCard({ dish }: { dish: Dish }) {
-	const { addToCart } = useCartStore();
 	const { name, subname, price, favorite } = dish;
 	const imageURL = removeDiacritics(subname)
 		.toLowerCase()
 		.replaceAll(" ", "-");
-	const clickHandler = () => {
-		addToCart(dish);
-	};
+	const clickHandler = () => mutate(dish);
+	const queryClient = useQueryClient();
+	const { mutate } = useMutation({
+		mutationFn: cartAPI.addToCart,
+		onSuccess: () =>
+			queryClient.invalidateQueries({
+				queryKey: ["cart"]
+			})
+	});
 	return (
 		<section className={styles.section} onClick={clickHandler}>
 			<Image

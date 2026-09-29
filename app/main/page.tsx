@@ -5,22 +5,25 @@ import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import cartAPI from "../api/cartAPI";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
 import Category from "../enums/Category";
-import { useCartStore } from "../stores/useCartStore";
 import Dish from "../types/Dish";
 import styles from "./Main.module.css";
 
 export default function Main() {
 	const router = useRouter();
-	const { cart } = useCartStore();
 	const [category, setCategory] = useState(Category.tapas);
 	const { data, isPending, isError, error } = useQuery({
 		queryKey: ["dishes", { category }],
 		queryFn: () => dishAPI.fetchDishes(category)
+	});
+	const { data: cart = [] } = useQuery<Dish[]>({
+		queryKey: ["cart"],
+		queryFn: cartAPI.fetchCart
 	});
 	const cartClickHandler = () => {
 		router.push("/main/cart");
@@ -129,7 +132,7 @@ export default function Main() {
 				</aside>
 				<article className={styles.menu}>
 					{data.map((dish: Dish) => (
-						<DishCard key={dish.name} dish={dish} />
+						<DishCard key={dish.id} dish={dish} />
 					))}
 				</article>
 			</div>
