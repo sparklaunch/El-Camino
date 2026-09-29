@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "./providers";
 
 const pretendard = localFont({
 	src: "./assets/fonts/pretendard.woff2",
@@ -9,7 +10,9 @@ const pretendard = localFont({
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
 		<html lang="ko" className={pretendard.className}>
-			<body>{children}</body>
+			<body>
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	);
 }
