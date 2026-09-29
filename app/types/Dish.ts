@@ -5,7 +5,6 @@ type Dish = {
     category: Category;
     favorite: boolean;
     name: string;
-    englishName?: string;
     description?: string;
     englishDescription?: string;
     subname: string;

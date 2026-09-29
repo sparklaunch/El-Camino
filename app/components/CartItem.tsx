@@ -66,7 +66,9 @@ export default function CartItem({ dish }: { dish: CartDish }) {
 			/>
 			<div>
 				<h2 className={styles.name}>{name}</h2>
-				<p className={styles.subname}>{subname}</p>
+				{name !== subname && (
+					<p className={styles.subname}>{subname}</p>
+				)}
 				<div></div>
 			</div>
 			<div className={styles.quantity}>

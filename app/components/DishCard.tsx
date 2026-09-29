@@ -58,7 +58,9 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			{favorite && <div className={styles.favorite}>👍</div>}
 			<div>
 				<h2 className={styles.name}>{name}</h2>
-				<p className={styles.subname}>{subname}</p>
+				{name !== subname && (
+					<p className={styles.subname}>{subname}</p>
+				)}
 				<p className={styles.price}>{t.price(price)}</p>
 			</div>
 			<button

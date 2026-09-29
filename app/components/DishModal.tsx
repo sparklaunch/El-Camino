@@ -60,7 +60,9 @@ export default function DishModal({
 					)}
 				</div>
 				<h2 className={styles.name}>{name}</h2>
-				<p className={styles.subname}>{dish.subname}</p>
+				{name !== dish.subname && (
+					<p className={styles.subname}>{dish.subname}</p>
+				)}
 				{description && (
 					<p className={styles.description}>{description}</p>
 				)}
