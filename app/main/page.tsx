@@ -9,6 +9,7 @@ import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
 import Invoice from "../components/Invoice";
+import PageTransition from "../components/PageTransition";
 import Category from "../enums/Category";
 import Diet from "../enums/Diet";
 import dietIcon from "../helpers/dietIcon";
@@ -107,13 +108,19 @@ export default function Main() {
 		});
 	}, [category]);
 	if (isPending) {
-		return <p>{t.loading}</p>;
+		return (
+			<PageTransition>
+				<p>{t.loading}</p>
+			</PageTransition>
+		);
 	}
 	if (isError) {
 		return (
-			<p>
-				{t.error} {error.message}
-			</p>
+			<PageTransition>
+				<p>
+					{t.error} {error.message}
+				</p>
+			</PageTransition>
 		);
 	}
 	const dishes: Dish[] = (data ?? []).filter((dish: Dish) => matchesDiet(dish, dietFilter));
@@ -125,93 +132,95 @@ export default function Main() {
 		}))
 	];
 	return (
-		<div className={styles.main}>
-			<Link href="/" className={styles.link}>
-				<Image src={logo} alt="Go home" className={styles.logo} />
-			</Link>
-			<hr className={styles.horizontalLine} />
-			<div className={styles.body}>
-				<div className={styles.categoryWrapper}>
-					<div
-						className={styles.dietFilter}
-						role="group"
-						aria-label={t.dietFilter}
-					>
-						{dietOptions.map(({ value, label }) => (
-							<button
-								key={value ?? "all"}
-								type="button"
-								className={clsx(styles.dietButton, {
-									[styles.dietActive]: dietFilter === value
-								})}
-								aria-pressed={dietFilter === value}
-								onClick={() => setDietFilter(value)}
-							>
-								{label}
-							</button>
-						))}
-					</div>
-					<aside
-						ref={categoryRef}
-						className={styles.category}
-						onScroll={updateThumb}
-					>
-						{categories.map(({ value, subtitle }) => (
-							<button
-								key={value}
-								type="button"
-								className={clsx(styles.categoryButton, {
-									[styles.active]: category === value
-								})}
-								onClick={() => clickHandler(value)}
-							>
-								<h2 className={styles.categoryTitle}>
-									{t.categories[value]}
-								</h2>
-								<p className={styles.categorySubtitle}>
-									{subtitle}
-								</p>
-							</button>
-						))}
-					</aside>
-					<div className={styles.scrollIndicator}>
+		<PageTransition>
+			<div className={styles.main}>
+				<Link href="/" className={styles.link}>
+					<Image src={logo} alt="Go home" className={styles.logo} />
+				</Link>
+				<hr className={styles.horizontalLine} />
+				<div className={styles.body}>
+					<div className={styles.categoryWrapper}>
 						<div
-							className={styles.scrollThumb}
-							style={{ left: `${thumb.left}%`, width: `${thumb.width}%` }}
-						/>
+							className={styles.dietFilter}
+							role="group"
+							aria-label={t.dietFilter}
+						>
+							{dietOptions.map(({ value, label }) => (
+								<button
+									key={value ?? "all"}
+									type="button"
+									className={clsx(styles.dietButton, {
+										[styles.dietActive]: dietFilter === value
+									})}
+									aria-pressed={dietFilter === value}
+									onClick={() => setDietFilter(value)}
+								>
+									{label}
+								</button>
+							))}
+						</div>
+						<aside
+							ref={categoryRef}
+							className={styles.category}
+							onScroll={updateThumb}
+						>
+							{categories.map(({ value, subtitle }) => (
+								<button
+									key={value}
+									type="button"
+									className={clsx(styles.categoryButton, {
+										[styles.active]: category === value
+									})}
+									onClick={() => clickHandler(value)}
+								>
+									<h2 className={styles.categoryTitle}>
+										{t.categories[value]}
+									</h2>
+									<p className={styles.categorySubtitle}>
+										{subtitle}
+									</p>
+								</button>
+							))}
+						</aside>
+						<div className={styles.scrollIndicator}>
+							<div
+								className={styles.scrollThumb}
+								style={{ left: `${thumb.left}%`, width: `${thumb.width}%` }}
+							/>
+						</div>
 					</div>
+					<article className={styles.menu} onScroll={menuScrollHandler}>
+						{categories.map(({ value, subtitle }) => {
+							const sectionDishes = dishes.filter((dish) => dish.category === value);
+							return (
+								<section
+									key={value}
+									ref={(element) => {
+										sectionRefs.current[value] = element;
+									}}
+									className={styles.menuSection}
+								>
+									<hr className={styles.sectionLine} />
+									<h2 className={styles.sectionTitle}>
+										{t.categories[value]}
+										<span className={styles.sectionSubtitle}>{subtitle}</span>
+									</h2>
+									{sectionDishes.length > 0 ? (
+										<div className={styles.dishGrid}>
+											{sectionDishes.map((dish) => (
+												<DishCard key={dish.id} dish={dish} />
+											))}
+										</div>
+									) : (
+										<p className={styles.noDishes}>{t.noDishes}</p>
+									)}
+								</section>
+							);
+						})}
+					</article>
+					<Invoice />
 				</div>
-				<article className={styles.menu} onScroll={menuScrollHandler}>
-					{categories.map(({ value, subtitle }) => {
-						const sectionDishes = dishes.filter((dish) => dish.category === value);
-						return (
-							<section
-								key={value}
-								ref={(element) => {
-									sectionRefs.current[value] = element;
-								}}
-								className={styles.menuSection}
-							>
-								<hr className={styles.sectionLine} />
-								<h2 className={styles.sectionTitle}>
-									{t.categories[value]}
-									<span className={styles.sectionSubtitle}>{subtitle}</span>
-								</h2>
-								{sectionDishes.length > 0 ? (
-									<div className={styles.dishGrid}>
-										{sectionDishes.map((dish) => (
-											<DishCard key={dish.id} dish={dish} />
-										))}
-									</div>
-								) : (
-									<p className={styles.noDishes}>{t.noDishes}</p>
-								)}
-							</section>
-						);
-					})}
-				</article>
-				<Invoice />
 			</div>
-		</div>
+		</PageTransition>
 	);
 }
