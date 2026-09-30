@@ -1,3 +1,4 @@
+import Allergen from "../enums/Allergen";
 import Category from "../enums/Category";
 
 type Dish = {
@@ -10,6 +11,7 @@ type Dish = {
     spanishDescription?: string;
     subname: string;
     price: number;
+    allergens?: Allergen[];
 }
 
 export default Dish;

@@ -34,6 +34,14 @@
 	margin-top: 10px;
 }
 
+.allergens {
+	display: flex;
+	list-style: none;
+	gap: 4px;
+	margin-top: 6px;
+	font-size: 20px;
+}
+
 .addButton {
 	margin-left: auto;
 	background-color: var(--color-main);

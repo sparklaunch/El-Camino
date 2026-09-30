@@ -1,3 +1,4 @@
+import Allergen from "../enums/Allergen";
 import Category from "../enums/Category";
 import Language from "../enums/Language";
 
@@ -17,6 +18,17 @@ const korean = {
 	add: "담기",
 	close: "닫기",
 	favorite: "추천 메뉴",
+	allergenTitle: "알레르기 유발 성분",
+	allergens: {
+		[Allergen.gluten]: "글루텐",
+		[Allergen.crustacean]: "갑각류",
+		[Allergen.mollusc]: "연체류",
+		[Allergen.fish]: "생선",
+		[Allergen.egg]: "달걀",
+		[Allergen.milk]: "우유",
+		[Allergen.nuts]: "견과류",
+		[Allergen.sulfites]: "아황산류"
+	},
 	invoiceTitle: "주문 내역",
 	emptyCart: "담은 메뉴가 없어.",
 	total: "합계",
@@ -54,6 +66,17 @@ const english: Translation = {
 	add: "Add",
 	close: "Close",
 	favorite: "Recommended",
+	allergenTitle: "Allergens",
+	allergens: {
+		[Allergen.gluten]: "Gluten",
+		[Allergen.crustacean]: "Crustaceans",
+		[Allergen.mollusc]: "Molluscs",
+		[Allergen.fish]: "Fish",
+		[Allergen.egg]: "Eggs",
+		[Allergen.milk]: "Milk",
+		[Allergen.nuts]: "Tree nuts",
+		[Allergen.sulfites]: "Sulfites"
+	},
 	invoiceTitle: "Your Order",
 	emptyCart: "Your cart is empty.",
 	total: "Total",
@@ -89,6 +112,17 @@ const spanish: Translation = {
 	add: "Añadir",
 	close: "Cerrar",
 	favorite: "Recomendados",
+	allergenTitle: "Alérgenos",
+	allergens: {
+		[Allergen.gluten]: "Gluten",
+		[Allergen.crustacean]: "Crustáceos",
+		[Allergen.mollusc]: "Moluscos",
+		[Allergen.fish]: "Pescado",
+		[Allergen.egg]: "Huevo",
+		[Allergen.milk]: "Leche",
+		[Allergen.nuts]: "Frutos secos",
+		[Allergen.sulfites]: "Sulfitos"
+	},
 	invoiceTitle: "Tu pedido",
 	emptyCart: "Tu carrito está vacío.",
 	total: "Total",

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import useTranslation from "../i18n/useTranslation";
+import allergenIcon from "../helpers/allergenIcon";
 import Dish from "../types/Dish";
 import styles from "./DishModal.module.css";
 
@@ -65,6 +66,24 @@ export default function DishModal({
 				)}
 				{description && (
 					<p className={styles.description}>{description}</p>
+				)}
+				{dish.allergens && dish.allergens.length > 0 && (
+					<div className={styles.allergenSection}>
+						<p className={styles.allergenTitle}>
+							⚠️ {t.allergenTitle}
+						</p>
+						<ul className={styles.tags}>
+							{dish.allergens.map((allergen) => (
+								<li
+									key={allergen}
+									className={styles.allergenTag}
+								>
+									{allergenIcon[allergen]}{" "}
+									{t.allergens[allergen]}
+								</li>
+							))}
+						</ul>
+					</div>
 				)}
 				<p className={styles.price}>{t.price(dish.price)}</p>
 				<div className={styles.buttons}>
