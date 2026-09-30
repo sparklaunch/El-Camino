@@ -55,6 +55,13 @@
 	background-color: var(--color-main);
 	color: var(--color-text);
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	outline: 3px dashed transparent;
+	outline-offset: -3px;
+	transition: outline-color 0.2s;
+}
+
+.dragOver {
+	outline-color: var(--color-accent);
 }
 
 .invoiceTitle {

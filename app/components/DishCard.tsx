@@ -1,12 +1,10 @@
 "use client";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
-import cartAPI from "../api/cartAPI";
+import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
 import useTranslation from "../i18n/useTranslation";
 import removeDiacritics from "../helpers/removeDiacritics";
-import CartDish from "../types/CartDish";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 import DishModal from "./DishModal";
@@ -19,33 +17,28 @@ export default function DishCard({ dish }: { dish: Dish }) {
 		.toLowerCase()
 		.replaceAll(" ", "-");
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const mutate = useAddToCart();
 	const addToCart = () => mutate(dish);
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		// 담기 버튼을 눌렀을 때는 모달을 열지 않음
 		event.stopPropagation();
 		addToCart();
 	};
-	const queryClient = useQueryClient();
-	const { mutate } = useMutation({
-		scope: { id: "cart" },
-		mutationFn: (dish: Dish) => {
-			const cart = queryClient.getQueryData<CartDish[]>(["cart"]) ?? [];
-			const cartDish = cart.find((item) => item.dishId === dish.id);
-			return cartDish ?
-					cartAPI.updateQuantity({
-						id: cartDish.id,
-						quantity: cartDish.quantity + 1
-					})
-				:	cartAPI.addToCart(dish);
-		},
-		onSuccess: () =>
-			queryClient.invalidateQueries({
-				queryKey: ["cart"]
-			})
-	});
+	// 카드를 Invoice로 끌어다 놓으면 담을 수 있도록 요리 데이터를 실어 보냄
+	const dragStartHandler = (event: React.DragEvent<HTMLElement>) => {
+		// 모달은 카드 안에 렌더링되므로 모달 안에서의 드래그는 무시함
+		if (isModalOpen) {
+			event.preventDefault();
+			return;
+		}
+		event.dataTransfer.setData(DISH_DRAG_TYPE, JSON.stringify(dish));
+		event.dataTransfer.effectAllowed = "copy";
+	};
 	return (
 		<section
 			className={styles.section}
+			draggable
+			onDragStart={dragStartHandler}
 			onClick={() => setIsModalOpen(true)}
 		>
 			<Image
@@ -53,6 +46,8 @@ export default function DishCard({ dish }: { dish: Dish }) {
 				alt={name}
 				width={120}
 				height={120}
+				// 이미지만 따로 끌리지 않고 카드 전체가 끌리도록 함
+				draggable={false}
 				className={styles.image}
 			/>
 			{favorite && <div className={styles.favorite}>👍</div>}

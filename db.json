@@ -1,17 +1,17 @@
 {
   "cart": [
     {
-      "category": "bebidas",
-      "description": "레드 와인에 과일을 넣어 달콤하고 시원하게 만든 음료.",
-      "englishDescription": "Red wine with fresh fruit, sweet and refreshing.",
+      "category": "tapas",
+      "description": "도토리를 먹고 자란 이베리코 돼지의 뒷다리를 오랜 시간 숙성시킨 최고급 생햄이에요.",
+      "englishDescription": "Premium cured ham from acorn-fed Iberian pigs, aged for years.",
       "favorite": true,
-      "id": "RE_QlrP3HTY",
-      "name": "상그리아",
-      "price": 7000,
-      "spanishDescription": "Vino tinto con fruta fresca, dulce y refrescante.",
-      "subname": "Sangria",
-      "dishId": "ikIa_O8FNGA",
-      "quantity": 1
+      "id": "mbCxMm9xA0g",
+      "name": "하몽 이베리코",
+      "price": 30000,
+      "spanishDescription": "Jamón curado de primera calidad de cerdos ibéricos de bellota, madurado durante años.",
+      "subname": "Jamón Ibérico",
+      "dishId": "S0Ka-ofedBc",
+      "quantity": 4
     }
   ],
   "dishes": [

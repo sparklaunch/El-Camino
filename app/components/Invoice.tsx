@@ -1,11 +1,14 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { clsx } from "clsx";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import cartAPI from "../api/cartAPI";
+import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
 import useTranslation from "../i18n/useTranslation";
 import CartDish from "../types/CartDish";
+import Dish from "../types/Dish";
 import styles from "./Invoice.module.css";
 import PigModal from "./PigModal";
 
@@ -55,9 +58,42 @@ export default function Invoice() {
 		reset();
 		router.push("/complete");
 	};
+	const addToCart = useAddToCart();
+	const [isDragOver, setIsDragOver] = useState(false);
+	// DishCard를 끌고 있을 때만 드롭을 허용함
+	const dragOverHandler = (event: React.DragEvent<HTMLElement>) => {
+		if (!event.dataTransfer.types.includes(DISH_DRAG_TYPE)) {
+			return;
+		}
+		event.preventDefault();
+		event.dataTransfer.dropEffect = "copy";
+		setIsDragOver(true);
+	};
+	const dragLeaveHandler = (event: React.DragEvent<HTMLElement>) => {
+		// 주문서 안의 자식 요소로 이동할 때는 강조를 유지함
+		if (event.currentTarget.contains(event.relatedTarget as Node | null)) {
+			return;
+		}
+		setIsDragOver(false);
+	};
+	const dropHandler = (event: React.DragEvent<HTMLElement>) => {
+		event.preventDefault();
+		setIsDragOver(false);
+		const data = event.dataTransfer.getData(DISH_DRAG_TYPE);
+		if (data) {
+			addToCart(JSON.parse(data) as Dish);
+		}
+	};
 	return (
 		<aside className={styles.aside}>
-			<section className={styles.invoice}>
+			<section
+				className={clsx(styles.invoice, {
+					[styles.dragOver]: isDragOver
+				})}
+				onDragOver={dragOverHandler}
+				onDragLeave={dragLeaveHandler}
+				onDrop={dropHandler}
+			>
 				<h2 className={styles.invoiceTitle}>{t.invoiceTitle}</h2>
 				{cart.length > 0 ?
 					<ul className={styles.itemList}>
