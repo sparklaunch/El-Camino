@@ -78,3 +78,9 @@
 	display: flex;
 	flex-direction: column;
 }
+
+@media (max-width: 1200px) {
+	.body {
+		grid-template-columns: 150px 1fr 300px;
+	}
+}
