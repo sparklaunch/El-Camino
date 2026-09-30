@@ -45,3 +45,10 @@
 .homeButton:hover {
 	background-color: var(--color-accent);
 }
+
+@media (max-width: 800px) {
+	.message {
+		padding: 30px;
+		text-align: center;
+	}
+}
