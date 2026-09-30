@@ -38,6 +38,7 @@
 	margin-left: auto;
 	background-color: var(--color-main);
 	padding: 10px 30px;
+	white-space: nowrap;
 	border-radius: 10px;
 	cursor: pointer;
 	color: var(--color-text);

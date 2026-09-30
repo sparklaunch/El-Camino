@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
@@ -30,6 +30,28 @@ export default function Main() {
 		queryKey: ["dishes"],
 		queryFn: () => dishAPI.fetchDishes()
 	});
+	const categoryRef = useRef<HTMLElement>(null);
+	// 가로 스크롤 인디케이터의 위치와 크기 (% 단위)
+	const [thumb, setThumb] = useState({ left: 0, width: 100 });
+	const updateThumb = () => {
+		const category = categoryRef.current;
+		if (!category || category.scrollWidth === 0) {
+			return;
+		}
+		setThumb({
+			left: (category.scrollLeft / category.scrollWidth) * 100,
+			width: (category.clientWidth / category.scrollWidth) * 100
+		});
+	};
+	useEffect(() => {
+		const category = categoryRef.current;
+		if (!category) {
+			return;
+		}
+		const observer = new ResizeObserver(updateThumb);
+		observer.observe(category);
+		return () => observer.disconnect();
+	}, [isPending, isError]);
 	const clickHandler = (value: Category) => {
 		setCategory(value);
 		sectionRefs.current[value]?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -52,25 +74,37 @@ export default function Main() {
 			</Link>
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
-				<aside className={styles.category}>
-					{categories.map(({ value, subtitle }) => (
-						<button
-							key={value}
-							type="button"
-							className={clsx(styles.categoryButton, {
-								[styles.active]: category === value
-							})}
-							onClick={() => clickHandler(value)}
-						>
-							<h2 className={styles.categoryTitle}>
-								{t.categories[value]}
-							</h2>
-							<p className={styles.categorySubtitle}>
-								{subtitle}
-							</p>
-						</button>
-					))}
-				</aside>
+				<div className={styles.categoryWrapper}>
+					<aside
+						ref={categoryRef}
+						className={styles.category}
+						onScroll={updateThumb}
+					>
+						{categories.map(({ value, subtitle }) => (
+							<button
+								key={value}
+								type="button"
+								className={clsx(styles.categoryButton, {
+									[styles.active]: category === value
+								})}
+								onClick={() => clickHandler(value)}
+							>
+								<h2 className={styles.categoryTitle}>
+									{t.categories[value]}
+								</h2>
+								<p className={styles.categorySubtitle}>
+									{subtitle}
+								</p>
+							</button>
+						))}
+					</aside>
+					<div className={styles.scrollIndicator}>
+						<div
+							className={styles.scrollThumb}
+							style={{ left: `${thumb.left}%`, width: `${thumb.width}%` }}
+						/>
+					</div>
+				</div>
 				<article className={styles.menu}>
 					{categories.map(({ value }) => (
 						<section
