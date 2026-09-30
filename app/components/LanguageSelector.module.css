@@ -24,3 +24,13 @@
 .languageButton:hover {
 	background-color: var(--color-accent);
 }
+
+@media (max-width: 800px) {
+	.languageSelector {
+		position: relative;
+		top: 30px;
+		left: 0;
+		display: flex;
+		justify-content: center;
+	}
+}

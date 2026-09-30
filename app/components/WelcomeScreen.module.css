@@ -3,6 +3,7 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -38,4 +39,16 @@
 
 .option:hover {
 	background-color: var(--color-accent);
+}
+
+@media (max-width: 800px) {
+	.logo {
+		width: 100%;
+	}
+	.options {
+		width: 100%;
+	}
+	.option {
+		width: 100%;
+	}
 }
