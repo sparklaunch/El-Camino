@@ -1,9 +1,11 @@
 "use client";
 
+import { clsx } from "clsx";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import useTranslation from "../i18n/useTranslation";
 import allergenIcon from "../helpers/allergenIcon";
+import dietIcon from "../helpers/dietIcon";
 import Dish from "../types/Dish";
 import styles from "./DishModal.module.css";
 
@@ -58,6 +60,11 @@ export default function DishModal({
 					</span>
 					{dish.favorite && (
 						<span className={styles.tag}>👍 {t.favorite}</span>
+					)}
+					{dish.diet && (
+						<span className={clsx(styles.tag, styles.dietTag)}>
+							{dietIcon[dish.diet]} {t.diets[dish.diet]}
+						</span>
 					)}
 				</div>
 				<h2 className={styles.name}>{name}</h2>

@@ -5,13 +5,14 @@ import { useState } from "react";
 import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
 import useTranslation from "../i18n/useTranslation";
 import allergenIcon from "../helpers/allergenIcon";
+import dietIcon from "../helpers/dietIcon";
 import removeDiacritics from "../helpers/removeDiacritics";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 import DishModal from "./DishModal";
 
 export default function DishCard({ dish }: { dish: Dish }) {
-	const { subname, price, favorite, allergens } = dish;
+	const { subname, price, favorite, allergens, diet } = dish;
 	const { t, dishName } = useTranslation();
 	const name = dishName(dish);
 	const imageURL = removeDiacritics(subname)
@@ -58,6 +59,11 @@ export default function DishCard({ dish }: { dish: Dish }) {
 					<p className={styles.subname}>{subname}</p>
 				)}
 				<p className={styles.price}>{t.price(price)}</p>
+				{diet && (
+					<span className={styles.diet}>
+						{dietIcon[diet]} {t.diets[diet]}
+					</span>
+				)}
 				{allergens && allergens.length > 0 && (
 					<ul
 						className={styles.allergens}

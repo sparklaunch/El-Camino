@@ -34,6 +34,17 @@
 	margin-top: 10px;
 }
 
+.diet {
+	display: inline-block;
+	margin-top: 6px;
+	padding: 2px 10px;
+	border-radius: 20px;
+	background-color: var(--color-diet);
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+}
+
 .allergens {
 	display: flex;
 	list-style: none;

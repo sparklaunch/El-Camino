@@ -10,6 +10,9 @@ import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
 import Invoice from "../components/Invoice";
 import Category from "../enums/Category";
+import Diet from "../enums/Diet";
+import dietIcon from "../helpers/dietIcon";
+import matchesDiet from "../helpers/matchesDiet";
 import useTranslation from "../i18n/useTranslation";
 import Dish from "../types/Dish";
 import styles from "./Main.module.css";
@@ -24,6 +27,7 @@ const categories = [
 
 export default function Main() {
 	const [category, setCategory] = useState(Category.tapas);
+	const [dietFilter, setDietFilter] = useState<Diet>();
 	const { t } = useTranslation();
 	const sectionRefs = useRef<Partial<Record<Category, HTMLElement | null>>>({});
 	const { data, isPending, isError, error } = useQuery({
@@ -112,7 +116,14 @@ export default function Main() {
 			</p>
 		);
 	}
-	const dishes: Dish[] = data ?? [];
+	const dishes: Dish[] = (data ?? []).filter((dish: Dish) => matchesDiet(dish, dietFilter));
+	const dietOptions = [
+		{ value: undefined, label: t.allDishes },
+		...Object.values(Diet).map((diet) => ({
+			value: diet,
+			label: `${dietIcon[diet]} ${t.diets[diet]}`
+		}))
+	];
 	return (
 		<div className={styles.main}>
 			<Link href="/" className={styles.link}>
@@ -121,6 +132,25 @@ export default function Main() {
 			<hr className={styles.horizontalLine} />
 			<div className={styles.body}>
 				<div className={styles.categoryWrapper}>
+					<div
+						className={styles.dietFilter}
+						role="group"
+						aria-label={t.dietFilter}
+					>
+						{dietOptions.map(({ value, label }) => (
+							<button
+								key={value ?? "all"}
+								type="button"
+								className={clsx(styles.dietButton, {
+									[styles.dietActive]: dietFilter === value
+								})}
+								aria-pressed={dietFilter === value}
+								onClick={() => setDietFilter(value)}
+							>
+								{label}
+							</button>
+						))}
+					</div>
 					<aside
 						ref={categoryRef}
 						className={styles.category}
@@ -152,28 +182,33 @@ export default function Main() {
 					</div>
 				</div>
 				<article className={styles.menu} onScroll={menuScrollHandler}>
-					{categories.map(({ value, subtitle }) => (
-						<section
-							key={value}
-							ref={(element) => {
-								sectionRefs.current[value] = element;
-							}}
-							className={styles.menuSection}
-						>
-							<hr className={styles.sectionLine} />
-							<h2 className={styles.sectionTitle}>
-								{t.categories[value]}
-								<span className={styles.sectionSubtitle}>{subtitle}</span>
-							</h2>
-							<div className={styles.dishGrid}>
-								{dishes
-									.filter((dish) => dish.category === value)
-									.map((dish) => (
-										<DishCard key={dish.id} dish={dish} />
-									))}
-							</div>
-						</section>
-					))}
+					{categories.map(({ value, subtitle }) => {
+						const sectionDishes = dishes.filter((dish) => dish.category === value);
+						return (
+							<section
+								key={value}
+								ref={(element) => {
+									sectionRefs.current[value] = element;
+								}}
+								className={styles.menuSection}
+							>
+								<hr className={styles.sectionLine} />
+								<h2 className={styles.sectionTitle}>
+									{t.categories[value]}
+									<span className={styles.sectionSubtitle}>{subtitle}</span>
+								</h2>
+								{sectionDishes.length > 0 ? (
+									<div className={styles.dishGrid}>
+										{sectionDishes.map((dish) => (
+											<DishCard key={dish.id} dish={dish} />
+										))}
+									</div>
+								) : (
+									<p className={styles.noDishes}>{t.noDishes}</p>
+								)}
+							</section>
+						);
+					})}
 				</article>
 				<Invoice />
 			</div>

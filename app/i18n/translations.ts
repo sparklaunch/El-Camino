@@ -1,5 +1,6 @@
 import Allergen from "../enums/Allergen";
 import Category from "../enums/Category";
+import Diet from "../enums/Diet";
 import Language from "../enums/Language";
 
 const korean = {
@@ -18,6 +19,13 @@ const korean = {
 	add: "담기",
 	close: "닫기",
 	favorite: "추천 메뉴",
+	dietFilter: "채식 필터",
+	allDishes: "전체",
+	diets: {
+		[Diet.vegan]: "비건",
+		[Diet.vegetarian]: "채식"
+	},
+	noDishes: "조건에 맞는 메뉴가 없어요.",
 	allergenTitle: "알레르기 유발 성분",
 	allergens: {
 		[Allergen.gluten]: "글루텐",
@@ -66,6 +74,13 @@ const english: Translation = {
 	add: "Add",
 	close: "Close",
 	favorite: "Recommended",
+	dietFilter: "Dietary filter",
+	allDishes: "All",
+	diets: {
+		[Diet.vegan]: "Vegan",
+		[Diet.vegetarian]: "Vegetarian"
+	},
+	noDishes: "No dishes match this filter.",
 	allergenTitle: "Allergens",
 	allergens: {
 		[Allergen.gluten]: "Gluten",
@@ -112,6 +127,13 @@ const spanish: Translation = {
 	add: "Añadir",
 	close: "Cerrar",
 	favorite: "Recomendados",
+	dietFilter: "Filtro de dieta",
+	allDishes: "Todo",
+	diets: {
+		[Diet.vegan]: "Vegano",
+		[Diet.vegetarian]: "Vegetariano"
+	},
+	noDishes: "No hay platos que coincidan con este filtro.",
 	allergenTitle: "Alérgenos",
 	allergens: {
 		[Allergen.gluten]: "Gluten",

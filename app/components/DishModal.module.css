@@ -58,6 +58,11 @@
 	line-height: 1.5;
 }
 
+.dietTag {
+	background-color: var(--color-diet);
+	color: white;
+}
+
 .allergenSection {
 	display: flex;
 	flex-direction: column;
