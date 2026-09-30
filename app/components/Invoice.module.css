@@ -90,9 +90,20 @@
 }
 
 .originalPrice {
+	position: relative;
 	margin-right: 6px;
 	font-weight: normal;
 	opacity: 0.5;
+}
+
+/* 스플릿 플랩 글자에는 취소선이 이어지지 않으므로 직접 선을 그음 */
+.originalPrice::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	border-top: 1px solid currentColor;
 }
 
 .discount {

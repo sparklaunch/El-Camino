@@ -12,6 +12,7 @@ import Dish from "../types/Dish";
 import CouponModal from "./CouponModal";
 import styles from "./Invoice.module.css";
 import PigModal from "./PigModal";
+import SplitFlap from "./SplitFlap";
 
 // 합계가 이 금액을 넘으면 이스터 에그 모달을 띄움
 const PIG_LIMIT = 100_000;
@@ -119,10 +120,12 @@ export default function Invoice() {
 								<span className={styles.itemPrice}>
 									{isCouponApplied && (
 										<s className={styles.originalPrice}>
-											{t.price(item.price * item.quantity)}
+											<SplitFlap
+												text={t.price(item.price * item.quantity)}
+											/>
 										</s>
 									)}
-									{t.price(linePrice(item))}
+									<SplitFlap text={t.price(linePrice(item))} />
 								</span>
 							</li>
 						))}
@@ -132,12 +135,14 @@ export default function Invoice() {
 				{isCouponApplied && (
 					<div className={styles.discount}>
 						<span>{t.couponApplied}</span>
-						<span>-{t.price(originalPrice - totalPrice)}</span>
+						<SplitFlap
+							text={`-${t.price(originalPrice - totalPrice)}`}
+						/>
 					</div>
 				)}
 				<div className={styles.total}>
 					<span>{t.total}</span>
-					<span>{t.price(totalPrice)}</span>
+					<SplitFlap text={t.price(totalPrice)} />
 				</div>
 				<button
 					type="button"
