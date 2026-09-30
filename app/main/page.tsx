@@ -152,7 +152,7 @@ export default function Main() {
 					</div>
 				</div>
 				<article className={styles.menu} onScroll={menuScrollHandler}>
-					{categories.map(({ value }) => (
+					{categories.map(({ value, subtitle }) => (
 						<section
 							key={value}
 							ref={(element) => {
@@ -160,11 +160,18 @@ export default function Main() {
 							}}
 							className={styles.menuSection}
 						>
-							{dishes
-								.filter((dish) => dish.category === value)
-								.map((dish) => (
-									<DishCard key={dish.id} dish={dish} />
-								))}
+							<hr className={styles.sectionLine} />
+							<h2 className={styles.sectionTitle}>
+								{t.categories[value]}
+								<span className={styles.sectionSubtitle}>{subtitle}</span>
+							</h2>
+							<div className={styles.dishGrid}>
+								{dishes
+									.filter((dish) => dish.category === value)
+									.map((dish) => (
+										<DishCard key={dish.id} dish={dish} />
+									))}
+							</div>
 						</section>
 					))}
 				</article>

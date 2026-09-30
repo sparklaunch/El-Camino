@@ -1,777 +1,918 @@
 {
-	"$schema": "./node_modules/json-server/schema.json",
-	"cart": [
-		{
-			"category": "paella",
-			"description": "닭고기와 토끼고기, 강낭콩을 넣고 사프란으로 향을 낸 발렌시아 전통 빠에야.",
-			"dishId": "K-Npiv2Fn5A",
-			"englishDescription": "Traditional Valencian paella with chicken, rabbit, and green beans, flavored with saffron.",
-			"favorite": false,
-			"id": "xU3kYWCL3X8",
-			"name": "빠에야 발렌시아나",
-			"price": 11000,
-			"quantity": 3,
-			"spanishDescription": "Paella tradicional valenciana con pollo, conejo y judías verdes, aromatizada con azafrán.",
-			"subname": "Paella Valenciana"
-		},
-		{
-			"category": "paella",
-			"description": "새우, 홍합, 오징어 등 해산물을 듬뿍 넣은 빠에야.",
-			"dishId": "W-DoZ4Vzcwg",
-			"englishDescription": "Paella loaded with shrimp, mussels, squid, and other seafood.",
-			"favorite": true,
-			"id": "SwqgCdTmL2Q",
-			"name": "빠에야 데 마리스코스",
-			"price": 15000,
-			"quantity": 2,
-			"spanishDescription": "Paella con gambas, mejillones, calamares y otros mariscos.",
-			"subname": "Paella de Mariscos"
-		}
-	],
-	"dishes": [
-		{
-			"allergens": ["gluten", "crustacean"],
-			"category": "tapas",
-			"description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 요리. 빵을 찍어 먹으면 더 맛있어요.",
-			"englishDescription": "Shrimp sizzled in olive oil with garlic and chili. Best enjoyed with bread for dipping.",
-			"favorite": true,
-			"id": "RTeW25I5h6o",
-			"name": "감바스 알 아히요",
-			"price": 17000,
-			"spanishDescription": "Gambas chisporroteantes en aceite de oliva con ajo y guindilla. Ideales para mojar pan.",
-			"subname": "Gambas al Ajillo"
-		},
-		{
-			"allergens": ["egg"],
-			"category": "tapas",
-			"description": "바삭하게 튀긴 감자에 매콤한 브라바스 소스와 알리올리를 곁들였어요.",
-			"englishDescription": "Crispy fried potatoes topped with spicy bravas sauce and aioli.",
-			"favorite": true,
-			"id": "AujAKdX4sKw",
-			"name": "파타타스 브라바스",
-			"price": 11000,
-			"spanishDescription": "Patatas fritas crujientes con salsa brava picante y alioli.",
-			"subname": "Patatas Bravas"
-		},
-		{
-			"allergens": ["gluten", "egg", "milk"],
-			"category": "tapas",
-			"description": "하몽을 넣은 부드러운 베샤멜 크림을 빵가루 옷을 입혀 바삭하게 튀겼어요.",
-			"englishDescription": "Creamy béchamel with jamón, breaded and fried until golden and crisp.",
-			"favorite": true,
-			"id": "iARDR2H9on8",
-			"name": "크로케타스",
-			"price": 12000,
-			"spanishDescription": "Cremosa bechamel con jamón, empanada y frita hasta quedar dorada y crujiente.",
-			"subname": "Croquetas"
-		},
-		{
-			"allergens": ["gluten", "egg"],
-			"category": "tapas",
-			"description": "돼지고기와 소고기로 빚은 미트볼을 토마토 소스에 푹 끓였어요.",
-			"englishDescription": "Pork and beef meatballs simmered in tomato sauce.",
-			"favorite": false,
-			"id": "PSYYAqdlX3Y",
-			"name": "알본디가스",
-			"price": 14000,
-			"spanishDescription": "Albóndigas de cerdo y ternera guisadas en salsa de tomate.",
-			"subname": "Albondigas"
-		},
-		{
-			"allergens": ["gluten", "mollusc"],
-			"category": "tapas",
-			"description": "오징어에 튀김옷을 입혀 바삭하게 튀기고 레몬을 곁들였어요.",
-			"englishDescription": "Lightly battered fried squid rings served with lemon.",
-			"favorite": false,
-			"id": "b-f8ETMM4ko",
-			"name": "칼라마레스 프리토스",
-			"price": 15000,
-			"spanishDescription": "Anillas de calamar rebozadas y fritas, servidas con limón.",
-			"subname": "Calamares Fritos"
-		},
-		{
-			"allergens": [],
-			"category": "tapas",
-			"description": "갈리시아산 작은 초록 고추를 올리브유에 볶아 굵은 소금을 뿌렸어요. 가끔 매운 게 섞여 있어요!",
-			"englishDescription": "Small Galician green peppers blistered in olive oil and sprinkled with sea salt. Some are hot, some are not!",
-			"favorite": false,
-			"id": "AhUI6drafcI",
-			"name": "피미엔토스 데 파드론",
-			"price": 10000,
-			"spanishDescription": "Pimientos gallegos salteados en aceite de oliva con sal gruesa. ¡Unos pican y otros no!",
-			"subname": "Pimientos de Padrón"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "tapas",
-			"description": "스페인 소시지 초리소를 레드 와인에 졸여 깊은 풍미를 냈어요.",
-			"englishDescription": "Spanish chorizo simmered in red wine for a rich, smoky flavor.",
-			"favorite": false,
-			"id": "x05J3_2W0Og",
-			"name": "초리소 알 비노",
-			"price": 16000,
-			"spanishDescription": "Chorizo cocinado a fuego lento en vino tinto, con un sabor intenso y ahumado.",
-			"subname": "Chorizo al Vino"
-		},
-		{
-			"allergens": [],
-			"category": "tapas",
-			"description": "도토리를 먹고 자란 이베리코 돼지의 뒷다리를 오랜 시간 숙성시킨 최고급 생햄이에요.",
-			"englishDescription": "Premium cured ham from acorn-fed Iberian pigs, aged for years.",
-			"favorite": true,
-			"id": "S0Ka-ofedBc",
-			"name": "하몽 이베리코",
-			"price": 30000,
-			"spanishDescription": "Jamón curado de primera calidad de cerdos ibéricos de bellota, madurado durante años.",
-			"subname": "Jamón Ibérico"
-		},
-		{
-			"allergens": ["milk"],
-			"category": "tapas",
-			"description": "라만차 지방의 양젖으로 만든 숙성 치즈. 고소하고 짭짤한 맛이 와인과 잘 어울려요.",
-			"englishDescription": "Aged sheep's milk cheese from La Mancha. Nutty and savory, perfect with wine.",
-			"favorite": false,
-			"id": "brOMbDAEeJA",
-			"name": "만체고 치즈",
-			"price": 18000,
-			"spanishDescription": "Queso curado de oveja de La Mancha. Sabor intenso y ligeramente salado, perfecto con vino.",
-			"subname": "Queso Manchego"
-		},
-		{
-			"allergens": ["gluten"],
-			"category": "tapas",
-			"description": "구운 빵에 잘 익은 토마토와 마늘을 문지르고 올리브유를 뿌린 카탈루냐식 토스트.",
-			"englishDescription": "Catalan toast rubbed with ripe tomato and garlic, drizzled with olive oil.",
-			"favorite": false,
-			"id": "GcWJhMIrZLs",
-			"name": "판 콘 토마테",
-			"price": 7000,
-			"spanishDescription": "Pan tostado frotado con tomate maduro y ajo, con un chorrito de aceite de oliva.",
-			"subname": "Pan con Tomate"
-		},
-		{
-			"allergens": [],
-			"category": "tapas",
-			"description": "허브와 마늘로 양념한 스페인산 올리브 모둠.",
-			"englishDescription": "Assorted Spanish olives marinated with herbs and garlic.",
-			"favorite": false,
-			"id": "yGEtWNpT0Yc",
-			"name": "아세이투나스",
-			"price": 7000,
-			"spanishDescription": "Surtido de aceitunas españolas aliñadas con hierbas y ajo.",
-			"subname": "Aceitunas"
-		},
-		{
-			"allergens": ["egg"],
-			"category": "tapas",
-			"description": "감자와 양파를 넣어 두툼하게 구운 스페인식 오믈렛.",
-			"englishDescription": "Thick Spanish omelette with potatoes and onions.",
-			"favorite": true,
-			"id": "ECA9ticaZ5M",
-			"name": "토르티야 에스파뇰라",
-			"price": 14000,
-			"spanishDescription": "Tortilla gruesa de huevo con patatas y cebolla.",
-			"subname": "Tortilla Española"
-		},
-		{
-			"allergens": ["mollusc"],
-			"category": "tapas",
-			"description": "부드럽게 삶은 문어를 감자 위에 올리고 파프리카 가루와 올리브유를 뿌렸어요.",
-			"englishDescription": "Tender boiled octopus on potatoes, finished with paprika and olive oil.",
-			"favorite": false,
-			"id": "R-1jXBSxs8M",
-			"name": "풀포 아 라 가예가",
-			"price": 13000,
-			"spanishDescription": "Pulpo cocido y tierno sobre cachelos, con pimentón y aceite de oliva.",
-			"subname": "Pulpo a la Gallega"
-		},
-		{
-			"allergens": ["fish"],
-			"category": "tapas",
-			"description": "올리브, 안초비, 절인 고추를 꼬치에 꽂은 바스크 지방의 대표 핀초.",
-			"englishDescription": "A classic Basque pintxo: olive, anchovy, and pickled pepper on a skewer.",
-			"favorite": false,
-			"id": "Qkt0MVlUX90",
-			"name": "힐다",
-			"price": 9000,
-			"spanishDescription": "El pintxo vasco por excelencia: aceituna, anchoa y guindilla en un palillo.",
-			"subname": "Gilda"
-		},
-		{
-			"allergens": [],
-			"category": "paella",
-			"description": "닭고기와 토끼고기, 강낭콩을 넣고 사프란으로 향을 낸 발렌시아 전통 빠에야.",
-			"englishDescription": "Traditional Valencian paella with chicken, rabbit, and green beans, flavored with saffron.",
-			"favorite": false,
-			"id": "K-Npiv2Fn5A",
-			"name": "빠에야 발렌시아나",
-			"price": 11000,
-			"spanishDescription": "Paella tradicional valenciana con pollo, conejo y judías verdes, aromatizada con azafrán.",
-			"subname": "Paella Valenciana"
-		},
-		{
-			"allergens": ["crustacean", "mollusc", "fish"],
-			"category": "paella",
-			"description": "새우, 홍합, 오징어 등 해산물을 듬뿍 넣은 빠에야.",
-			"englishDescription": "Paella loaded with shrimp, mussels, squid, and other seafood.",
-			"favorite": true,
-			"id": "W-DoZ4Vzcwg",
-			"name": "빠에야 데 마리스코스",
-			"price": 15000,
-			"spanishDescription": "Paella con gambas, mejillones, calamares y otros mariscos.",
-			"subname": "Paella de Mariscos"
-		},
-		{
-			"allergens": ["crustacean", "mollusc", "fish"],
-			"category": "paella",
-			"description": "고기와 해산물을 함께 넣어 두 가지 맛을 모두 즐길 수 있는 빠에야.",
-			"englishDescription": "Paella with both meat and seafood — the best of both worlds.",
-			"favorite": true,
-			"id": "ihd253cmqSw",
-			"name": "빠에야 미스타",
-			"price": 13000,
-			"spanishDescription": "Paella con carne y marisco: lo mejor de los dos mundos.",
-			"subname": "Paella Mixta"
-		},
-		{
-			"allergens": [],
-			"category": "paella",
-			"description": "제철 채소를 듬뿍 넣은 채식 빠에야.",
-			"englishDescription": "Vegetarian paella with plenty of seasonal vegetables.",
-			"favorite": false,
-			"id": "ZV1I7eP75O4",
-			"name": "빠에야 데 베르두라스",
-			"price": 10000,
-			"spanishDescription": "Paella vegetariana con abundantes verduras de temporada.",
-			"subname": "Paella de Verduras"
-		},
-		{
-			"allergens": ["crustacean", "mollusc", "fish", "egg"],
-			"category": "paella",
-			"description": "오징어 먹물로 검게 물들인 해산물 쌀 요리. 알리올리를 곁들여 드세요.",
-			"englishDescription": "Seafood rice colored black with squid ink, served with aioli.",
-			"favorite": true,
-			"id": "yN6y6r2bNPk",
-			"name": "아로스 네그로",
-			"price": 13000,
-			"spanishDescription": "Arroz de marisco teñido con tinta de calamar, servido con alioli.",
-			"subname": "Arroz Negro"
-		},
-		{
-			"allergens": ["gluten", "crustacean", "mollusc", "fish"],
-			"category": "paella",
-			"description": "쌀 대신 짧은 파스타 면을 넣어 만든 해산물 빠에야.",
-			"englishDescription": "A paella-style dish made with short noodles instead of rice, with seafood.",
-			"favorite": false,
-			"id": "8lGDigQZdlk",
-			"name": "피데우아",
-			"price": 12000,
-			"spanishDescription": "Plato al estilo de la paella hecho con fideos cortos en lugar de arroz, con marisco.",
-			"subname": "Fideua"
-		},
-		{
-			"allergens": ["crustacean", "mollusc", "fish"],
-			"category": "paella",
-			"description": "생선 육수를 넉넉히 흡수시킨 알리칸테식 쌀 요리.",
-			"englishDescription": "Alicante-style rice cooked in a rich fish stock.",
-			"favorite": false,
-			"id": "21dZkEpPhHY",
-			"name": "아로스 아 반다",
-			"price": 12000,
-			"spanishDescription": "Arroz al estilo alicantino cocinado en un sabroso caldo de pescado.",
-			"subname": "Arroz a Banda"
-		},
-		{
-			"allergens": [],
-			"category": "paella",
-			"description": "국물을 자작하게 남겨 리조또처럼 촉촉하고 부드러운 쌀 요리.",
-			"englishDescription": "Creamy, risotto-like rice with a little broth.",
-			"favorite": false,
-			"id": "QoXnaiM78Io",
-			"name": "아로스 멜로소",
-			"price": 13000,
-			"spanishDescription": "Arroz cremoso y caldoso, de textura parecida al risotto.",
-			"subname": "Arroz Meloso"
-		},
-		{
-			"allergens": [],
-			"category": "principales",
-			"description": "새끼 돼지를 통째로 구워 껍질은 바삭하고 속은 촉촉한 세고비아의 명물.",
-			"englishDescription": "Segovia's famous roast suckling pig — crackling skin and juicy meat.",
-			"favorite": true,
-			"id": "gMEcCF_i0sc",
-			"name": "코치니요 아사도",
-			"price": 21000,
-			"spanishDescription": "El famoso cochinillo de Segovia: piel crujiente y carne jugosa.",
-			"subname": "Cochinillo Asado"
-		},
-		{
-			"allergens": [],
-			"category": "principales",
-			"description": "어린 양고기를 오븐에 천천히 구워 부드럽게 만든 카스티야 요리.",
-			"englishDescription": "Castilian-style lamb, slow-roasted in the oven until tender.",
-			"favorite": false,
-			"id": "jgagamoDWy4",
-			"name": "코르데로 아사도",
-			"price": 22000,
-			"spanishDescription": "Cordero al estilo castellano, asado lentamente al horno hasta quedar tierno.",
-			"subname": "Cordero Asado"
-		},
-		{
-			"allergens": ["crustacean", "mollusc", "fish"],
-			"category": "principales",
-			"description": "양고기나 해산물을 채소와 함께 푹 끓인 스페인식 스튜.",
-			"englishDescription": "Hearty Spanish stew of lamb or seafood slowly cooked with vegetables.",
-			"favorite": false,
-			"id": "ldMgbgnZvvw",
-			"name": "칼데레타",
-			"price": 15000,
-			"spanishDescription": "Guiso tradicional de cordero o marisco cocinado a fuego lento con verduras.",
-			"subname": "Caldereta"
-		},
-		{
-			"allergens": [],
-			"category": "principales",
-			"description": "두툼한 소고기 티본 스테이크를 숯불에 구웠어요.",
-			"englishDescription": "A thick bone-in beef steak grilled over charcoal.",
-			"favorite": false,
-			"id": "axzGYaGUcnU",
-			"name": "출레톤",
-			"price": 37000,
-			"spanishDescription": "Chuletón de ternera con hueso a la brasa.",
-			"subname": "Chuleton"
-		},
-		{
-			"allergens": ["gluten", "egg"],
-			"category": "principales",
-			"description": "햄을 돼지고기로 돌돌 말아 빵가루를 입혀 튀긴 코르도바 요리.",
-			"englishDescription": "A Córdoba specialty: pork rolled around ham, breaded and fried.",
-			"favorite": true,
-			"id": "x4s4Wog94_E",
-			"name": "플라멘킨",
-			"price": 8500,
-			"spanishDescription": "Especialidad cordobesa: lomo de cerdo enrollado con jamón, empanado y frito.",
-			"subname": "Flamenquin"
-		},
-		{
-			"allergens": [],
-			"category": "principales",
-			"description": "흰 강낭콩에 초리소, 모르시야, 돼지고기를 넣고 푹 끓인 아스투리아스 스튜.",
-			"englishDescription": "Asturian white bean stew with chorizo, morcilla, and pork.",
-			"favorite": true,
-			"id": "8Kj22h7BYU8",
-			"name": "파바다 아스투리아나",
-			"price": 12000,
-			"spanishDescription": "Guiso asturiano de fabes con chorizo, morcilla y lacón.",
-			"subname": "Fabada Asturiana"
-		},
-		{
-			"allergens": [],
-			"category": "principales",
-			"description": "병아리콩과 고기, 채소를 오래 끓여 국물과 건더기를 차례로 즐기는 마드리드 전통 요리.",
-			"englishDescription": "Madrid's traditional chickpea stew with meats and vegetables, served in courses.",
-			"favorite": false,
-			"id": "ygLm2RBcMdg",
-			"name": "코시도 마드릴레뇨",
-			"price": 13000,
-			"spanishDescription": "Guiso tradicional madrileño de garbanzos, carnes y verduras, servido en vuelcos.",
-			"subname": "Cocido Madrileño"
-		},
-		{
-			"allergens": ["fish"],
-			"category": "principales",
-			"description": "대구를 올리브유와 마늘로 천천히 익혀 걸쭉한 소스를 만든 바스크 요리.",
-			"englishDescription": "Basque salt cod gently cooked in olive oil and garlic, creating a silky emulsion.",
-			"favorite": false,
-			"id": "3RKhOCsSzTQ",
-			"name": "바칼라오 알 필필",
-			"price": 12000,
-			"spanishDescription": "Bacalao vasco cocinado lentamente en aceite de oliva y ajo hasta ligar la salsa.",
-			"subname": "Bacalao al Pil Pil"
-		},
-		{
-			"allergens": ["fish"],
-			"category": "principales",
-			"description": "대구와 비슷한 흰살생선 메를루사를 담백하게 조리했어요.",
-			"englishDescription": "Fresh hake, simply prepared to highlight its delicate flavor.",
-			"favorite": false,
-			"id": "s1aCDwCsciA",
-			"name": "메를루사 아 라 비스타",
-			"price": 15000,
-			"spanishDescription": "Merluza fresca, preparada de forma sencilla para realzar su sabor delicado.",
-			"subname": "Merluza a la Vista"
-		},
-		{
-			"allergens": ["fish"],
-			"category": "principales",
-			"description": "도미를 소금으로 덮어 구워 촉촉하고 담백한 맛을 살렸어요.",
-			"englishDescription": "Sea bream baked in a salt crust, keeping it moist and tender.",
-			"favorite": true,
-			"id": "17IpYo0HLvY",
-			"name": "도라다 아 라 살",
-			"price": 18000,
-			"spanishDescription": "Dorada al horno en costra de sal, jugosa y tierna.",
-			"subname": "Dorada a la Sal"
-		},
-		{
-			"allergens": ["fish"],
-			"category": "principales",
-			"description": "여러 생선과 감자를 넣고 끓인 카탈루냐식 생선 스튜.",
-			"englishDescription": "Catalan fish stew with assorted fish and potatoes.",
-			"favorite": false,
-			"id": "Yoglap6p86o",
-			"name": "수케트 데 페스카도",
-			"price": 9500,
-			"spanishDescription": "Guiso catalán de pescados variados con patatas.",
-			"subname": "Suquet de Pescado"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "principales",
-			"description": "소꼬리를 레드 와인에 오랜 시간 졸여 뼈에서 살이 부드럽게 떨어지는 코르도바 요리.",
-			"englishDescription": "Oxtail braised for hours in red wine until it falls off the bone.",
-			"favorite": true,
-			"id": "xAzUmfSYQTQ",
-			"name": "라보 데 토로",
-			"price": 13000,
-			"spanishDescription": "Rabo de toro estofado durante horas en vino tinto hasta que se deshace.",
-			"subname": "Rabo de Toro"
-		},
-		{
-			"allergens": ["egg", "milk"],
-			"category": "postre",
-			"description": "달걀과 우유로 만든 부드러운 커스터드에 캐러멜 소스를 얹었어요.",
-			"englishDescription": "Silky egg custard topped with caramel sauce.",
-			"favorite": true,
-			"id": "k_A6Xo1y4R0",
-			"name": "플란",
-			"price": 5500,
-			"spanishDescription": "Suave crema de huevo y leche cubierta con caramelo.",
-			"subname": "Flan"
-		},
-		{
-			"allergens": ["egg", "milk"],
-			"category": "postre",
-			"description": "레몬과 시나몬 향 커스터드 위에 설탕을 바삭하게 그을린 카탈루냐 디저트.",
-			"englishDescription": "Lemon and cinnamon custard with a crackly caramelized sugar top.",
-			"favorite": true,
-			"id": "koXfHvskpVM",
-			"name": "크레마 카탈라나",
-			"price": 6500,
-			"spanishDescription": "Crema con aroma de limón y canela, con una capa de azúcar quemado.",
-			"subname": "Crema Catalana"
-		},
-		{
-			"allergens": ["egg", "milk"],
-			"category": "postre",
-			"description": "시나몬을 뿌린 부드러운 스페인식 커스터드 푸딩.",
-			"englishDescription": "Smooth Spanish custard dusted with cinnamon.",
-			"favorite": false,
-			"id": "Rq0wrr67fAg",
-			"name": "나티야스",
-			"price": 6000,
-			"spanishDescription": "Suaves natillas espolvoreadas con canela.",
-			"subname": "Natillas"
-		},
-		{
-			"allergens": ["milk"],
-			"category": "postre",
-			"description": "쌀을 우유, 레몬 껍질, 시나몬과 함께 끓인 달콤한 라이스 푸딩.",
-			"englishDescription": "Sweet rice pudding simmered with milk, lemon peel, and cinnamon.",
-			"favorite": false,
-			"id": "FgK14jLWjXc",
-			"name": "아로스 콘 레체",
-			"price": 5500,
-			"spanishDescription": "Arroz cocido con leche, piel de limón y canela.",
-			"subname": "Arroz con Leche"
-		},
-		{
-			"allergens": ["gluten", "milk"],
-			"category": "postre",
-			"description": "갓 튀긴 추로스를 진한 핫초콜릿에 찍어 드세요.",
-			"englishDescription": "Freshly fried churros for dipping in thick hot chocolate.",
-			"favorite": true,
-			"id": "lj0Y2urxacQ",
-			"name": "추로스 콘 초콜라테",
-			"price": 7500,
-			"spanishDescription": "Churros recién hechos para mojar en chocolate caliente espeso.",
-			"subname": "Churros con Chocolate"
-		},
-		{
-			"allergens": ["gluten", "egg", "milk"],
-			"category": "postre",
-			"description": "우유와 달걀에 적신 빵을 구워 설탕과 시나몬을 뿌린 스페인식 프렌치토스트.",
-			"englishDescription": "Spanish-style French toast soaked in milk and egg, finished with sugar and cinnamon.",
-			"favorite": false,
-			"id": "mnaU24XnXgo",
-			"name": "토리하스",
-			"price": 7500,
-			"spanishDescription": "Pan empapado en leche y huevo, frito y rebozado en azúcar y canela.",
-			"subname": "Torrijas"
-		},
-		{
-			"allergens": ["gluten", "egg", "milk"],
-			"category": "postre",
-			"description": "굳힌 우유 크림을 튀겨 겉은 바삭하고 속은 부드러운 디저트.",
-			"englishDescription": "Fried milk pudding — crisp on the outside, creamy inside.",
-			"favorite": false,
-			"id": "LOjQtRWH8S4",
-			"name": "레체 프리타",
-			"price": 7000,
-			"spanishDescription": "Crema de leche frita, crujiente por fuera y cremosa por dentro.",
-			"subname": "Leche Frita"
-		},
-		{
-			"allergens": ["gluten", "egg"],
-			"category": "postre",
-			"description": "마요르카의 달팽이 모양 빵. 폭신하고 슈거 파우더를 듬뿍 뿌렸어요.",
-			"englishDescription": "A fluffy spiral pastry from Mallorca, dusted with powdered sugar.",
-			"favorite": false,
-			"id": "t9zyGUPUBeY",
-			"name": "엔사이마다",
-			"price": 5000,
-			"spanishDescription": "Bollo mallorquín en espiral, esponjoso y cubierto de azúcar glas.",
-			"subname": "Ensaimada"
-		},
-		{
-			"allergens": ["egg", "nuts"],
-			"category": "postre",
-			"description": "아몬드 가루로 만든 갈리시아 케이크. 산티아고 십자가 문양이 특징이에요.",
-			"englishDescription": "Galician almond cake decorated with the Cross of Saint James.",
-			"favorite": true,
-			"id": "R-zZhhaxjEc",
-			"name": "타르타 데 산티아고",
-			"price": 7000,
-			"spanishDescription": "Tarta gallega de almendra decorada con la cruz de Santiago.",
-			"subname": "Tarta de Santiago"
-		},
-		{
-			"allergens": ["gluten", "egg", "milk"],
-			"category": "postre",
-			"description": "겉은 그을리고 속은 크리미한 바스크식 치즈케이크.",
-			"englishDescription": "Basque-style burnt cheesecake with a creamy center.",
-			"favorite": true,
-			"id": "VeBfecj285c",
-			"name": "타르타 데 케소",
-			"price": 7500,
-			"spanishDescription": "Tarta de queso al estilo vasco, tostada por fuera y cremosa por dentro.",
-			"subname": "Tarta de Queso"
-		},
-		{
-			"allergens": ["egg", "nuts"],
-			"category": "postre",
-			"description": "아몬드와 꿀로 만든 스페인 전통 누가.",
-			"englishDescription": "Traditional Spanish nougat made with almonds and honey.",
-			"favorite": false,
-			"id": "T1GswFXhqnk",
-			"name": "투론",
-			"price": 6000,
-			"spanishDescription": "Turrón tradicional elaborado con almendras y miel.",
-			"subname": "Turron"
-		},
-		{
-			"allergens": ["gluten", "nuts"],
-			"category": "postre",
-			"description": "입에서 사르르 부서지는 아몬드 쇼트브레드 과자.",
-			"englishDescription": "Crumbly almond shortbread that melts in your mouth.",
-			"favorite": false,
-			"id": "efsDW1pJ1U4",
-			"name": "폴보론",
-			"price": 6000,
-			"spanishDescription": "Dulce de almendra que se deshace en la boca.",
-			"subname": "Polvoron"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "스페인을 대표하는 리오하 지역의 레드 와인. 과일 향과 부드러운 오크 향.",
-			"englishDescription": "Red wine from Spain's famous Rioja region, fruity with soft oak notes.",
-			"favorite": false,
-			"id": "B_NC8c80lFU",
-			"name": "리오하",
-			"price": 8000,
-			"spanishDescription": "Vino tinto de la Rioja, afrutado y con suaves notas de roble.",
-			"subname": "Rioja"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "템프라니요 품종으로 만든 진하고 묵직한 레드 와인.",
-			"englishDescription": "A bold, full-bodied red wine made from Tempranillo grapes.",
-			"favorite": false,
-			"id": "rDa8TSOSApw",
-			"name": "리베라 델 두에로",
-			"price": 9000,
-			"spanishDescription": "Vino tinto intenso y con cuerpo, elaborado con uva tempranillo.",
-			"subname": "Ribera del Duero"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "갈리시아산 상큼한 화이트 와인. 해산물과 잘 어울려요.",
-			"englishDescription": "A crisp white wine from Galicia, great with seafood.",
-			"favorite": true,
-			"id": "aExKgckfarU",
-			"name": "알바리뇨",
-			"price": 8500,
-			"spanishDescription": "Vino blanco fresco de Galicia, ideal con marisco.",
-			"subname": "Albariño"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "바스크 지방의 가볍고 톡 쏘는 화이트 와인.",
-			"englishDescription": "A light, slightly sparkling white wine from the Basque Country.",
-			"favorite": false,
-			"id": "fNxD9qCOsoU",
-			"name": "차콜리",
-			"price": 8000,
-			"spanishDescription": "Vino blanco ligero y ligeramente espumoso del País Vasco.",
-			"subname": "Chacoli"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "카탈루냐에서 전통 방식으로 만든 스파클링 와인.",
-			"englishDescription": "Catalan sparkling wine made in the traditional method.",
-			"favorite": true,
-			"id": "hHmvpEeTUVY",
-			"name": "카바",
-			"price": 8000,
-			"spanishDescription": "Vino espumoso catalán elaborado con el método tradicional.",
-			"subname": "Cava"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "안달루시아 헤레스 지방의 주정 강화 와인.",
-			"englishDescription": "Fortified wine from Jerez in Andalusia.",
-			"favorite": false,
-			"id": "r3gguRDFv8Y",
-			"name": "셰리",
-			"price": 7000,
-			"spanishDescription": "Vino generoso de Jerez, en Andalucía.",
-			"subname": "Sherry"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "아스투리아스의 사과주. 높이서 따라 거품을 내 마셔요.",
-			"englishDescription": "Asturian cider, poured from a height to aerate it.",
-			"favorite": false,
-			"id": "gW8BJb6JsiE",
-			"name": "시드라",
-			"price": 28000,
-			"spanishDescription": "Sidra asturiana, escanciada desde lo alto para airearla.",
-			"subname": "Cidra"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "허브로 향을 낸 달콤쌉싸름한 식전주. 올리브와 오렌지를 곁들여요.",
-			"englishDescription": "Bittersweet herbal aperitif served with an olive and orange slice.",
-			"favorite": false,
-			"id": "LYpGaK0Sc4Y",
-			"name": "베르무트",
-			"price": 7000,
-			"spanishDescription": "Aperitivo agridulce de hierbas, servido con aceituna y naranja.",
-			"subname": "Vermut"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "레드 와인에 과일을 넣어 달콤하고 시원하게 만든 음료.",
-			"englishDescription": "Red wine with fresh fruit, sweet and refreshing.",
-			"favorite": true,
-			"id": "ikIa_O8FNGA",
-			"name": "상그리아",
-			"price": 7000,
-			"spanishDescription": "Vino tinto con fruta fresca, dulce y refrescante.",
-			"subname": "Sangria"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "레드 와인에 레몬 소다를 섞은 가볍고 청량한 여름 음료.",
-			"englishDescription": "Red wine mixed with lemon soda — light and refreshing for summer.",
-			"favorite": true,
-			"id": "r_fY6N6k8Tc",
-			"name": "틴토 데 베라노",
-			"price": 6000,
-			"spanishDescription": "Vino tinto con gaseosa de limón, ligero y refrescante para el verano.",
-			"subname": "Tinto de Verano"
-		},
-		{
-			"allergens": ["sulfites"],
-			"category": "bebidas",
-			"description": "레드 와인과 콜라를 반씩 섞은 바스크 지방의 음료.",
-			"englishDescription": "A Basque favorite: half red wine, half cola.",
-			"favorite": false,
-			"id": "nmrkHWWockA",
-			"name": "칼리모초",
-			"price": 6000,
-			"spanishDescription": "Un clásico vasco: mitad vino tinto, mitad cola.",
-			"subname": "Calimocho"
-		},
-		{
-			"allergens": ["milk"],
-			"category": "bebidas",
-			"description": "에스프레소에 따뜻한 우유를 듬뿍 넣은 스페인식 라테.",
-			"englishDescription": "Espresso with plenty of steamed milk, Spain's classic latte.",
-			"favorite": true,
-			"id": "96xujcSmgyI",
-			"name": "카페 콘 레체",
-			"price": 4500,
-			"spanishDescription": "Café espresso con abundante leche caliente.",
-			"subname": "Café con Leche"
-		},
-		{
-			"allergens": ["milk"],
-			"category": "bebidas",
-			"description": "에스프레소에 우유를 조금 넣어 쓴맛을 부드럽게 한 커피.",
-			"englishDescription": "Espresso cut with a splash of milk.",
-			"favorite": false,
-			"id": "UTFqnlUj3YU",
-			"name": "코르타도",
-			"price": 4500,
-			"spanishDescription": "Café espresso cortado con un poco de leche.",
-			"subname": "Cortado"
-		},
-		{
-			"allergens": ["milk"],
-			"category": "bebidas",
-			"description": "에스프레소와 연유를 층층이 담은 달콤한 커피.",
-			"englishDescription": "Espresso layered with sweet condensed milk.",
-			"favorite": false,
-			"id": "Py5LA9NOGfo",
-			"name": "카페 봄본",
-			"price": 5500,
-			"spanishDescription": "Café espresso con leche condensada en capas.",
-			"subname": "Café Bombon"
-		},
-		{
-			"allergens": ["milk"],
-			"category": "bebidas",
-			"description": "걸쭉하고 진한 스페인식 핫초콜릿.",
-			"englishDescription": "Thick, rich Spanish hot chocolate.",
-			"favorite": true,
-			"id": "btPsRbaZMHU",
-			"name": "초콜라테",
-			"price": 6000,
-			"spanishDescription": "Chocolate caliente espeso e intenso.",
-			"subname": "Chocolate"
-		},
-		{
-			"allergens": [],
-			"category": "bebidas",
-			"description": "타이거넛으로 만든 발렌시아의 달콤하고 시원한 음료.",
-			"englishDescription": "A sweet, chilled Valencian drink made from tiger nuts.",
-			"favorite": false,
-			"id": "R426UqwnoxQ",
-			"name": "오르차타 데 추파",
-			"price": 6500,
-			"spanishDescription": "Bebida valenciana dulce y fresca elaborada con chufa.",
-			"subname": "Horchata de Chufa"
-		}
-	]
+  "cart": [
+    {
+      "allergens": [
+        "egg"
+      ],
+      "category": "tapas",
+      "description": "바삭하게 튀긴 감자에 매콤한 브라바스 소스와 알리올리를 곁들였어요.",
+      "englishDescription": "Crispy fried potatoes topped with spicy bravas sauce and aioli.",
+      "favorite": true,
+      "id": "KCy150lG5RQ",
+      "name": "파타타스 브라바스",
+      "price": 11000,
+      "spanishDescription": "Patatas fritas crujientes con salsa brava picante y alioli.",
+      "subname": "Patatas Bravas",
+      "dishId": "AujAKdX4sKw",
+      "quantity": 1
+    },
+    {
+      "allergens": [
+        "gluten",
+        "crustacean"
+      ],
+      "category": "tapas",
+      "description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 요리. 빵을 찍어 먹으면 더 맛있어요.",
+      "englishDescription": "Shrimp sizzled in olive oil with garlic and chili. Best enjoyed with bread for dipping.",
+      "favorite": true,
+      "id": "fVRrV1cClPQ",
+      "name": "감바스 알 아히요",
+      "price": 17000,
+      "spanishDescription": "Gambas chisporroteantes en aceite de oliva con ajo y guindilla. Ideales para mojar pan.",
+      "subname": "Gambas al Ajillo",
+      "dishId": "RTeW25I5h6o",
+      "quantity": 1
+    }
+  ],
+  "dishes": [
+    {
+      "allergens": [
+        "gluten",
+        "crustacean"
+      ],
+      "category": "tapas",
+      "description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 요리. 빵을 찍어 먹으면 더 맛있어요.",
+      "englishDescription": "Shrimp sizzled in olive oil with garlic and chili. Best enjoyed with bread for dipping.",
+      "favorite": true,
+      "id": "RTeW25I5h6o",
+      "name": "감바스 알 아히요",
+      "price": 17000,
+      "spanishDescription": "Gambas chisporroteantes en aceite de oliva con ajo y guindilla. Ideales para mojar pan.",
+      "subname": "Gambas al Ajillo"
+    },
+    {
+      "allergens": [
+        "egg"
+      ],
+      "category": "tapas",
+      "description": "바삭하게 튀긴 감자에 매콤한 브라바스 소스와 알리올리를 곁들였어요.",
+      "englishDescription": "Crispy fried potatoes topped with spicy bravas sauce and aioli.",
+      "favorite": true,
+      "id": "AujAKdX4sKw",
+      "name": "파타타스 브라바스",
+      "price": 11000,
+      "spanishDescription": "Patatas fritas crujientes con salsa brava picante y alioli.",
+      "subname": "Patatas Bravas"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ],
+      "category": "tapas",
+      "description": "하몽을 넣은 부드러운 베샤멜 크림을 빵가루 옷을 입혀 바삭하게 튀겼어요.",
+      "englishDescription": "Creamy béchamel with jamón, breaded and fried until golden and crisp.",
+      "favorite": true,
+      "id": "iARDR2H9on8",
+      "name": "크로케타스",
+      "price": 12000,
+      "spanishDescription": "Cremosa bechamel con jamón, empanada y frita hasta quedar dorada y crujiente.",
+      "subname": "Croquetas"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg"
+      ],
+      "category": "tapas",
+      "description": "돼지고기와 소고기로 빚은 미트볼을 토마토 소스에 푹 끓였어요.",
+      "englishDescription": "Pork and beef meatballs simmered in tomato sauce.",
+      "favorite": false,
+      "id": "PSYYAqdlX3Y",
+      "name": "알본디가스",
+      "price": 14000,
+      "spanishDescription": "Albóndigas de cerdo y ternera guisadas en salsa de tomate.",
+      "subname": "Albondigas"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "mollusc"
+      ],
+      "category": "tapas",
+      "description": "오징어에 튀김옷을 입혀 바삭하게 튀기고 레몬을 곁들였어요.",
+      "englishDescription": "Lightly battered fried squid rings served with lemon.",
+      "favorite": false,
+      "id": "b-f8ETMM4ko",
+      "name": "칼라마레스 프리토스",
+      "price": 15000,
+      "spanishDescription": "Anillas de calamar rebozadas y fritas, servidas con limón.",
+      "subname": "Calamares Fritos"
+    },
+    {
+      "allergens": [],
+      "category": "tapas",
+      "description": "갈리시아산 작은 초록 고추를 올리브유에 볶아 굵은 소금을 뿌렸어요. 가끔 매운 게 섞여 있어요!",
+      "englishDescription": "Small Galician green peppers blistered in olive oil and sprinkled with sea salt. Some are hot, some are not!",
+      "favorite": false,
+      "id": "AhUI6drafcI",
+      "name": "피미엔토스 데 파드론",
+      "price": 10000,
+      "spanishDescription": "Pimientos gallegos salteados en aceite de oliva con sal gruesa. ¡Unos pican y otros no!",
+      "subname": "Pimientos de Padrón"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "tapas",
+      "description": "스페인 소시지 초리소를 레드 와인에 졸여 깊은 풍미를 냈어요.",
+      "englishDescription": "Spanish chorizo simmered in red wine for a rich, smoky flavor.",
+      "favorite": false,
+      "id": "x05J3_2W0Og",
+      "name": "초리소 알 비노",
+      "price": 16000,
+      "spanishDescription": "Chorizo cocinado a fuego lento en vino tinto, con un sabor intenso y ahumado.",
+      "subname": "Chorizo al Vino"
+    },
+    {
+      "allergens": [],
+      "category": "tapas",
+      "description": "도토리를 먹고 자란 이베리코 돼지의 뒷다리를 오랜 시간 숙성시킨 최고급 생햄이에요.",
+      "englishDescription": "Premium cured ham from acorn-fed Iberian pigs, aged for years.",
+      "favorite": true,
+      "id": "S0Ka-ofedBc",
+      "name": "하몽 이베리코",
+      "price": 30000,
+      "spanishDescription": "Jamón curado de primera calidad de cerdos ibéricos de bellota, madurado durante años.",
+      "subname": "Jamón Ibérico"
+    },
+    {
+      "allergens": [
+        "milk"
+      ],
+      "category": "tapas",
+      "description": "라만차 지방의 양젖으로 만든 숙성 치즈. 고소하고 짭짤한 맛이 와인과 잘 어울려요.",
+      "englishDescription": "Aged sheep's milk cheese from La Mancha. Nutty and savory, perfect with wine.",
+      "favorite": false,
+      "id": "brOMbDAEeJA",
+      "name": "만체고 치즈",
+      "price": 18000,
+      "spanishDescription": "Queso curado de oveja de La Mancha. Sabor intenso y ligeramente salado, perfecto con vino.",
+      "subname": "Queso Manchego"
+    },
+    {
+      "allergens": [
+        "gluten"
+      ],
+      "category": "tapas",
+      "description": "구운 빵에 잘 익은 토마토와 마늘을 문지르고 올리브유를 뿌린 카탈루냐식 토스트.",
+      "englishDescription": "Catalan toast rubbed with ripe tomato and garlic, drizzled with olive oil.",
+      "favorite": false,
+      "id": "GcWJhMIrZLs",
+      "name": "판 콘 토마테",
+      "price": 7000,
+      "spanishDescription": "Pan tostado frotado con tomate maduro y ajo, con un chorrito de aceite de oliva.",
+      "subname": "Pan con Tomate"
+    },
+    {
+      "allergens": [],
+      "category": "tapas",
+      "description": "허브와 마늘로 양념한 스페인산 올리브 모둠.",
+      "englishDescription": "Assorted Spanish olives marinated with herbs and garlic.",
+      "favorite": false,
+      "id": "yGEtWNpT0Yc",
+      "name": "아세이투나스",
+      "price": 7000,
+      "spanishDescription": "Surtido de aceitunas españolas aliñadas con hierbas y ajo.",
+      "subname": "Aceitunas"
+    },
+    {
+      "allergens": [
+        "egg"
+      ],
+      "category": "tapas",
+      "description": "감자와 양파를 넣어 두툼하게 구운 스페인식 오믈렛.",
+      "englishDescription": "Thick Spanish omelette with potatoes and onions.",
+      "favorite": true,
+      "id": "ECA9ticaZ5M",
+      "name": "토르티야 에스파뇰라",
+      "price": 14000,
+      "spanishDescription": "Tortilla gruesa de huevo con patatas y cebolla.",
+      "subname": "Tortilla Española"
+    },
+    {
+      "allergens": [
+        "mollusc"
+      ],
+      "category": "tapas",
+      "description": "부드럽게 삶은 문어를 감자 위에 올리고 파프리카 가루와 올리브유를 뿌렸어요.",
+      "englishDescription": "Tender boiled octopus on potatoes, finished with paprika and olive oil.",
+      "favorite": false,
+      "id": "R-1jXBSxs8M",
+      "name": "풀포 아 라 가예가",
+      "price": 13000,
+      "spanishDescription": "Pulpo cocido y tierno sobre cachelos, con pimentón y aceite de oliva.",
+      "subname": "Pulpo a la Gallega"
+    },
+    {
+      "allergens": [
+        "fish"
+      ],
+      "category": "tapas",
+      "description": "올리브, 안초비, 절인 고추를 꼬치에 꽂은 바스크 지방의 대표 핀초.",
+      "englishDescription": "A classic Basque pintxo: olive, anchovy, and pickled pepper on a skewer.",
+      "favorite": false,
+      "id": "Qkt0MVlUX90",
+      "name": "힐다",
+      "price": 9000,
+      "spanishDescription": "El pintxo vasco por excelencia: aceituna, anchoa y guindilla en un palillo.",
+      "subname": "Gilda"
+    },
+    {
+      "allergens": [],
+      "category": "paella",
+      "description": "닭고기와 토끼고기, 강낭콩을 넣고 사프란으로 향을 낸 발렌시아 전통 빠에야.",
+      "englishDescription": "Traditional Valencian paella with chicken, rabbit, and green beans, flavored with saffron.",
+      "favorite": false,
+      "id": "K-Npiv2Fn5A",
+      "name": "빠에야 발렌시아나",
+      "price": 11000,
+      "spanishDescription": "Paella tradicional valenciana con pollo, conejo y judías verdes, aromatizada con azafrán.",
+      "subname": "Paella Valenciana"
+    },
+    {
+      "allergens": [
+        "crustacean",
+        "mollusc",
+        "fish"
+      ],
+      "category": "paella",
+      "description": "새우, 홍합, 오징어 등 해산물을 듬뿍 넣은 빠에야.",
+      "englishDescription": "Paella loaded with shrimp, mussels, squid, and other seafood.",
+      "favorite": true,
+      "id": "W-DoZ4Vzcwg",
+      "name": "빠에야 데 마리스코스",
+      "price": 15000,
+      "spanishDescription": "Paella con gambas, mejillones, calamares y otros mariscos.",
+      "subname": "Paella de Mariscos"
+    },
+    {
+      "allergens": [
+        "crustacean",
+        "mollusc",
+        "fish"
+      ],
+      "category": "paella",
+      "description": "고기와 해산물을 함께 넣어 두 가지 맛을 모두 즐길 수 있는 빠에야.",
+      "englishDescription": "Paella with both meat and seafood — the best of both worlds.",
+      "favorite": true,
+      "id": "ihd253cmqSw",
+      "name": "빠에야 미스타",
+      "price": 13000,
+      "spanishDescription": "Paella con carne y marisco: lo mejor de los dos mundos.",
+      "subname": "Paella Mixta"
+    },
+    {
+      "allergens": [],
+      "category": "paella",
+      "description": "제철 채소를 듬뿍 넣은 채식 빠에야.",
+      "englishDescription": "Vegetarian paella with plenty of seasonal vegetables.",
+      "favorite": false,
+      "id": "ZV1I7eP75O4",
+      "name": "빠에야 데 베르두라스",
+      "price": 10000,
+      "spanishDescription": "Paella vegetariana con abundantes verduras de temporada.",
+      "subname": "Paella de Verduras"
+    },
+    {
+      "allergens": [
+        "crustacean",
+        "mollusc",
+        "fish",
+        "egg"
+      ],
+      "category": "paella",
+      "description": "오징어 먹물로 검게 물들인 해산물 쌀 요리. 알리올리를 곁들여 드세요.",
+      "englishDescription": "Seafood rice colored black with squid ink, served with aioli.",
+      "favorite": true,
+      "id": "yN6y6r2bNPk",
+      "name": "아로스 네그로",
+      "price": 13000,
+      "spanishDescription": "Arroz de marisco teñido con tinta de calamar, servido con alioli.",
+      "subname": "Arroz Negro"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "crustacean",
+        "mollusc",
+        "fish"
+      ],
+      "category": "paella",
+      "description": "쌀 대신 짧은 파스타 면을 넣어 만든 해산물 빠에야.",
+      "englishDescription": "A paella-style dish made with short noodles instead of rice, with seafood.",
+      "favorite": false,
+      "id": "8lGDigQZdlk",
+      "name": "피데우아",
+      "price": 12000,
+      "spanishDescription": "Plato al estilo de la paella hecho con fideos cortos en lugar de arroz, con marisco.",
+      "subname": "Fideua"
+    },
+    {
+      "allergens": [
+        "crustacean",
+        "mollusc",
+        "fish"
+      ],
+      "category": "paella",
+      "description": "생선 육수를 넉넉히 흡수시킨 알리칸테식 쌀 요리.",
+      "englishDescription": "Alicante-style rice cooked in a rich fish stock.",
+      "favorite": false,
+      "id": "21dZkEpPhHY",
+      "name": "아로스 아 반다",
+      "price": 12000,
+      "spanishDescription": "Arroz al estilo alicantino cocinado en un sabroso caldo de pescado.",
+      "subname": "Arroz a Banda"
+    },
+    {
+      "allergens": [],
+      "category": "paella",
+      "description": "국물을 자작하게 남겨 리조또처럼 촉촉하고 부드러운 쌀 요리.",
+      "englishDescription": "Creamy, risotto-like rice with a little broth.",
+      "favorite": false,
+      "id": "QoXnaiM78Io",
+      "name": "아로스 멜로소",
+      "price": 13000,
+      "spanishDescription": "Arroz cremoso y caldoso, de textura parecida al risotto.",
+      "subname": "Arroz Meloso"
+    },
+    {
+      "allergens": [],
+      "category": "principales",
+      "description": "새끼 돼지를 통째로 구워 껍질은 바삭하고 속은 촉촉한 세고비아의 명물.",
+      "englishDescription": "Segovia's famous roast suckling pig — crackling skin and juicy meat.",
+      "favorite": true,
+      "id": "gMEcCF_i0sc",
+      "name": "코치니요 아사도",
+      "price": 21000,
+      "spanishDescription": "El famoso cochinillo de Segovia: piel crujiente y carne jugosa.",
+      "subname": "Cochinillo Asado"
+    },
+    {
+      "allergens": [],
+      "category": "principales",
+      "description": "어린 양고기를 오븐에 천천히 구워 부드럽게 만든 카스티야 요리.",
+      "englishDescription": "Castilian-style lamb, slow-roasted in the oven until tender.",
+      "favorite": false,
+      "id": "jgagamoDWy4",
+      "name": "코르데로 아사도",
+      "price": 22000,
+      "spanishDescription": "Cordero al estilo castellano, asado lentamente al horno hasta quedar tierno.",
+      "subname": "Cordero Asado"
+    },
+    {
+      "allergens": [
+        "crustacean",
+        "mollusc",
+        "fish"
+      ],
+      "category": "principales",
+      "description": "양고기나 해산물을 채소와 함께 푹 끓인 스페인식 스튜.",
+      "englishDescription": "Hearty Spanish stew of lamb or seafood slowly cooked with vegetables.",
+      "favorite": false,
+      "id": "ldMgbgnZvvw",
+      "name": "칼데레타",
+      "price": 15000,
+      "spanishDescription": "Guiso tradicional de cordero o marisco cocinado a fuego lento con verduras.",
+      "subname": "Caldereta"
+    },
+    {
+      "allergens": [],
+      "category": "principales",
+      "description": "두툼한 소고기 티본 스테이크를 숯불에 구웠어요.",
+      "englishDescription": "A thick bone-in beef steak grilled over charcoal.",
+      "favorite": false,
+      "id": "axzGYaGUcnU",
+      "name": "출레톤",
+      "price": 37000,
+      "spanishDescription": "Chuletón de ternera con hueso a la brasa.",
+      "subname": "Chuleton"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg"
+      ],
+      "category": "principales",
+      "description": "햄을 돼지고기로 돌돌 말아 빵가루를 입혀 튀긴 코르도바 요리.",
+      "englishDescription": "A Córdoba specialty: pork rolled around ham, breaded and fried.",
+      "favorite": true,
+      "id": "x4s4Wog94_E",
+      "name": "플라멘킨",
+      "price": 8500,
+      "spanishDescription": "Especialidad cordobesa: lomo de cerdo enrollado con jamón, empanado y frito.",
+      "subname": "Flamenquin"
+    },
+    {
+      "allergens": [],
+      "category": "principales",
+      "description": "흰 강낭콩에 초리소, 모르시야, 돼지고기를 넣고 푹 끓인 아스투리아스 스튜.",
+      "englishDescription": "Asturian white bean stew with chorizo, morcilla, and pork.",
+      "favorite": true,
+      "id": "8Kj22h7BYU8",
+      "name": "파바다 아스투리아나",
+      "price": 12000,
+      "spanishDescription": "Guiso asturiano de fabes con chorizo, morcilla y lacón.",
+      "subname": "Fabada Asturiana"
+    },
+    {
+      "allergens": [],
+      "category": "principales",
+      "description": "병아리콩과 고기, 채소를 오래 끓여 국물과 건더기를 차례로 즐기는 마드리드 전통 요리.",
+      "englishDescription": "Madrid's traditional chickpea stew with meats and vegetables, served in courses.",
+      "favorite": false,
+      "id": "ygLm2RBcMdg",
+      "name": "코시도 마드릴레뇨",
+      "price": 13000,
+      "spanishDescription": "Guiso tradicional madrileño de garbanzos, carnes y verduras, servido en vuelcos.",
+      "subname": "Cocido Madrileño"
+    },
+    {
+      "allergens": [
+        "fish"
+      ],
+      "category": "principales",
+      "description": "대구를 올리브유와 마늘로 천천히 익혀 걸쭉한 소스를 만든 바스크 요리.",
+      "englishDescription": "Basque salt cod gently cooked in olive oil and garlic, creating a silky emulsion.",
+      "favorite": false,
+      "id": "3RKhOCsSzTQ",
+      "name": "바칼라오 알 필필",
+      "price": 12000,
+      "spanishDescription": "Bacalao vasco cocinado lentamente en aceite de oliva y ajo hasta ligar la salsa.",
+      "subname": "Bacalao al Pil Pil"
+    },
+    {
+      "allergens": [
+        "fish"
+      ],
+      "category": "principales",
+      "description": "대구와 비슷한 흰살생선 메를루사를 담백하게 조리했어요.",
+      "englishDescription": "Fresh hake, simply prepared to highlight its delicate flavor.",
+      "favorite": false,
+      "id": "s1aCDwCsciA",
+      "name": "메를루사 아 라 비스타",
+      "price": 15000,
+      "spanishDescription": "Merluza fresca, preparada de forma sencilla para realzar su sabor delicado.",
+      "subname": "Merluza a la Vista"
+    },
+    {
+      "allergens": [
+        "fish"
+      ],
+      "category": "principales",
+      "description": "도미를 소금으로 덮어 구워 촉촉하고 담백한 맛을 살렸어요.",
+      "englishDescription": "Sea bream baked in a salt crust, keeping it moist and tender.",
+      "favorite": true,
+      "id": "17IpYo0HLvY",
+      "name": "도라다 아 라 살",
+      "price": 18000,
+      "spanishDescription": "Dorada al horno en costra de sal, jugosa y tierna.",
+      "subname": "Dorada a la Sal"
+    },
+    {
+      "allergens": [
+        "fish"
+      ],
+      "category": "principales",
+      "description": "여러 생선과 감자를 넣고 끓인 카탈루냐식 생선 스튜.",
+      "englishDescription": "Catalan fish stew with assorted fish and potatoes.",
+      "favorite": false,
+      "id": "Yoglap6p86o",
+      "name": "수케트 데 페스카도",
+      "price": 9500,
+      "spanishDescription": "Guiso catalán de pescados variados con patatas.",
+      "subname": "Suquet de Pescado"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "principales",
+      "description": "소꼬리를 레드 와인에 오랜 시간 졸여 뼈에서 살이 부드럽게 떨어지는 코르도바 요리.",
+      "englishDescription": "Oxtail braised for hours in red wine until it falls off the bone.",
+      "favorite": true,
+      "id": "xAzUmfSYQTQ",
+      "name": "라보 데 토로",
+      "price": 13000,
+      "spanishDescription": "Rabo de toro estofado durante horas en vino tinto hasta que se deshace.",
+      "subname": "Rabo de Toro"
+    },
+    {
+      "allergens": [
+        "egg",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "달걀과 우유로 만든 부드러운 커스터드에 캐러멜 소스를 얹었어요.",
+      "englishDescription": "Silky egg custard topped with caramel sauce.",
+      "favorite": true,
+      "id": "k_A6Xo1y4R0",
+      "name": "플란",
+      "price": 5500,
+      "spanishDescription": "Suave crema de huevo y leche cubierta con caramelo.",
+      "subname": "Flan"
+    },
+    {
+      "allergens": [
+        "egg",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "레몬과 시나몬 향 커스터드 위에 설탕을 바삭하게 그을린 카탈루냐 디저트.",
+      "englishDescription": "Lemon and cinnamon custard with a crackly caramelized sugar top.",
+      "favorite": true,
+      "id": "koXfHvskpVM",
+      "name": "크레마 카탈라나",
+      "price": 6500,
+      "spanishDescription": "Crema con aroma de limón y canela, con una capa de azúcar quemado.",
+      "subname": "Crema Catalana"
+    },
+    {
+      "allergens": [
+        "egg",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "시나몬을 뿌린 부드러운 스페인식 커스터드 푸딩.",
+      "englishDescription": "Smooth Spanish custard dusted with cinnamon.",
+      "favorite": false,
+      "id": "Rq0wrr67fAg",
+      "name": "나티야스",
+      "price": 6000,
+      "spanishDescription": "Suaves natillas espolvoreadas con canela.",
+      "subname": "Natillas"
+    },
+    {
+      "allergens": [
+        "milk"
+      ],
+      "category": "postre",
+      "description": "쌀을 우유, 레몬 껍질, 시나몬과 함께 끓인 달콤한 라이스 푸딩.",
+      "englishDescription": "Sweet rice pudding simmered with milk, lemon peel, and cinnamon.",
+      "favorite": false,
+      "id": "FgK14jLWjXc",
+      "name": "아로스 콘 레체",
+      "price": 5500,
+      "spanishDescription": "Arroz cocido con leche, piel de limón y canela.",
+      "subname": "Arroz con Leche"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "갓 튀긴 추로스를 진한 핫초콜릿에 찍어 드세요.",
+      "englishDescription": "Freshly fried churros for dipping in thick hot chocolate.",
+      "favorite": true,
+      "id": "lj0Y2urxacQ",
+      "name": "추로스 콘 초콜라테",
+      "price": 7500,
+      "spanishDescription": "Churros recién hechos para mojar en chocolate caliente espeso.",
+      "subname": "Churros con Chocolate"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "우유와 달걀에 적신 빵을 구워 설탕과 시나몬을 뿌린 스페인식 프렌치토스트.",
+      "englishDescription": "Spanish-style French toast soaked in milk and egg, finished with sugar and cinnamon.",
+      "favorite": false,
+      "id": "mnaU24XnXgo",
+      "name": "토리하스",
+      "price": 7500,
+      "spanishDescription": "Pan empapado en leche y huevo, frito y rebozado en azúcar y canela.",
+      "subname": "Torrijas"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "굳힌 우유 크림을 튀겨 겉은 바삭하고 속은 부드러운 디저트.",
+      "englishDescription": "Fried milk pudding — crisp on the outside, creamy inside.",
+      "favorite": false,
+      "id": "LOjQtRWH8S4",
+      "name": "레체 프리타",
+      "price": 7000,
+      "spanishDescription": "Crema de leche frita, crujiente por fuera y cremosa por dentro.",
+      "subname": "Leche Frita"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg"
+      ],
+      "category": "postre",
+      "description": "마요르카의 달팽이 모양 빵. 폭신하고 슈거 파우더를 듬뿍 뿌렸어요.",
+      "englishDescription": "A fluffy spiral pastry from Mallorca, dusted with powdered sugar.",
+      "favorite": false,
+      "id": "t9zyGUPUBeY",
+      "name": "엔사이마다",
+      "price": 5000,
+      "spanishDescription": "Bollo mallorquín en espiral, esponjoso y cubierto de azúcar glas.",
+      "subname": "Ensaimada"
+    },
+    {
+      "allergens": [
+        "egg",
+        "nuts"
+      ],
+      "category": "postre",
+      "description": "아몬드 가루로 만든 갈리시아 케이크. 산티아고 십자가 문양이 특징이에요.",
+      "englishDescription": "Galician almond cake decorated with the Cross of Saint James.",
+      "favorite": true,
+      "id": "R-zZhhaxjEc",
+      "name": "타르타 데 산티아고",
+      "price": 7000,
+      "spanishDescription": "Tarta gallega de almendra decorada con la cruz de Santiago.",
+      "subname": "Tarta de Santiago"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "egg",
+        "milk"
+      ],
+      "category": "postre",
+      "description": "겉은 그을리고 속은 크리미한 바스크식 치즈케이크.",
+      "englishDescription": "Basque-style burnt cheesecake with a creamy center.",
+      "favorite": true,
+      "id": "VeBfecj285c",
+      "name": "타르타 데 케소",
+      "price": 7500,
+      "spanishDescription": "Tarta de queso al estilo vasco, tostada por fuera y cremosa por dentro.",
+      "subname": "Tarta de Queso"
+    },
+    {
+      "allergens": [
+        "egg",
+        "nuts"
+      ],
+      "category": "postre",
+      "description": "아몬드와 꿀로 만든 스페인 전통 누가.",
+      "englishDescription": "Traditional Spanish nougat made with almonds and honey.",
+      "favorite": false,
+      "id": "T1GswFXhqnk",
+      "name": "투론",
+      "price": 6000,
+      "spanishDescription": "Turrón tradicional elaborado con almendras y miel.",
+      "subname": "Turron"
+    },
+    {
+      "allergens": [
+        "gluten",
+        "nuts"
+      ],
+      "category": "postre",
+      "description": "입에서 사르르 부서지는 아몬드 쇼트브레드 과자.",
+      "englishDescription": "Crumbly almond shortbread that melts in your mouth.",
+      "favorite": false,
+      "id": "efsDW1pJ1U4",
+      "name": "폴보론",
+      "price": 6000,
+      "spanishDescription": "Dulce de almendra que se deshace en la boca.",
+      "subname": "Polvoron"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "스페인을 대표하는 리오하 지역의 레드 와인. 과일 향과 부드러운 오크 향.",
+      "englishDescription": "Red wine from Spain's famous Rioja region, fruity with soft oak notes.",
+      "favorite": false,
+      "id": "B_NC8c80lFU",
+      "name": "리오하",
+      "price": 8000,
+      "spanishDescription": "Vino tinto de la Rioja, afrutado y con suaves notas de roble.",
+      "subname": "Rioja"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "템프라니요 품종으로 만든 진하고 묵직한 레드 와인.",
+      "englishDescription": "A bold, full-bodied red wine made from Tempranillo grapes.",
+      "favorite": false,
+      "id": "rDa8TSOSApw",
+      "name": "리베라 델 두에로",
+      "price": 9000,
+      "spanishDescription": "Vino tinto intenso y con cuerpo, elaborado con uva tempranillo.",
+      "subname": "Ribera del Duero"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "갈리시아산 상큼한 화이트 와인. 해산물과 잘 어울려요.",
+      "englishDescription": "A crisp white wine from Galicia, great with seafood.",
+      "favorite": true,
+      "id": "aExKgckfarU",
+      "name": "알바리뇨",
+      "price": 8500,
+      "spanishDescription": "Vino blanco fresco de Galicia, ideal con marisco.",
+      "subname": "Albariño"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "바스크 지방의 가볍고 톡 쏘는 화이트 와인.",
+      "englishDescription": "A light, slightly sparkling white wine from the Basque Country.",
+      "favorite": false,
+      "id": "fNxD9qCOsoU",
+      "name": "차콜리",
+      "price": 8000,
+      "spanishDescription": "Vino blanco ligero y ligeramente espumoso del País Vasco.",
+      "subname": "Chacoli"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "카탈루냐에서 전통 방식으로 만든 스파클링 와인.",
+      "englishDescription": "Catalan sparkling wine made in the traditional method.",
+      "favorite": true,
+      "id": "hHmvpEeTUVY",
+      "name": "카바",
+      "price": 8000,
+      "spanishDescription": "Vino espumoso catalán elaborado con el método tradicional.",
+      "subname": "Cava"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "안달루시아 헤레스 지방의 주정 강화 와인.",
+      "englishDescription": "Fortified wine from Jerez in Andalusia.",
+      "favorite": false,
+      "id": "r3gguRDFv8Y",
+      "name": "셰리",
+      "price": 7000,
+      "spanishDescription": "Vino generoso de Jerez, en Andalucía.",
+      "subname": "Sherry"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "아스투리아스의 사과주. 높이서 따라 거품을 내 마셔요.",
+      "englishDescription": "Asturian cider, poured from a height to aerate it.",
+      "favorite": false,
+      "id": "gW8BJb6JsiE",
+      "name": "시드라",
+      "price": 28000,
+      "spanishDescription": "Sidra asturiana, escanciada desde lo alto para airearla.",
+      "subname": "Cidra"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "허브로 향을 낸 달콤쌉싸름한 식전주. 올리브와 오렌지를 곁들여요.",
+      "englishDescription": "Bittersweet herbal aperitif served with an olive and orange slice.",
+      "favorite": false,
+      "id": "LYpGaK0Sc4Y",
+      "name": "베르무트",
+      "price": 7000,
+      "spanishDescription": "Aperitivo agridulce de hierbas, servido con aceituna y naranja.",
+      "subname": "Vermut"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "레드 와인에 과일을 넣어 달콤하고 시원하게 만든 음료.",
+      "englishDescription": "Red wine with fresh fruit, sweet and refreshing.",
+      "favorite": true,
+      "id": "ikIa_O8FNGA",
+      "name": "상그리아",
+      "price": 7000,
+      "spanishDescription": "Vino tinto con fruta fresca, dulce y refrescante.",
+      "subname": "Sangria"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "레드 와인에 레몬 소다를 섞은 가볍고 청량한 여름 음료.",
+      "englishDescription": "Red wine mixed with lemon soda — light and refreshing for summer.",
+      "favorite": true,
+      "id": "r_fY6N6k8Tc",
+      "name": "틴토 데 베라노",
+      "price": 6000,
+      "spanishDescription": "Vino tinto con gaseosa de limón, ligero y refrescante para el verano.",
+      "subname": "Tinto de Verano"
+    },
+    {
+      "allergens": [
+        "sulfites"
+      ],
+      "category": "bebidas",
+      "description": "레드 와인과 콜라를 반씩 섞은 바스크 지방의 음료.",
+      "englishDescription": "A Basque favorite: half red wine, half cola.",
+      "favorite": false,
+      "id": "nmrkHWWockA",
+      "name": "칼리모초",
+      "price": 6000,
+      "spanishDescription": "Un clásico vasco: mitad vino tinto, mitad cola.",
+      "subname": "Calimocho"
+    },
+    {
+      "allergens": [
+        "milk"
+      ],
+      "category": "bebidas",
+      "description": "에스프레소에 따뜻한 우유를 듬뿍 넣은 스페인식 라테.",
+      "englishDescription": "Espresso with plenty of steamed milk, Spain's classic latte.",
+      "favorite": true,
+      "id": "96xujcSmgyI",
+      "name": "카페 콘 레체",
+      "price": 4500,
+      "spanishDescription": "Café espresso con abundante leche caliente.",
+      "subname": "Café con Leche"
+    },
+    {
+      "allergens": [
+        "milk"
+      ],
+      "category": "bebidas",
+      "description": "에스프레소에 우유를 조금 넣어 쓴맛을 부드럽게 한 커피.",
+      "englishDescription": "Espresso cut with a splash of milk.",
+      "favorite": false,
+      "id": "UTFqnlUj3YU",
+      "name": "코르타도",
+      "price": 4500,
+      "spanishDescription": "Café espresso cortado con un poco de leche.",
+      "subname": "Cortado"
+    },
+    {
+      "allergens": [
+        "milk"
+      ],
+      "category": "bebidas",
+      "description": "에스프레소와 연유를 층층이 담은 달콤한 커피.",
+      "englishDescription": "Espresso layered with sweet condensed milk.",
+      "favorite": false,
+      "id": "Py5LA9NOGfo",
+      "name": "카페 봄본",
+      "price": 5500,
+      "spanishDescription": "Café espresso con leche condensada en capas.",
+      "subname": "Café Bombon"
+    },
+    {
+      "allergens": [
+        "milk"
+      ],
+      "category": "bebidas",
+      "description": "걸쭉하고 진한 스페인식 핫초콜릿.",
+      "englishDescription": "Thick, rich Spanish hot chocolate.",
+      "favorite": true,
+      "id": "btPsRbaZMHU",
+      "name": "초콜라테",
+      "price": 6000,
+      "spanishDescription": "Chocolate caliente espeso e intenso.",
+      "subname": "Chocolate"
+    },
+    {
+      "allergens": [],
+      "category": "bebidas",
+      "description": "타이거넛으로 만든 발렌시아의 달콤하고 시원한 음료.",
+      "englishDescription": "A sweet, chilled Valencian drink made from tiger nuts.",
+      "favorite": false,
+      "id": "R426UqwnoxQ",
+      "name": "오르차타 데 추파",
+      "price": 6500,
+      "spanishDescription": "Bebida valenciana dulce y fresca elaborada con chufa.",
+      "subname": "Horchata de Chufa"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
