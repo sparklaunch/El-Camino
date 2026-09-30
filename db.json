@@ -1,17 +1,17 @@
 {
   "cart": [
     {
-      "category": "tapas",
-      "description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 요리. 빵을 찍어 먹으면 더 맛있어요.",
-      "englishDescription": "Shrimp sizzled in olive oil with garlic and chili. Best enjoyed with bread for dipping.",
+      "category": "bebidas",
+      "description": "레드 와인에 과일을 넣어 달콤하고 시원하게 만든 음료.",
+      "englishDescription": "Red wine with fresh fruit, sweet and refreshing.",
       "favorite": true,
-      "id": "w9lDG-NnYIw",
-      "name": "감바스 알 아히요",
-      "price": 17000,
-      "spanishDescription": "Gambas chisporroteantes en aceite de oliva con ajo y guindilla. Ideales para mojar pan.",
-      "subname": "Gambas al Ajillo",
-      "dishId": "RTeW25I5h6o",
-      "quantity": 6
+      "id": "RE_QlrP3HTY",
+      "name": "상그리아",
+      "price": 7000,
+      "spanishDescription": "Vino tinto con fruta fresca, dulce y refrescante.",
+      "subname": "Sangria",
+      "dishId": "ikIa_O8FNGA",
+      "quantity": 1
     }
   ],
   "dishes": [
