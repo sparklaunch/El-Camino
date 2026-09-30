@@ -1,10 +1,10 @@
 "use client";
 
+import { clsx } from "clsx";
 import { useEffect, useRef, useState } from "react";
+import { COUPON_LENGTH, isValidCoupon } from "../helpers/coupon";
 import useTranslation from "../i18n/useTranslation";
 import styles from "./CouponModal.module.css";
-
-export const COUPON_LENGTH = 16;
 
 // 입력값에서 알파벳·숫자만 남기고 대문자로 바꿔 16자리까지 자름
 const normalize = (value: string) =>
@@ -26,6 +26,7 @@ export default function CouponModal({
 	const { t } = useTranslation();
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const [code, setCode] = useState("");
+	const [isInvalid, setIsInvalid] = useState(false);
 	useEffect(() => {
 		dialogRef.current?.showModal();
 	}, []);
@@ -38,8 +39,13 @@ export default function CouponModal({
 	const isComplete = code.length === COUPON_LENGTH;
 	const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (isComplete) {
+		if (!isComplete) {
+			return;
+		}
+		if (isValidCoupon(code)) {
 			onSubmit(code);
+		} else {
+			setIsInvalid(true);
 		}
 	};
 	return (
@@ -54,18 +60,29 @@ export default function CouponModal({
 				<p className={styles.hint}>{t.couponHint}</p>
 				<input
 					type="text"
-					className={styles.input}
+					className={clsx(styles.input, { [styles.invalid]: isInvalid })}
 					value={format(code)}
-					onChange={(event) => setCode(normalize(event.target.value))}
+					onChange={(event) => {
+						setCode(normalize(event.target.value));
+						setIsInvalid(false);
+					}}
+					aria-invalid={isInvalid}
 					placeholder="XXXX-XXXX-XXXX-XXXX"
 					autoComplete="off"
 					autoCapitalize="characters"
 					spellCheck={false}
 					autoFocus
 				/>
-				<p className={styles.counter}>
-					{code.length} / {COUPON_LENGTH}
-				</p>
+				<div className={styles.status}>
+					{isInvalid && (
+						<p className={styles.error} role="alert">
+							⚠️ {t.invalidCoupon}
+						</p>
+					)}
+					<p className={styles.counter}>
+						{code.length} / {COUPON_LENGTH}
+					</p>
+				</div>
 				<div className={styles.buttons}>
 					<button
 						type="button"

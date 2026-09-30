@@ -15,6 +15,8 @@ import PigModal from "./PigModal";
 
 // 합계가 이 금액을 넘으면 이스터 에그 모달을 띄움
 const PIG_LIMIT = 100_000;
+// 올바른 쿠폰을 적용하면 모든 음식에 적용되는 할인율
+const COUPON_DISCOUNT_RATE = 0.5;
 
 export default function Invoice() {
 	const { t, dishName } = useTranslation();
@@ -22,10 +24,17 @@ export default function Invoice() {
 		queryKey: ["cart"],
 		queryFn: cartAPI.fetchCart
 	});
-	const totalPrice = cart.reduce(
+	const [isCouponApplied, setIsCouponApplied] = useState(false);
+	// 쿠폰이 적용되어 있으면 각 음식의 가격을 할인해서 계산 (원 단위 미만은 버림)
+	const linePrice = (item: CartDish) =>
+		isCouponApplied ?
+			Math.floor(item.price * item.quantity * (1 - COUPON_DISCOUNT_RATE))
+		:	item.price * item.quantity;
+	const originalPrice = cart.reduce(
 		(sum, item) => sum + item.price * item.quantity,
 		0
 	);
+	const totalPrice = cart.reduce((sum, item) => sum + linePrice(item), 0);
 	const isOverLimit = totalPrice > PIG_LIMIT;
 	const [wasOverLimit, setWasOverLimit] = useState(isOverLimit);
 	const [showPigModal, setShowPigModal] = useState(false);
@@ -53,7 +62,10 @@ export default function Invoice() {
 		},
 		onSettled: () => queryClient.invalidateQueries({ queryKey: ["cart"] })
 	});
-	const reset = () => clearMutate(cart.map((item) => item.id));
+	const reset = () => {
+		clearMutate(cart.map((item) => item.id));
+		setIsCouponApplied(false);
+	};
 	const router = useRouter();
 	// 결제가 끝나면 카트를 비우고 완료 페이지로 이동
 	const pay = () => {
@@ -105,13 +117,24 @@ export default function Invoice() {
 									{dishName(item)} × {item.quantity}
 								</span>
 								<span className={styles.itemPrice}>
-									{t.price(item.price * item.quantity)}
+									{isCouponApplied && (
+										<s className={styles.originalPrice}>
+											{t.price(item.price * item.quantity)}
+										</s>
+									)}
+									{t.price(linePrice(item))}
 								</span>
 							</li>
 						))}
 					</ul>
 				:	<p className={styles.empty}>{t.emptyCart}</p>}
 				<hr className={styles.divider} />
+				{isCouponApplied && (
+					<div className={styles.discount}>
+						<span>{t.couponApplied}</span>
+						<span>-{t.price(originalPrice - totalPrice)}</span>
+					</div>
+				)}
 				<div className={styles.total}>
 					<span>{t.total}</span>
 					<span>{t.price(totalPrice)}</span>
@@ -120,6 +143,7 @@ export default function Invoice() {
 					type="button"
 					className={styles.couponButton}
 					onClick={() => setShowCouponModal(true)}
+					disabled={isCouponApplied}
 				>
 					{t.useCoupon}
 				</button>
@@ -144,8 +168,10 @@ export default function Invoice() {
 			{showCouponModal && (
 				<CouponModal
 					onClose={() => setShowCouponModal(false)}
-					// TODO: 쿠폰 검증·할인 적용 API가 생기면 연결
-					onSubmit={() => setShowCouponModal(false)}
+					onSubmit={() => {
+						setIsCouponApplied(true);
+						setShowCouponModal(false);
+					}}
 				/>
 			)}
 			{showPigModal && (

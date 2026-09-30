@@ -89,6 +89,21 @@
 	font-weight: bold;
 }
 
+.originalPrice {
+	margin-right: 6px;
+	font-weight: normal;
+	opacity: 0.5;
+}
+
+.discount {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	color: var(--color-accent);
+	font-size: 18px;
+	font-weight: bold;
+}
+
 .empty {
 	font-size: 18px;
 }
@@ -118,8 +133,13 @@
 	transition: transform 0.3s;
 }
 
-.couponButton:hover {
+.couponButton:hover:not(:disabled) {
 	transform: scale(1.05);
+}
+
+.couponButton:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
 }
 
 .buttons {
