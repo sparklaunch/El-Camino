@@ -106,6 +106,22 @@
 	font-weight: bold;
 }
 
+.couponButton {
+	padding: 8px 0;
+	border: 2px solid var(--color-accent);
+	border-radius: 10px;
+	background-color: transparent;
+	color: var(--color-accent);
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.couponButton:hover {
+	transform: scale(1.05);
+}
+
 .buttons {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);

@@ -9,6 +9,7 @@ import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
 import useTranslation from "../i18n/useTranslation";
 import CartDish from "../types/CartDish";
 import Dish from "../types/Dish";
+import CouponModal from "./CouponModal";
 import styles from "./Invoice.module.css";
 import PigModal from "./PigModal";
 
@@ -28,6 +29,7 @@ export default function Invoice() {
 	const isOverLimit = totalPrice > PIG_LIMIT;
 	const [wasOverLimit, setWasOverLimit] = useState(isOverLimit);
 	const [showPigModal, setShowPigModal] = useState(false);
+	const [showCouponModal, setShowCouponModal] = useState(false);
 	// 합계가 기준 금액을 새로 넘어서는 순간에만 모달을 띄움
 	if (isOverLimit !== wasOverLimit) {
 		setWasOverLimit(isOverLimit);
@@ -114,6 +116,13 @@ export default function Invoice() {
 					<span>{t.total}</span>
 					<span>{t.price(totalPrice)}</span>
 				</div>
+				<button
+					type="button"
+					className={styles.couponButton}
+					onClick={() => setShowCouponModal(true)}
+				>
+					{t.useCoupon}
+				</button>
 				<div className={styles.buttons}>
 					<button
 						type="button"
@@ -132,6 +141,13 @@ export default function Invoice() {
 					</button>
 				</div>
 			</section>
+			{showCouponModal && (
+				<CouponModal
+					onClose={() => setShowCouponModal(false)}
+					// TODO: 쿠폰 검증·할인 적용 API가 생기면 연결
+					onSubmit={() => setShowCouponModal(false)}
+				/>
+			)}
 			{showPigModal && (
 				<PigModal onClose={() => setShowPigModal(false)} />
 			)}

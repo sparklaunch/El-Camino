@@ -1,0 +1,88 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import useTranslation from "../i18n/useTranslation";
+import styles from "./CouponModal.module.css";
+
+export const COUPON_LENGTH = 16;
+
+// 입력값에서 알파벳·숫자만 남기고 대문자로 바꿔 16자리까지 자름
+const normalize = (value: string) =>
+	value
+		.replace(/[^a-zA-Z0-9]/g, "")
+		.toUpperCase()
+		.slice(0, COUPON_LENGTH);
+
+// 읽기 쉽도록 4자리마다 하이픈을 넣어 표시 (XXXX-XXXX-XXXX-XXXX)
+const format = (code: string) => code.match(/.{1,4}/g)?.join("-") ?? "";
+
+export default function CouponModal({
+	onClose,
+	onSubmit
+}: {
+	onClose: () => void;
+	onSubmit: (code: string) => void;
+}) {
+	const { t } = useTranslation();
+	const dialogRef = useRef<HTMLDialogElement>(null);
+	const [code, setCode] = useState("");
+	useEffect(() => {
+		dialogRef.current?.showModal();
+	}, []);
+	const clickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
+		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
+		if (event.target === event.currentTarget) {
+			onClose();
+		}
+	};
+	const isComplete = code.length === COUPON_LENGTH;
+	const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		if (isComplete) {
+			onSubmit(code);
+		}
+	};
+	return (
+		<dialog
+			ref={dialogRef}
+			className={styles.dialog}
+			onClick={clickHandler}
+			onClose={onClose}
+		>
+			<form className={styles.content} onSubmit={submitHandler}>
+				<h2 className={styles.title}>{t.couponTitle}</h2>
+				<p className={styles.hint}>{t.couponHint}</p>
+				<input
+					type="text"
+					className={styles.input}
+					value={format(code)}
+					onChange={(event) => setCode(normalize(event.target.value))}
+					placeholder="XXXX-XXXX-XXXX-XXXX"
+					autoComplete="off"
+					autoCapitalize="characters"
+					spellCheck={false}
+					autoFocus
+				/>
+				<p className={styles.counter}>
+					{code.length} / {COUPON_LENGTH}
+				</p>
+				<div className={styles.buttons}>
+					<button
+						type="button"
+						className={styles.button}
+						onClick={onClose}
+					>
+						{t.close}
+					</button>
+					<button
+						type="submit"
+						className={styles.button}
+						disabled={!isComplete}
+					>
+						{t.apply}
+					</button>
+				</div>
+			</form>
+		</dialog>
+	);
+}

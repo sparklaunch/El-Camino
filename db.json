@@ -2,16 +2,42 @@
   "cart": [
     {
       "category": "tapas",
+      "description": "바삭하게 튀긴 감자에 매콤한 브라바스 소스와 알리올리를 곁들였어요.",
+      "englishDescription": "Crispy fried potatoes topped with spicy bravas sauce and aioli.",
+      "favorite": true,
+      "id": "QJw6U2MNyxo",
+      "name": "파타타스 브라바스",
+      "price": 11000,
+      "spanishDescription": "Patatas fritas crujientes con salsa brava picante y alioli.",
+      "subname": "Patatas Bravas",
+      "dishId": "AujAKdX4sKw",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
+      "description": "하몽을 넣은 부드러운 베샤멜 크림을 빵가루 옷을 입혀 바삭하게 튀겼어요.",
+      "englishDescription": "Creamy béchamel with jamón, breaded and fried until golden and crisp.",
+      "favorite": true,
+      "id": "01rz89KmbTA",
+      "name": "크로케타스",
+      "price": 12000,
+      "spanishDescription": "Cremosa bechamel con jamón, empanada y frita hasta quedar dorada y crujiente.",
+      "subname": "Croquetas",
+      "dishId": "iARDR2H9on8",
+      "quantity": 1
+    },
+    {
+      "category": "tapas",
       "description": "도토리를 먹고 자란 이베리코 돼지의 뒷다리를 오랜 시간 숙성시킨 최고급 생햄이에요.",
       "englishDescription": "Premium cured ham from acorn-fed Iberian pigs, aged for years.",
       "favorite": true,
-      "id": "mbCxMm9xA0g",
+      "id": "9LKk4MhkTdM",
       "name": "하몽 이베리코",
       "price": 30000,
       "spanishDescription": "Jamón curado de primera calidad de cerdos ibéricos de bellota, madurado durante años.",
       "subname": "Jamón Ibérico",
       "dishId": "S0Ka-ofedBc",
-      "quantity": 4
+      "quantity": 3
     }
   ],
   "dishes": [
