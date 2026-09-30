@@ -1,26 +1,5 @@
 {
-  "cart": [
-    {
-      "category": "tapas",
-      "favorite": true,
-      "id": "hYXUsbSHfBE",
-      "name": "하몽 이베리코",
-      "price": 30000,
-      "subname": "Jamón Ibérico",
-      "dishId": "S0Ka-ofedBc",
-      "quantity": 1
-    },
-    {
-      "category": "tapas",
-      "favorite": false,
-      "id": "o7p6l3yXivQ",
-      "name": "만체고 치즈",
-      "price": 18000,
-      "subname": "Queso Manchego",
-      "dishId": "brOMbDAEeJA",
-      "quantity": 1
-    }
-  ],
+  "cart": [],
   "dishes": [
     {
       "category": "tapas",

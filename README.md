@@ -14,14 +14,14 @@
 
 ## 기술 스택
 
-| 분류 | 사용 기술 |
-| --- | --- |
-| 프레임워크 | Next.js 16 (App Router), React 19 |
-| 언어 | TypeScript |
-| 서버 상태 관리 | TanStack Query |
-| 클라이언트 상태 관리 | Zustand (persist 미들웨어) |
-| 스타일 | CSS Modules, clsx |
-| Mock API | json-server |
+| 분류                 | 사용 기술                         |
+| -------------------- | --------------------------------- |
+| 프레임워크           | Next.js 16 (App Router), React 19 |
+| 언어                 | TypeScript                        |
+| 서버 상태 관리       | TanStack Query                    |
+| 클라이언트 상태 관리 | Zustand (persist 미들웨어)        |
+| 스타일               | CSS Modules, clsx                 |
+| Mock API             | json-server                       |
 
 ## 시작하기
 
@@ -53,19 +53,19 @@ npm run dev
 
 ### 기타 스크립트
 
-| 명령어 | 설명 |
-| --- | --- |
-| `npm run build` | 프로덕션 빌드 |
+| 명령어          | 설명           |
+| --------------- | -------------- |
+| `npm run build` | 프로덕션 빌드  |
 | `npm run start` | 빌드 결과 실행 |
-| `npm run lint` | ESLint 검사 |
+| `npm run lint`  | ESLint 검사    |
 
 ## 페이지 구성
 
-| 경로 | 설명 |
-| --- | --- |
-| `/` | 언어 선택과 주문 방식(매장 식사·포장) 선택 |
-| `/main` | 카테고리별 메뉴, 메뉴 상세 모달, 주문 내역 |
-| `/complete` | 결제 완료 |
+| 경로        | 설명                                       |
+| ----------- | ------------------------------------------ |
+| `/`         | 언어 선택과 주문 방식(매장 식사·포장) 선택 |
+| `/main`     | 카테고리별 메뉴, 메뉴 상세 모달, 주문 내역 |
+| `/complete` | 결제 완료                                  |
 
 ## 프로젝트 구조
 
@@ -94,15 +94,15 @@ db.json                # Mock 데이터 (dishes, cart)
 
 ```json
 {
-  "id": "RTeW25I5h6o",
-  "category": "tapas",
-  "favorite": true,
-  "name": "감바스 알 아히요",
-  "englishName": "Garlic Shrimp",
-  "subname": "Gambas al Ajillo",
-  "description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 대표 타파스예요. ...",
-  "englishDescription": "Shrimp sizzled in olive oil with garlic and chili. ...",
-  "price": 17000
+	"id": "RTeW25I5h6o",
+	"category": "tapas",
+	"favorite": true,
+	"name": "감바스 알 아히요",
+	"englishName": "Garlic Shrimp",
+	"subname": "Gambas al Ajillo",
+	"description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 대표 타파스예요. ...",
+	"englishDescription": "Shrimp sizzled in olive oil with garlic and chili. ...",
+	"price": 17000
 }
 ```
 
@@ -116,4 +116,4 @@ db.json                # Mock 데이터 (dishes, cart)
 
 화면 문구는 `app/i18n/translations.ts`에서 관리합니다.
 새 언어를 추가하려면 `Translation` 타입에 맞춰 문구 객체를 작성하고 `translations`에 등록하면 됩니다.
-번역이 등록되지 않은 언어를 선택하면 한국어로 표시됩니다. 현재 스페인어(Español)는 선택할 수 있지만 번역은 아직 없습니다.
+번역이 등록되지 않은 언어를 선택하면 한국어로 표시됩니다.
