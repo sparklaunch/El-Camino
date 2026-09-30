@@ -4,7 +4,7 @@ import Diet from "../enums/Diet";
 import Language from "../enums/Language";
 
 const korean = {
-	welcome: "화면을 터치해 주문하세요",
+	welcome: "화면을 터치해 주문해",
 	forHere: "매장 식사",
 	toGo: "포장",
 	categories: {
@@ -25,7 +25,7 @@ const korean = {
 		[Diet.vegan]: "비건",
 		[Diet.vegetarian]: "채식"
 	},
-	noDishes: "조건에 맞는 메뉴가 없어요.",
+	noDishes: "조건에 맞는 메뉴가 없어.",
 	allergenTitle: "알레르기 유발 성분",
 	allergens: {
 		[Allergen.gluten]: "글루텐",
@@ -45,14 +45,14 @@ const korean = {
 	pay: "결제",
 	useCoupon: "쿠폰 사용",
 	couponTitle: "쿠폰 번호 입력",
-	couponHint: "알파벳과 숫자로 된 16자리 쿠폰 번호를 입력해 주세요.",
+	couponHint: "알파벳과 숫자로 된 16자리 쿠폰 번호를 입력해.",
 	apply: "적용",
-	invalidCoupon: "올바르지 않은 쿠폰 번호예요.",
+	invalidCoupon: "올바르지 않은 쿠폰 번호야.",
 	couponApplied: "쿠폰 적용 (50% 할인)",
 	discount: "할인",
 	price: (price: number) => `${price.toLocaleString("ko-KR")}원`,
-	paymentComplete: "결제가 완료되었습니다",
-	thanks: "주문해 주셔서 감사합니다. 음식이 준비되면 알려 드릴게요.",
+	paymentComplete: "결제가 완료되었어",
+	thanks: "주문해 주셔서 고마워. 음식이 준비되면 알려드릴게.",
 	home: "처음으로"
 };
 

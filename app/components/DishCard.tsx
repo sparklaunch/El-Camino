@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
-import useTranslation from "../i18n/useTranslation";
 import allergenIcon from "../helpers/allergenIcon";
 import dietIcon from "../helpers/dietIcon";
 import removeDiacritics from "../helpers/removeDiacritics";
+import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
+import useTranslation from "../i18n/useTranslation";
 import Dish from "../types/Dish";
 import styles from "./DishCard.module.css";
 import DishModal from "./DishModal";
@@ -46,8 +46,8 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			<Image
 				src={`/assets/images/${imageURL}.jpg`}
 				alt={name}
-				width={120}
-				height={120}
+				width={150}
+				height={150}
 				// 이미지만 따로 끌리지 않고 카드 전체가 끌리도록 함
 				draggable={false}
 				className={styles.image}
