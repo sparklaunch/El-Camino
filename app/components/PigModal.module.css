@@ -1,0 +1,52 @@
+.dialog {
+	margin: auto;
+	padding: 0;
+	border: none;
+	border-radius: 10px;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+	width: 360px;
+	max-width: calc(100vw - 32px);
+	padding: 30px 20px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	text-align: center;
+}
+
+.pig {
+	font-size: 80px;
+	line-height: 1;
+}
+
+.message {
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.closeButton {
+	width: 100%;
+	padding: 10px 0;
+	border-radius: 10px;
+	background-color: var(--color-accent);
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.closeButton:hover {
+	transform: scale(1.05);
+}

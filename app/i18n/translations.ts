@@ -20,6 +20,7 @@ const korean = {
 	invoiceTitle: "주문 내역",
 	emptyCart: "담은 메뉴가 없어.",
 	total: "합계",
+	overLimit: "돼지야? 왜 이렇게 많이 먹어?",
 	reset: "초기화",
 	pay: "결제",
 	price: (price: number) => `${price.toLocaleString("ko-KR")}원`,
@@ -49,6 +50,7 @@ const english: Translation = {
 	invoiceTitle: "Your Order",
 	emptyCart: "Your cart is empty.",
 	total: "Total",
+	overLimit: "Are you a pig? Why are you eating so much?",
 	reset: "Clear",
 	pay: "Pay",
 	price: (price: number) => `₩${price.toLocaleString("en-US")}`,
@@ -76,6 +78,7 @@ const spanish: Translation = {
 	invoiceTitle: "Tu pedido",
 	emptyCart: "Tu carrito está vacío.",
 	total: "Total",
+	overLimit: "¿Eres un cerdo? ¿Por qué comes tanto?",
 	reset: "Vaciar",
 	pay: "Pagar",
 	price: (price: number) =>

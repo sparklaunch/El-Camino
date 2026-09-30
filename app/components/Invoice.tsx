@@ -2,10 +2,15 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import cartAPI from "../api/cartAPI";
 import useTranslation from "../i18n/useTranslation";
 import CartDish from "../types/CartDish";
 import styles from "./Invoice.module.css";
+import PigModal from "./PigModal";
+
+// 합계가 이 금액을 넘으면 이스터 에그 모달을 띄움
+const PIG_LIMIT = 100_000;
 
 export default function Invoice() {
 	const { t, dishName } = useTranslation();
@@ -17,6 +22,14 @@ export default function Invoice() {
 		(sum, item) => sum + item.price * item.quantity,
 		0
 	);
+	const isOverLimit = totalPrice > PIG_LIMIT;
+	const [wasOverLimit, setWasOverLimit] = useState(isOverLimit);
+	const [showPigModal, setShowPigModal] = useState(false);
+	// 합계가 기준 금액을 새로 넘어서는 순간에만 모달을 띄움
+	if (isOverLimit !== wasOverLimit) {
+		setWasOverLimit(isOverLimit);
+		setShowPigModal(isOverLimit);
+	}
 	const queryClient = useQueryClient();
 	const { mutate: clearMutate } = useMutation({
 		mutationFn: cartAPI.clearCart,
@@ -83,6 +96,9 @@ export default function Invoice() {
 					</button>
 				</div>
 			</section>
+			{showPigModal && (
+				<PigModal onClose={() => setShowPigModal(false)} />
+			)}
 		</aside>
 	);
 }
