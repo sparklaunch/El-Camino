@@ -1,5 +1,58 @@
 {
-  "cart": [],
+  "cart": [
+    {
+      "category": "tapas",
+      "description": "구운 빵에 잘 익은 토마토와 마늘을 문지르고 올리브유를 뿌린 카탈루냐식 토스트.",
+      "englishDescription": "Catalan toast rubbed with ripe tomato and garlic, drizzled with olive oil.",
+      "favorite": false,
+      "id": "LGo_kHrO898",
+      "name": "판 콘 토마테",
+      "price": 7000,
+      "spanishDescription": "Pan tostado frotado con tomate maduro y ajo, con un chorrito de aceite de oliva.",
+      "subname": "Pan con Tomate",
+      "dishId": "GcWJhMIrZLs",
+      "quantity": 1
+    },
+    {
+      "category": "paella",
+      "description": "고기와 해산물을 함께 넣어 두 가지 맛을 모두 즐길 수 있는 빠에야.",
+      "englishDescription": "Paella with both meat and seafood — the best of both worlds.",
+      "favorite": true,
+      "id": "umuVEJ7jlGg",
+      "name": "빠에야 미스타",
+      "price": 13000,
+      "spanishDescription": "Paella con carne y marisco: lo mejor de los dos mundos.",
+      "subname": "Paella Mixta",
+      "dishId": "ihd253cmqSw",
+      "quantity": 1
+    },
+    {
+      "category": "principales",
+      "description": "새끼 돼지를 통째로 구워 껍질은 바삭하고 속은 촉촉한 세고비아의 명물.",
+      "englishDescription": "Segovia's famous roast suckling pig — crackling skin and juicy meat.",
+      "favorite": true,
+      "id": "hgNS8mtYsiY",
+      "name": "코치니요 아사도",
+      "price": 21000,
+      "spanishDescription": "El famoso cochinillo de Segovia: piel crujiente y carne jugosa.",
+      "subname": "Cochinillo Asado",
+      "dishId": "gMEcCF_i0sc",
+      "quantity": 2
+    },
+    {
+      "category": "principales",
+      "description": "어린 양고기를 오븐에 천천히 구워 부드럽게 만든 카스티야 요리.",
+      "englishDescription": "Castilian-style lamb, slow-roasted in the oven until tender.",
+      "favorite": false,
+      "id": "NWBX97C_XD8",
+      "name": "코르데로 아사도",
+      "price": 22000,
+      "spanishDescription": "Cordero al estilo castellano, asado lentamente al horno hasta quedar tierno.",
+      "subname": "Cordero Asado",
+      "dishId": "jgagamoDWy4",
+      "quantity": 2
+    }
+  ],
   "dishes": [
     {
       "category": "tapas",
