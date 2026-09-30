@@ -168,10 +168,7 @@ export default function Invoice() {
 			{showCouponModal && (
 				<CouponModal
 					onClose={() => setShowCouponModal(false)}
-					onSubmit={() => {
-						setIsCouponApplied(true);
-						setShowCouponModal(false);
-					}}
+					onSubmit={() => setIsCouponApplied(true)}
 				/>
 			)}
 			{showPigModal && (

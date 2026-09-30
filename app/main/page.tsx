@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { startTransition, useEffect, useRef, useState, ViewTransition } from "react";
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
@@ -153,7 +153,8 @@ export default function Main() {
 										[styles.dietActive]: dietFilter === value
 									})}
 									aria-pressed={dietFilter === value}
-									onClick={() => setDietFilter(value)}
+									// 트랜지션으로 감싸 메뉴 목록이 페이드되며 바뀌도록 함
+									onClick={() => startTransition(() => setDietFilter(value))}
 								>
 									{label}
 								</button>
@@ -189,35 +190,37 @@ export default function Main() {
 							/>
 						</div>
 					</div>
-					<article className={styles.menu} onScroll={menuScrollHandler}>
-						{categories.map(({ value, subtitle }) => {
-							const sectionDishes = dishes.filter((dish) => dish.category === value);
-							return (
-								<section
-									key={value}
-									ref={(element) => {
-										sectionRefs.current[value] = element;
-									}}
-									className={styles.menuSection}
-								>
-									<hr className={styles.sectionLine} />
-									<h2 className={styles.sectionTitle}>
-										{t.categories[value]}
-										<span className={styles.sectionSubtitle}>{subtitle}</span>
-									</h2>
-									{sectionDishes.length > 0 ? (
-										<div className={styles.dishGrid}>
-											{sectionDishes.map((dish) => (
-												<DishCard key={dish.id} dish={dish} />
-											))}
-										</div>
-									) : (
-										<p className={styles.noDishes}>{t.noDishes}</p>
-									)}
-								</section>
-							);
-						})}
-					</article>
+					<ViewTransition update="menu-fade" default="none">
+						<article className={styles.menu} onScroll={menuScrollHandler}>
+							{categories.map(({ value, subtitle }) => {
+								const sectionDishes = dishes.filter((dish) => dish.category === value);
+								return (
+									<section
+										key={value}
+										ref={(element) => {
+											sectionRefs.current[value] = element;
+										}}
+										className={styles.menuSection}
+									>
+										<hr className={styles.sectionLine} />
+										<h2 className={styles.sectionTitle}>
+											{t.categories[value]}
+											<span className={styles.sectionSubtitle}>{subtitle}</span>
+										</h2>
+										{sectionDishes.length > 0 ? (
+											<div className={styles.dishGrid}>
+												{sectionDishes.map((dish) => (
+													<DishCard key={dish.id} dish={dish} />
+												))}
+											</div>
+										) : (
+											<p className={styles.noDishes}>{t.noDishes}</p>
+										)}
+									</section>
+								);
+							})}
+						</article>
+					</ViewTransition>
 					<Invoice />
 				</div>
 			</div>

@@ -2,10 +2,10 @@
 
 import { clsx } from "clsx";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import useTranslation from "../i18n/useTranslation";
 import allergenIcon from "../helpers/allergenIcon";
 import dietIcon from "../helpers/dietIcon";
+import useModal from "../hooks/useModal";
 import Dish from "../types/Dish";
 import styles from "./DishModal.module.css";
 
@@ -21,10 +21,7 @@ export default function DishModal({
 	onClose: () => void;
 }) {
 	const { t, dishName, dishDescription } = useTranslation();
-	const dialogRef = useRef<HTMLDialogElement>(null);
-	useEffect(() => {
-		dialogRef.current?.showModal();
-	}, []);
+	const { dialogRef, close, cancelHandler } = useModal(onClose);
 	const name = dishName(dish);
 	const description = dishDescription(dish);
 	const clickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
@@ -32,18 +29,19 @@ export default function DishModal({
 		event.stopPropagation();
 		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
 		if (event.target === event.currentTarget) {
-			onClose();
+			close();
 		}
 	};
 	const addHandler = () => {
 		onAdd();
-		onClose();
+		close();
 	};
 	return (
 		<dialog
 			ref={dialogRef}
 			className={styles.dialog}
 			onClick={clickHandler}
+			onCancel={cancelHandler}
 			onClose={onClose}
 		>
 			<div className={styles.content}>
@@ -97,7 +95,7 @@ export default function DishModal({
 					<button
 						type="button"
 						className={styles.closeButton}
-						onClick={onClose}
+						onClick={close}
 					>
 						{t.close}
 					</button>

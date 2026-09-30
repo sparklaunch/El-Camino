@@ -1,8 +1,9 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { COUPON_LENGTH, isValidCoupon } from "../helpers/coupon";
+import useModal from "../hooks/useModal";
 import useTranslation from "../i18n/useTranslation";
 import styles from "./CouponModal.module.css";
 
@@ -24,16 +25,13 @@ export default function CouponModal({
 	onSubmit: (code: string) => void;
 }) {
 	const { t } = useTranslation();
-	const dialogRef = useRef<HTMLDialogElement>(null);
+	const { dialogRef, close, cancelHandler } = useModal(onClose);
 	const [code, setCode] = useState("");
 	const [isInvalid, setIsInvalid] = useState(false);
-	useEffect(() => {
-		dialogRef.current?.showModal();
-	}, []);
 	const clickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
 		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
 		if (event.target === event.currentTarget) {
-			onClose();
+			close();
 		}
 	};
 	const isComplete = code.length === COUPON_LENGTH;
@@ -44,6 +42,7 @@ export default function CouponModal({
 		}
 		if (isValidCoupon(code)) {
 			onSubmit(code);
+			close();
 		} else {
 			setIsInvalid(true);
 		}
@@ -53,6 +52,7 @@ export default function CouponModal({
 			ref={dialogRef}
 			className={styles.dialog}
 			onClick={clickHandler}
+			onCancel={cancelHandler}
 			onClose={onClose}
 		>
 			<form className={styles.content} onSubmit={submitHandler}>
@@ -87,7 +87,7 @@ export default function CouponModal({
 					<button
 						type="button"
 						className={styles.button}
-						onClick={onClose}
+						onClick={close}
 					>
 						{t.close}
 					</button>
