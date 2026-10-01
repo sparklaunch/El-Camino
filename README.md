@@ -73,6 +73,10 @@ npm run dev
 | `/main`     | 카테고리별 메뉴, 메뉴 상세 모달, 주문 내역, 쿠폰 적용 |
 | `/complete` | 결제 완료                                  |
 
+![처음 화면](/docs/First.png)
+![메인 화면](/docs/Second.png)
+![완료 화면](/docs/Third.png)
+
 ## 프로젝트 구조
 
 ```text
