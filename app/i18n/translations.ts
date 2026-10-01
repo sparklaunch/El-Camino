@@ -168,11 +168,58 @@ const spanish: Translation = {
 	home: "Volver al inicio"
 };
 
+// 장난 번역이지만 알레르기 정보는 정확히 전달되도록 일반 한국어 표기를 유지
+const jammin: Translation = {
+	welcome: "화면 ㅌㅊ하면 주문 ㄱㄱ",
+	forHere: "여기서 먹을 거임",
+	toGo: "들고 튈 거임",
+	categories: {
+		[Category.tapas]: "타파스",
+		[Category.paella]: "빠에야",
+		[Category.principales]: "찐 메인",
+		[Category.postre]: "디저트 (배 따로 있음)",
+		[Category.bebidas]: "마실 거"
+	},
+	loading: "로딩 중... 기다리셈",
+	error: "헐 에러 남 ㅠㅠ:",
+	retry: "다시 ㄱㄱ",
+	add: "담기 ㄱㄱ",
+	close: "닫을래",
+	favorite: "개맛도리 추천",
+	dietFilter: "채식 필터 ㅇㅇ",
+	allDishes: "다 보여줘",
+	diets: {
+		[Diet.vegan]: "찐비건",
+		[Diet.vegetarian]: "채식러"
+	},
+	noDishes: "그런 메뉴 없음 ㅋㅋ 어쩔티비",
+	allergenTitle: "알레르기 주의 ㄹㅇ",
+	allergens: korean.allergens,
+	invoiceTitle: "내가 고른 거",
+	emptyCart: "텅텅 비었음 ㅋㅋ",
+	total: "총 얼마임",
+	overLimit: "돼지임? 왜케 많이 먹음? ㅋㅋㅋ 킹받네",
+	reset: "다 지워",
+	pay: "결제 ㄱㄱ",
+	useCoupon: "쿠폰 쓸래",
+	couponTitle: "쿠폰 번호 ㄱㄱ",
+	couponHint: "알파벳이랑 숫자 16자리 치셈. 틀리면 킹받음",
+	apply: "적용 ㄱ",
+	invalidCoupon: "쿠폰 번호 틀림 ㅋㅋ 다시 ㄱ",
+	couponApplied: "쿠폰 적용 완 (50% 할인 개꿀)",
+	discount: "할인 개꿀",
+	price: korean.price,
+	paymentComplete: "결제 완료 ㅅㄱ",
+	thanks: "주문 ㄳㄳ 음식 나오면 알려줄게 기다리셈",
+	home: "처음으로 ㄱㄱ"
+};
+
 // 아직 번역이 없는 언어는 한국어로 표시
 const translations: Partial<Record<Language, Translation>> = {
 	[Language.korean]: korean,
 	[Language.english]: english,
-	[Language.español]: spanish
+	[Language.español]: spanish,
+	[Language.jammin]: jammin
 };
 
 export default translations;

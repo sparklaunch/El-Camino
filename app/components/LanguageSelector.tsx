@@ -36,6 +36,15 @@ export default function LanguageSelector() {
 						Español
 					</button>
 				</li>
+				<li className={styles.languageListItem}>
+					<button
+						type="button"
+						className={styles.languageButton}
+						onClick={() => setLanguage(Language.jammin)}
+					>
+						잼민이
+					</button>
+				</li>
 			</ul>
 		</section>
 	);

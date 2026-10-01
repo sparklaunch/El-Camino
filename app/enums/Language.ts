@@ -1,7 +1,8 @@
 enum Language {
     korean,
     english,
-    español
+    español,
+    jammin
 };
 
 export default Language;

@@ -8,7 +8,8 @@ import { useLanguageStore } from "./stores/useLanguageStore";
 const htmlLang = {
 	[Language.korean]: "ko",
 	[Language.english]: "en",
-	[Language.español]: "es"
+	[Language.español]: "es",
+	[Language.jammin]: "ko"
 };
 
 export default function Providers({ children }: { children: ReactNode }) {
