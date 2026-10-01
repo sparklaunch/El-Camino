@@ -58,7 +58,9 @@
 	font-weight: bold;
 	white-space: nowrap;
 	cursor: pointer;
-	transition: background-color 0.3s, color 0.3s;
+	transition:
+		background-color 0.3s,
+		color 0.3s;
 }
 
 .dietActive {
@@ -149,13 +151,13 @@
 
 @container (min-width: 900px) {
 	.noDishes {
-	padding: 10px;
-	font-size: 18px;
-	color: var(--color-text);
-	opacity: 0.7;
-}
+		padding: 10px;
+		font-size: 18px;
+		color: var(--color-text);
+		opacity: 0.7;
+	}
 
-.dishGrid {
+	.dishGrid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
@@ -206,6 +208,12 @@
 		grid-template-columns: minmax(0, 1fr);
 		grid-template-rows: auto minmax(0, 1fr) auto;
 	}
+	.link {
+		display: none;
+	}
+	.horizontalLine {
+		display: none;
+	}
 }
 
 @media (max-width: 600px) {
@@ -223,5 +231,11 @@
 		height: 100%;
 		border-radius: 3px;
 		background-color: var(--color-accent);
+	}
+	.link {
+		display: none;
+	}
+	.horizontalLine {
+		display: none;
 	}
 }
