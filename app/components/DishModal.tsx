@@ -2,10 +2,10 @@
 
 import { clsx } from "clsx";
 import Image from "next/image";
-import useTranslation from "../i18n/useTranslation";
 import allergenIcon from "../helpers/allergenIcon";
 import dietIcon from "../helpers/dietIcon";
 import useModal from "../hooks/useModal";
+import useTranslation from "../i18n/useTranslation";
 import Dish from "../types/Dish";
 import styles from "./DishModal.module.css";
 
@@ -65,10 +65,12 @@ export default function DishModal({
 						</span>
 					)}
 				</div>
-				<h2 className={styles.name}>{name}</h2>
-				{name !== dish.subname && (
-					<p className={styles.subname}>{dish.subname}</p>
-				)}
+				<div className={styles.nameWrapper}>
+					<h2 className={styles.name}>{name}</h2>
+					{name !== dish.subname && (
+						<p className={styles.subname}>{dish.subname}</p>
+					)}
+				</div>
 				{description && (
 					<p className={styles.description}>{description}</p>
 				)}

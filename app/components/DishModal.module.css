@@ -13,7 +13,7 @@
 }
 
 .content {
-	width: 440px;
+	width: 500px;
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
@@ -118,4 +118,10 @@
 .closeButton:hover,
 .addButton:hover {
 	transform: scale(1.1);
+}
+
+.nameWrapper {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
 }
