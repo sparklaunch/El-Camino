@@ -44,6 +44,11 @@ npm install
 npm run server
 ```
 
+실행하기 전에 package.json에 해당 스크립트를 삽입해야 합니다.
+```javascript
+"server": "json-server db.json --port 4000"
+```
+
 `http://localhost:4000`에서 서버가 실행됩니다.
 
 ### 3. 개발 서버 실행
