@@ -1,5 +1,40 @@
 {
-  "cart": [],
+  "cart": [
+    {
+      "allergens": [
+        "gluten",
+        "crustacean"
+      ],
+      "category": "tapas",
+      "description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 요리. 빵을 찍어 먹으면 더 맛있어요.",
+      "englishDescription": "Shrimp sizzled in olive oil with garlic and chili. Best enjoyed with bread for dipping.",
+      "favorite": true,
+      "id": "u4dLWXro4zE",
+      "name": "감바스 알 아히요",
+      "price": 17000,
+      "spanishDescription": "Gambas chisporroteantes en aceite de oliva con ajo y guindilla. Ideales para mojar pan.",
+      "subname": "Gambas al Ajillo",
+      "dishId": "RTeW25I5h6o",
+      "quantity": 4
+    },
+    {
+      "allergens": [
+        "egg"
+      ],
+      "category": "tapas",
+      "description": "바삭하게 튀긴 감자에 매콤한 브라바스 소스와 알리올리를 곁들였어요.",
+      "diet": "vegetarian",
+      "englishDescription": "Crispy fried potatoes topped with spicy bravas sauce and aioli.",
+      "favorite": true,
+      "id": "yobg3ntBDmA",
+      "name": "파타타스 브라바스",
+      "price": 11000,
+      "spanishDescription": "Patatas fritas crujientes con salsa brava picante y alioli.",
+      "subname": "Patatas Bravas",
+      "dishId": "AujAKdX4sKw",
+      "quantity": 3
+    }
+  ],
   "dishes": [
     {
       "allergens": [

@@ -96,20 +96,21 @@ db.json                # Mock 데이터 (dishes, cart)
 
 ```json
 {
-	"id": "RTeW25I5h6o",
+	"allergens": ["gluten", "crustacean"],
 	"category": "tapas",
+	"description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 요리. 빵을 찍어 먹으면 더 맛있어요.",
+	"englishDescription": "Shrimp sizzled in olive oil with garlic and chili. Best enjoyed with bread for dipping.",
 	"favorite": true,
+	"id": "RTeW25I5h6o",
 	"name": "감바스 알 아히요",
-	"englishName": "Garlic Shrimp",
-	"subname": "Gambas al Ajillo",
-	"description": "올리브유에 마늘과 고추를 넣고 새우를 지글지글 익힌 대표 타파스예요. ...",
-	"englishDescription": "Shrimp sizzled in olive oil with garlic and chili. ...",
-	"price": 17000
+	"price": 17000,
+	"spanishDescription": "Gambas chisporroteantes en aceite de oliva con ajo y guindilla. Ideales para mojar pan.",
+	"subname": "Gambas al Ajillo"
 }
 ```
 
 - `subname`은 스페인어 원래 이름이며, 메뉴 사진 파일명도 이 값으로 정해집니다.
-  예: `Gambas al Ajillo` → `public/assets/images/gambas-al-ajillo.jpg`. 악센트는 제거하고 공백은 하이픈으로 바꿉니다.
+  예: `Gambas al Ajillo` → `public/assets/images/gambas-al-ajillo.jpg`. 다이어크리틱(Diacritics)은 제거하고 공백은 하이픈으로 바꿉니다.
 - `favorite`이 `true`인 메뉴에는 추천 표시(👍)가 붙습니다.
 
 `cart`에는 장바구니에 담긴 메뉴가 저장되며, 메뉴 정보에 원래 메뉴의 `dishId`와 `quantity`가 추가됩니다.
