@@ -271,4 +271,3 @@ const translations: Partial<Record<Language, Translation>> = {
 
 export default translations;
 export { korean };
-export type { Translation };

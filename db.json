@@ -1,24 +1,5 @@
 {
-  "cart": [
-    {
-      "allergens": [
-        "fish"
-      ],
-      "category": "principales",
-      "description": "도미를 소금으로 덮어 구워 촉촉하고 담백한 맛을 살렸어요.",
-      "englishDescription": "Sea bream baked in a salt crust, keeping it moist and tender.",
-      "favorite": true,
-      "id": "_BQp8exinDk",
-      "jamminDescription": "도미를 소금으로 덮어서 구움. 소금 깨는 거 은근 꿀잼임",
-      "name": "도라다 아 라 살",
-      "price": 18000,
-      "spanishDescription": "Dorada al horno en costra de sal, jugosa y tierna.",
-      "subname": "Dorada a la Sal",
-      "teulttakDescription": "도미를 소금으로 덮어 구웠다네. 소금 깨는 재미가 쏠쏠하구먼 허허",
-      "dishId": "17IpYo0HLvY",
-      "quantity": 3
-    }
-  ],
+  "cart": [],
   "dishes": [
     {
       "allergens": [
