@@ -11,6 +11,7 @@ type Dish = {
     englishDescription?: string;
     spanishDescription?: string;
     jamminDescription?: string;
+    teulttakDescription?: string;
     subname: string;
     price: number;
     allergens?: Allergen[];

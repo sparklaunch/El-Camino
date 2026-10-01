@@ -45,6 +45,15 @@ export default function LanguageSelector() {
 						잼민이
 					</button>
 				</li>
+				<li className={styles.languageListItem}>
+					<button
+						type="button"
+						className={styles.languageButton}
+						onClick={() => setLanguage(Language.teulttak)}
+					>
+						어르신
+					</button>
+				</li>
 			</ul>
 		</section>
 	);

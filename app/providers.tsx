@@ -9,7 +9,8 @@ const htmlLang = {
 	[Language.korean]: "ko",
 	[Language.english]: "en",
 	[Language.español]: "es",
-	[Language.jammin]: "ko"
+	[Language.jammin]: "ko",
+	[Language.teulttak]: "ko"
 };
 
 export default function Providers({ children }: { children: ReactNode }) {

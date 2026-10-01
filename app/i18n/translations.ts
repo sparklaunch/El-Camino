@@ -214,12 +214,59 @@ const jammin: Translation = {
 	home: "처음으로 ㄱㄱ"
 };
 
+// 장난 번역이지만 알레르기 정보는 정확히 전달되도록 일반 한국어 표기를 유지
+const teulttak: Translation = {
+	welcome: "화면을 손꾸락으로 꾹~ 누르시게나^^",
+	forHere: "여기서 먹고 가겠네",
+	toGo: "싸 가지고 가겠네",
+	categories: {
+		[Category.tapas]: "타파스 (술안주)",
+		[Category.paella]: "빠에야 (서양 볶음밥)",
+		[Category.principales]: "본 요리",
+		[Category.postre]: "주전부리",
+		[Category.bebidas]: "마실 것"
+	},
+	loading: "잠시만 기다리시게... 허허...",
+	error: "어허... 뭐가 잘못됐구먼:",
+	retry: "다시 해 보게",
+	add: "담아 주게",
+	close: "닫게나",
+	favorite: "이 늙은이가 권하는 메뉴",
+	dietFilter: "풀만 먹는 사람 메뉴",
+	allDishes: "몽땅 보여 주게",
+	diets: {
+		[Diet.vegan]: "비건 (고기 일절 안 먹는 사람)",
+		[Diet.vegetarian]: "채식"
+	},
+	noDishes: "그런 메뉴는 없다네... 다른 걸 골라 보게나",
+	allergenTitle: "알레르기 조심하시게",
+	allergens: korean.allergens,
+	invoiceTitle: "주문 장부",
+	emptyCart: "아직 아무것도 안 담았구먼...",
+	total: "도합",
+	overLimit: "어허~ 돼지인가? 젊은 사람이 뭘 그리 많이 먹나... 우리 때는 말이야...",
+	reset: "처음부터 다시",
+	pay: "셈하기",
+	useCoupon: "쿠폰 쓰겠네",
+	couponTitle: "쿠폰 번호를 넣어 주게",
+	couponHint: "영어랑 숫자로 16자리라네... 돋보기 쓰고 천천히 넣으시게^^",
+	apply: "적용하게",
+	invalidCoupon: "번호가 틀렸다네... 손주한테 물어보시게",
+	couponApplied: "쿠폰 적용됐네 (반값이라니 횡재구먼 허허)",
+	discount: "에누리",
+	price: korean.price,
+	paymentComplete: "셈이 다 끝났다네",
+	thanks: "주문해 줘서 고맙네. 음식 다 되면 부를 테니 앉아서 기다리시게나^^",
+	home: "처음으로 돌아가세"
+};
+
 // 아직 번역이 없는 언어는 한국어로 표시
 const translations: Partial<Record<Language, Translation>> = {
 	[Language.korean]: korean,
 	[Language.english]: english,
 	[Language.español]: spanish,
-	[Language.jammin]: jammin
+	[Language.jammin]: jammin,
+	[Language.teulttak]: teulttak
 };
 
 export default translations;
