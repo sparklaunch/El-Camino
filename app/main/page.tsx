@@ -8,6 +8,7 @@ import { startTransition, useEffect, useRef, useState, ViewTransition } from "re
 import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
+import ErrorScreen from "../components/ErrorScreen";
 import Invoice from "../components/Invoice";
 import LoadingScreen from "../components/LoadingScreen";
 import PageTransition from "../components/PageTransition";
@@ -32,7 +33,7 @@ export default function Main() {
 	const [dietFilter, setDietFilter] = useState<Diet>();
 	const { t } = useTranslation();
 	const sectionRefs = useRef<Partial<Record<Category, HTMLElement | null>>>({});
-	const { data, isPending, isError, error } = useQuery({
+	const { data, isPending, isError, error, refetch, isRefetching } = useQuery({
 		queryKey: ["dishes"],
 		queryFn: () => dishAPI.fetchDishes()
 	});
@@ -118,9 +119,11 @@ export default function Main() {
 	if (isError) {
 		return (
 			<PageTransition>
-				<p>
-					{t.error} {error.message}
-				</p>
+				<ErrorScreen
+					message={error.message}
+					onRetry={() => refetch()}
+					isRetrying={isRefetching}
+				/>
 			</PageTransition>
 		);
 	}
