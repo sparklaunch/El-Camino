@@ -9,6 +9,7 @@ import dishAPI from "../api/dishAPI";
 import logo from "../assets/images/logo.png";
 import DishCard from "../components/DishCard";
 import Invoice from "../components/Invoice";
+import LoadingScreen from "../components/LoadingScreen";
 import PageTransition from "../components/PageTransition";
 import Category from "../enums/Category";
 import Diet from "../enums/Diet";
@@ -110,7 +111,7 @@ export default function Main() {
 	if (isPending) {
 		return (
 			<PageTransition>
-				<p>{t.loading}</p>
+				<LoadingScreen />
 			</PageTransition>
 		);
 	}
