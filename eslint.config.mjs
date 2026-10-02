@@ -40,13 +40,27 @@ const eslintConfig = defineConfig([
 	),
 	restrictImports(
 		["src/i18n/**/*.{ts,tsx}"],
-		[[["@/app/*", "@/features/*"], "i18n은 도메인과 공용 코드만 사용할 수 있어."]]
+		[
+			[
+				["@/app/*", "@/features/*"],
+				"i18n은 도메인과 공용 코드만 사용할 수 있어."
+			]
+		]
 	),
 	restrictImports(
 		["src/domain/**/*.{ts,tsx}"],
 		[
 			[
-				["@/*", "react", "react-dom", "next", "next/*", "@tanstack/*", "zustand", "zustand/*"],
+				[
+					"@/*",
+					"react",
+					"react-dom",
+					"next",
+					"next/*",
+					"@tanstack/*",
+					"zustand",
+					"zustand/*"
+				],
 				"domain은 프레임워크나 다른 레이어에 의존하지 않는 순수 TypeScript여야 해."
 			]
 		]
