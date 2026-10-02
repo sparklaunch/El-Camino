@@ -80,7 +80,9 @@ npm run dev
 페이지를 이동할 때는 React의 `ViewTransition`으로 페이드 전환이 적용됩니다.
 
 ![처음 화면](/docs/First.png)
+
 ![메인 화면](/docs/Second.png)
+
 ![완료 화면](/docs/Third.png)
 
 ## 프로젝트 구조
