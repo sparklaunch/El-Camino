@@ -1,25 +1,31 @@
-"use client";
-
 import Image from "next/image";
-import logo from "../assets/images/logo.png";
-import useTranslation from "../i18n/useTranslation";
+import logo from "../assets/logo.png";
 import styles from "./ErrorScreen.module.css";
 
 type Props = {
+	title: string;
 	message?: string;
+	retryLabel: string;
+	retryingLabel: string;
 	onRetry?: () => void;
 	isRetrying?: boolean;
 };
 
-export default function ErrorScreen({ message, onRetry, isRetrying = false }: Props) {
-	const { t } = useTranslation();
+export default function ErrorScreen({
+	title,
+	message,
+	retryLabel,
+	retryingLabel,
+	onRetry,
+	isRetrying = false
+}: Props) {
 	return (
 		<section className={styles.errorScreen} role="alert">
 			<Image src={logo} alt="El Camino Logo" className={styles.logo} priority />
 			<div className={styles.icon} aria-hidden="true">
 				!
 			</div>
-			<p className={styles.text}>{t.error}</p>
+			<p className={styles.text}>{title}</p>
 			{message && <p className={styles.message}>{message}</p>}
 			{onRetry && (
 				<button
@@ -28,7 +34,7 @@ export default function ErrorScreen({ message, onRetry, isRetrying = false }: Pr
 					onClick={onRetry}
 					disabled={isRetrying}
 				>
-					{isRetrying ? t.loading : t.retry}
+					{isRetrying ? retryingLabel : retryLabel}
 				</button>
 			)}
 		</section>

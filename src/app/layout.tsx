@@ -3,7 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 const pretendard = localFont({
-	src: "./assets/fonts/pretendard.woff2",
+	src: "../shared/assets/fonts/pretendard.woff2",
 	display: "swap"
 });
 

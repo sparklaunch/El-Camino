@@ -1,6 +1,6 @@
-import LanguageSelector from "./components/LanguageSelector";
-import WelcomeScreen from "./components/WelcomeScreen";
-import PageTransition from "./components/PageTransition";
+import { LanguageSelector } from "@/features/language";
+import { WelcomeScreen } from "@/features/order";
+import PageTransition from "@/shared/ui/PageTransition";
 import styles from "./Home.module.css";
 
 export default function Home() {

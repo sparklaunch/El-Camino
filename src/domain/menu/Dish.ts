@@ -1,6 +1,6 @@
-import Allergen from "../enums/Allergen";
-import Category from "../enums/Category";
-import Diet from "../enums/Diet";
+import Allergen from "./Allergen";
+import Category from "./Category";
+import Diet from "./Diet";
 
 type Dish = {
     id: string;

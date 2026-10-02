@@ -1,0 +1,26 @@
+.dietFilter {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.dietButton {
+	flex: 1;
+	padding: 6px 8px;
+	border: 2px solid var(--color-diet);
+	border-radius: 20px;
+	background-color: transparent;
+	color: var(--color-diet);
+	font-size: 14px;
+	font-weight: bold;
+	white-space: nowrap;
+	cursor: pointer;
+	transition:
+		background-color 0.3s,
+		color 0.3s;
+}
+
+.dietActive {
+	background-color: var(--color-diet);
+	color: white;
+}

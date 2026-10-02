@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import Option from "../enums/Option";
+import Option from "@/domain/order/Option";
 
 interface OptionState {
     option?: Option;

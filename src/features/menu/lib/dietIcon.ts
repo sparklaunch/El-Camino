@@ -1,4 +1,4 @@
-import Diet from "../enums/Diet";
+import Diet from "@/domain/menu/Diet";
 
 const dietIcon: Record<Diet, string> = {
 	[Diet.vegan]: "🌱",

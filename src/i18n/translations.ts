@@ -1,7 +1,7 @@
-import Allergen from "../enums/Allergen";
-import Category from "../enums/Category";
-import Diet from "../enums/Diet";
-import Language from "../enums/Language";
+import Allergen from "@/domain/menu/Allergen";
+import Category from "@/domain/menu/Category";
+import Diet from "@/domain/menu/Diet";
+import Language from "./Language";
 
 const korean = {
 	welcome: "화면을 터치해 주문해",

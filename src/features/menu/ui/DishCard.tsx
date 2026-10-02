@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import allergenIcon from "../helpers/allergenIcon";
-import dietIcon from "../helpers/dietIcon";
-import removeDiacritics from "../helpers/removeDiacritics";
-import useAddToCart, { DISH_DRAG_TYPE } from "../hooks/useAddToCart";
-import useTranslation from "../i18n/useTranslation";
-import Dish from "../types/Dish";
+import Dish from "@/domain/menu/Dish";
+import { setDishDragData, useAddToCart } from "@/features/cart";
+import useTranslation from "@/i18n/useTranslation";
+import allergenIcon from "../lib/allergenIcon";
+import dietIcon from "../lib/dietIcon";
+import dishImageSrc from "../lib/dishImage";
 import styles from "./DishCard.module.css";
 import DishModal from "./DishModal";
 
@@ -15,16 +15,13 @@ export default function DishCard({ dish }: { dish: Dish }) {
 	const { subname, price, favorite, allergens, diet } = dish;
 	const { t, dishName } = useTranslation();
 	const name = dishName(dish);
-	const imageURL = removeDiacritics(subname)
-		.toLowerCase()
-		.replaceAll(" ", "-");
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const mutate = useAddToCart();
-	const addToCart = () => mutate(dish);
+	const addToCart = useAddToCart();
+	const add = () => addToCart(dish);
 	const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		// 담기 버튼을 눌렀을 때는 모달을 열지 않음
 		event.stopPropagation();
-		addToCart();
+		add();
 	};
 	// 카드를 Invoice로 끌어다 놓으면 담을 수 있도록 요리 데이터를 실어 보냄
 	const dragStartHandler = (event: React.DragEvent<HTMLElement>) => {
@@ -33,8 +30,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			event.preventDefault();
 			return;
 		}
-		event.dataTransfer.setData(DISH_DRAG_TYPE, JSON.stringify(dish));
-		event.dataTransfer.effectAllowed = "copy";
+		setDishDragData(event.dataTransfer, dish);
 	};
 	return (
 		<section
@@ -44,7 +40,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			onClick={() => setIsModalOpen(true)}
 		>
 			<Image
-				src={`/assets/images/${imageURL}.jpg`}
+				src={dishImageSrc(dish)}
 				alt={name}
 				width={150}
 				height={150}
@@ -91,8 +87,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
 			{isModalOpen && (
 				<DishModal
 					dish={dish}
-					imageURL={imageURL}
-					onAdd={addToCart}
+					onAdd={add}
 					onClose={() => setIsModalOpen(false)}
 				/>
 			)}

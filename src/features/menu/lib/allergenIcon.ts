@@ -1,4 +1,4 @@
-import Allergen from "../enums/Allergen";
+import Allergen from "@/domain/menu/Allergen";
 
 // 카드처럼 좁은 곳에서도 알아볼 수 있도록 성분마다 아이콘을 붙임
 const allergenIcon: Record<Allergen, string> = {

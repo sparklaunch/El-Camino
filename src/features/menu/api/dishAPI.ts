@@ -1,21 +1,15 @@
-import Category from "../enums/Category";
+import Category from "@/domain/menu/Category";
+import Dish from "@/domain/menu/Dish";
+import http from "@/shared/api/http";
 
 const dishAPI = {
-    fetchDishes: async (category?: Category) => {
-        try {
-            const params = new URLSearchParams();
-            if (category) {
-                params.set("category", category);
-            }
-            const response = await fetch(`http://localhost:4000/dishes?${params}`);
-            if(!response.ok) {
-                throw new Error("요리를 불러오는 데에 실패했어.")
-            }
-            return response.json();
-        } catch(error) {
-            console.error(error);
-        }
-    }
+	fetchDishes: (category?: Category) => {
+		const params = new URLSearchParams();
+		if (category) {
+			params.set("category", category);
+		}
+		return http.get<Dish[]>(`/dishes?${params}`, "요리를 불러오는 데에 실패했어.");
+	}
 };
 
 export default dishAPI;

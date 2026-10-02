@@ -1,0 +1,53 @@
+.menu {
+	display: flex;
+	flex-direction: column;
+	align-self: stretch;
+	overflow-y: auto;
+	/* 화면이 아닌 메뉴 영역의 실제 너비에 따라 열 수를 정하기 위함 */
+	container-type: inline-size;
+}
+
+.menuSection {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-bottom: 20px;
+}
+
+.sectionLine {
+	border: none;
+	border-top: 1px solid var(--color-accent);
+}
+
+.sectionTitle {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	padding: 0 10px;
+	font-size: 24px;
+	color: var(--color-text);
+}
+
+.sectionSubtitle {
+	font-size: 18px;
+	font-weight: normal;
+	opacity: 0.7;
+}
+
+.noDishes {
+	padding: 10px;
+	font-size: 18px;
+	color: var(--color-text);
+	opacity: 0.7;
+}
+
+.dishGrid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+@container (min-width: 900px) {
+	.dishGrid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}

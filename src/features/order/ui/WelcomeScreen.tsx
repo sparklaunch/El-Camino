@@ -1,30 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import logo from "../assets/images/logo.png";
-import Option from "../enums/Option";
-import useTranslation from "../i18n/useTranslation";
-import { useOptionStore } from "../stores/useOptionStore";
+import Option from "@/domain/order/Option";
+import useTranslation from "@/i18n/useTranslation";
+import logo from "@/shared/assets/logo.png";
+import useStartOrder from "../hooks/useStartOrder";
 import styles from "./WelcomeScreen.module.css";
 
 export default function WelcomeScreen() {
-	const { setOption } = useOptionStore();
-	const router = useRouter();
+	const startOrder = useStartOrder();
 	const { t } = useTranslation();
-	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		const { option } = event.currentTarget.dataset;
-		switch (option) {
-			case "forHere":
-				setOption(Option.forHere);
-				router.push("/main");
-				break;
-			case "toGo":
-				setOption(Option.toGo);
-				router.push("/main");
-				break;
-		}
-	};
 	return (
 		<section className={styles.welcomeScreen}>
 			<Image src={logo} alt="El Camino Logo" className={styles.logo} />
@@ -33,16 +18,14 @@ export default function WelcomeScreen() {
 				<button
 					type="button"
 					className={styles.option}
-					onClick={handleClick}
-					data-option="forHere"
+					onClick={() => startOrder(Option.forHere)}
 				>
 					{t.forHere}
 				</button>
 				<button
 					type="button"
 					className={styles.option}
-					onClick={handleClick}
-					data-option="toGo"
+					onClick={() => startOrder(Option.toGo)}
 				>
 					{t.toGo}
 				</button>

@@ -1,31 +1,13 @@
-import Language from "../enums/Language";
-import { useLanguageStore } from "../stores/useLanguageStore";
-import Dish from "../types/Dish";
+import Dish from "@/domain/menu/Dish";
+import { localizeDishDescription, localizeDishName } from "./localizeDish";
 import translations, { korean } from "./translations";
+import { useLanguageStore } from "./useLanguageStore";
 
 export default function useTranslation() {
 	const language = useLanguageStore((state) => state.currentLanguage);
 	const t = translations[language] ?? korean;
-	// 영어·스페인어에서는 스페인어 원어명(subname)을 요리 이름으로 사용
-	const dishName = (dish: Dish) =>
-		language === Language.korean ||
-		language === Language.jammin ||
-		language === Language.teulttak ?
-			dish.name
-		:	dish.subname;
-	const dishDescription = (dish: Dish) => {
-		switch (language) {
-			case Language.english:
-				return dish.englishDescription ?? dish.description;
-			case Language.español:
-				return dish.spanishDescription ?? dish.description;
-			case Language.jammin:
-				return dish.jamminDescription ?? dish.description;
-			case Language.teulttak:
-				return dish.teulttakDescription ?? dish.description;
-			default:
-				return dish.description;
-		}
-	};
+	const dishName = (dish: Dish) => localizeDishName(dish, language);
+	const dishDescription = (dish: Dish) =>
+		localizeDishDescription(dish, language);
 	return { t, dishName, dishDescription };
 }

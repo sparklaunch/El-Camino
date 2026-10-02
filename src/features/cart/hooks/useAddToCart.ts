@@ -1,18 +1,17 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import CartDish from "@/domain/cart/CartDish";
+import findCartDish from "@/domain/cart/findCartDish";
+import Dish from "@/domain/menu/Dish";
 import cartAPI from "../api/cartAPI";
-import CartDish from "../types/CartDish";
-import Dish from "../types/Dish";
-
-// 드래그 중인 요리 데이터를 담는 dataTransfer 타입
-export const DISH_DRAG_TYPE = "application/x-el-camino-dish";
+import { cartMutationScope, cartQueryKey } from "./useCart";
 
 export default function useAddToCart() {
 	const queryClient = useQueryClient();
 	const { mutate } = useMutation({
-		scope: { id: "cart" },
+		scope: cartMutationScope,
 		mutationFn: (dish: Dish) => {
-			const cart = queryClient.getQueryData<CartDish[]>(["cart"]) ?? [];
-			const cartDish = cart.find((item) => item.dishId === dish.id);
+			const cart = queryClient.getQueryData<CartDish[]>(cartQueryKey) ?? [];
+			const cartDish = findCartDish(cart, dish.id);
 			return cartDish ?
 					cartAPI.updateQuantity({
 						id: cartDish.id,
@@ -20,10 +19,8 @@ export default function useAddToCart() {
 					})
 				:	cartAPI.addToCart(dish);
 		},
-		onSuccess: () =>
-			queryClient.invalidateQueries({
-				queryKey: ["cart"]
-			})
+		onError: (error) => console.error(error),
+		onSettled: () => queryClient.invalidateQueries({ queryKey: cartQueryKey })
 	});
 	return mutate;
 }

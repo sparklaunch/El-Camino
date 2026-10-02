@@ -1,21 +1,12 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useState } from "react";
-import { COUPON_LENGTH, isValidCoupon } from "../helpers/coupon";
-import useModal from "../hooks/useModal";
-import useTranslation from "../i18n/useTranslation";
+import React from "react";
+import { COUPON_LENGTH } from "@/domain/coupon/coupon";
+import useTranslation from "@/i18n/useTranslation";
+import useModal from "@/shared/hooks/useModal";
+import useCouponInput from "../hooks/useCouponInput";
 import styles from "./CouponModal.module.css";
-
-// 입력값에서 알파벳·숫자만 남기고 대문자로 바꿔 16자리까지 자름
-const normalize = (value: string) =>
-	value
-		.replace(/[^a-zA-Z0-9]/g, "")
-		.toUpperCase()
-		.slice(0, COUPON_LENGTH);
-
-// 읽기 쉽도록 4자리마다 하이픈을 넣어 표시 (XXXX-XXXX-XXXX-XXXX)
-const format = (code: string) => code.match(/.{1,4}/g)?.join("-") ?? "";
 
 export default function CouponModal({
 	onClose,
@@ -25,33 +16,21 @@ export default function CouponModal({
 	onSubmit: (code: string) => void;
 }) {
 	const { t } = useTranslation();
-	const { dialogRef, close, cancelHandler } = useModal(onClose);
-	const [code, setCode] = useState("");
-	const [isInvalid, setIsInvalid] = useState(false);
-	const clickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
-		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
-		if (event.target === event.currentTarget) {
-			close();
-		}
-	};
-	const isComplete = code.length === COUPON_LENGTH;
-	const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+	const { dialogRef, close, cancelHandler, backdropClickHandler } = useModal(onClose);
+	const { code, formattedCode, isInvalid, isComplete, change, validate } =
+		useCouponInput();
+	const submitHandler = (event: React.SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		if (!isComplete) {
-			return;
-		}
-		if (isValidCoupon(code)) {
+		if (validate()) {
 			onSubmit(code);
 			close();
-		} else {
-			setIsInvalid(true);
 		}
 	};
 	return (
 		<dialog
 			ref={dialogRef}
 			className={styles.dialog}
-			onClick={clickHandler}
+			onClick={backdropClickHandler}
 			onCancel={cancelHandler}
 			onClose={onClose}
 		>
@@ -60,12 +39,11 @@ export default function CouponModal({
 				<p className={styles.hint}>{t.couponHint}</p>
 				<input
 					type="text"
-					className={clsx(styles.input, { [styles.invalid]: isInvalid })}
-					value={format(code)}
-					onChange={(event) => {
-						setCode(normalize(event.target.value));
-						setIsInvalid(false);
-					}}
+					className={clsx(styles.input, {
+						[styles.invalid]: isInvalid
+					})}
+					value={formattedCode}
+					onChange={(event) => change(event.target.value)}
 					aria-invalid={isInvalid}
 					placeholder="XXXX-XXXX-XXXX-XXXX"
 					autoComplete="off"

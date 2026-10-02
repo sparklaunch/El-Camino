@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import Language from "../enums/Language";
+import Language from "./Language";
 
 interface LanguageState {
     currentLanguage: Language;

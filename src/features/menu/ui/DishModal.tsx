@@ -2,35 +2,31 @@
 
 import { clsx } from "clsx";
 import Image from "next/image";
-import allergenIcon from "../helpers/allergenIcon";
-import dietIcon from "../helpers/dietIcon";
-import useModal from "../hooks/useModal";
-import useTranslation from "../i18n/useTranslation";
-import Dish from "../types/Dish";
+import Dish from "@/domain/menu/Dish";
+import useTranslation from "@/i18n/useTranslation";
+import useModal from "@/shared/hooks/useModal";
+import allergenIcon from "../lib/allergenIcon";
+import dietIcon from "../lib/dietIcon";
+import dishImageSrc from "../lib/dishImage";
 import styles from "./DishModal.module.css";
 
 export default function DishModal({
 	dish,
-	imageURL,
 	onAdd,
 	onClose
 }: {
 	dish: Dish;
-	imageURL: string;
 	onAdd: () => void;
 	onClose: () => void;
 }) {
 	const { t, dishName, dishDescription } = useTranslation();
-	const { dialogRef, close, cancelHandler } = useModal(onClose);
+	const { dialogRef, close, cancelHandler, backdropClickHandler } = useModal(onClose);
 	const name = dishName(dish);
 	const description = dishDescription(dish);
 	const clickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
 		// 모달 안의 클릭이 DishCard로 전달되어 모달이 다시 열리지 않도록 막음
 		event.stopPropagation();
-		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
-		if (event.target === event.currentTarget) {
-			close();
-		}
+		backdropClickHandler(event);
 	};
 	const addHandler = () => {
 		onAdd();
@@ -46,7 +42,7 @@ export default function DishModal({
 		>
 			<div className={styles.content}>
 				<Image
-					src={`/assets/images/${imageURL}.jpg`}
+					src={dishImageSrc(dish)}
 					alt={name}
 					width={400}
 					height={300}

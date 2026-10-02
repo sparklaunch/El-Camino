@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../assets/images/logo.png";
-import PageTransition from "../components/PageTransition";
-import useTranslation from "../i18n/useTranslation";
+import useTranslation from "@/i18n/useTranslation";
+import logo from "@/shared/assets/logo.png";
+import PageTransition from "@/shared/ui/PageTransition";
 import styles from "./Complete.module.css";
 
 export default function Complete() {

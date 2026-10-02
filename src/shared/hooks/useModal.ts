@@ -25,5 +25,11 @@ export default function useModal(onClose: () => void) {
 		event.preventDefault();
 		close();
 	};
-	return { dialogRef, close, cancelHandler };
+	const backdropClickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
+		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
+		if (event.target === event.currentTarget) {
+			close();
+		}
+	};
+	return { dialogRef, close, cancelHandler, backdropClickHandler };
 }

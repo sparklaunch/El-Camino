@@ -1,5 +1,5 @@
-import Diet from "../enums/Diet";
-import Dish from "../types/Dish";
+import Diet from "./Diet";
+import Dish from "./Dish";
 
 // 비건 요리는 채식 조건도 만족하므로 채식 필터에 함께 포함
 const allowedDiets: Record<Diet, Diet[]> = {

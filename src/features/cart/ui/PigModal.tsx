@@ -1,23 +1,17 @@
 "use client";
 
-import useModal from "../hooks/useModal";
-import useTranslation from "../i18n/useTranslation";
+import useTranslation from "@/i18n/useTranslation";
+import useModal from "@/shared/hooks/useModal";
 import styles from "./PigModal.module.css";
 
 export default function PigModal({ onClose }: { onClose: () => void }) {
 	const { t } = useTranslation();
-	const { dialogRef, close, cancelHandler } = useModal(onClose);
-	const clickHandler = (event: React.MouseEvent<HTMLDialogElement>) => {
-		// 내용 영역 바깥(배경)을 클릭하면 dialog 자체가 target이 됨
-		if (event.target === event.currentTarget) {
-			close();
-		}
-	};
+	const { dialogRef, close, cancelHandler, backdropClickHandler } = useModal(onClose);
 	return (
 		<dialog
 			ref={dialogRef}
 			className={styles.dialog}
-			onClick={clickHandler}
+			onClick={backdropClickHandler}
 			onCancel={cancelHandler}
 			onClose={onClose}
 		>

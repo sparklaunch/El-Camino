@@ -1,0 +1,76 @@
+.category {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.categoryButton {
+	background-color: var(--color-main);
+	padding: 10px 0;
+	border-radius: 10px;
+	color: var(--color-text);
+	cursor: pointer;
+	transition: background-color 0.3s;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.categoryButton:hover {
+	background-color: var(--color-accent);
+}
+
+.categoryTitle {
+	font-size: 24px;
+}
+
+.categorySubtitle {
+	font-size: 20px;
+}
+
+.active {
+	background-color: var(--color-accent);
+	cursor: default;
+}
+
+.scrollIndicator {
+	display: none;
+}
+
+@media (max-width: 1000px) {
+	.category {
+		flex-direction: row;
+		overflow-x: auto;
+		padding-bottom: 10px;
+	}
+
+	.categoryButton {
+		flex: 1;
+		min-width: 100px;
+		padding: 8px 10px;
+	}
+
+	.categoryTitle {
+		font-size: 20px;
+	}
+
+	.categorySubtitle {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 600px) {
+	.scrollIndicator {
+		display: block;
+		position: relative;
+		height: 6px;
+		border-radius: 3px;
+		background-color: var(--color-main);
+	}
+
+	.scrollThumb {
+		position: absolute;
+		top: 0;
+		height: 100%;
+		border-radius: 3px;
+		background-color: var(--color-accent);
+	}
+}
